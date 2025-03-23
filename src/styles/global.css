@@ -6,4 +6,19 @@
 
   --color-grape-dark: #673773;
   --color-blacky: #1b1b1b;
+
+  --color-light-purple: #B6C2E3;
+
+  --color-yellow-sunflower: #F5C43E;
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
 }

@@ -1,19 +1,74 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Card from "./Card.astro";
+
+const cards = [
+  {
+    title: "Desarrollo de habilidades",
+    description: "Espacios colaborativos para trabajar en proyectos de código, eventos virtuales sobre temas de tecnología y prácticas en el canal de YouTube y Twitch",
+  },
+  {
+    title: "Espacio seguro y de apoyo",
+    description: "Nuestra misión es crear un espacio seguro y de apoyo para todos los integrantes, independientemente de su edad, raza, origen étnico, orientación sexual o identidad de género.",
+  },
+  {
+    title: "Conexiones / Networking",
+    description: "En la comunidad puedes encontrar apoyo, inspiración y motivación de otras mujeres que compartan sus intereses y metas."
+  }
+];
 ---
 
 <Layout title="Descubre Mermelada Tech">
-    <div class="column justify-center items-center space-y-8 h-screen bg-[repeating-linear-gradient(transparent_0_58px,_rgba(255,255,255,0.8)_60px),repeating-linear-gradient(90deg,transparent_0_58px,_rgba(255,255,255,0.4)_60px),linear-gradient(to_bottom,_#61CEE2,_#98CDCD,_#B6C2E3,_#AB7BB7)] bg-[length:60px_60px,_60px_60px,_100%_100%]">
+    <section class="relative overflow-hidden flex flex-col justify-center items-center space-y-8 h-screen bg-[repeating-linear-gradient(transparent_0_58px,_rgba(255,255,255,0.8)_60px),repeating-linear-gradient(90deg,transparent_0_58px,_rgba(255,255,255,0.4)_60px),linear-gradient(to_bottom,_#61CEE2,_#98CDCD,_#B6C2E3,_#AB7BB7)] bg-[length:60px_60px,_60px_60px,_100%_100%]">
+    <!-- Nube arriba a la derecha -->
+    <img src="./cloud.svg" alt="cloud" class="absolute top-10 right-0 w-32 h-auto animate-wiggle" />
+
+    <!-- Nube abajo al medio -->
+    <img src="./cloud.svg" alt="cloud" class="absolute top-1/4 left-18 w-32 h-auto animate-wiggle" />
+
+    <!-- Nube abajo a la izquierda -->
+    <img src="./cloud.svg" alt="cloud" class="absolute bottom-10 left-0 w-32 h-auto rotate-180 animate-wiggle" />
+
+    <!-- Cruz superior izquierda -->
+    <img src="./cross.svg" alt="cross" class="absolute top-10 left-10 w-8 h-auto" />
+
+    <!-- Cruz un poco más abajo y más al centro -->
+    <img src="./cross.svg" alt="cross" class="absolute top-24 left-1/4 w-10 h-auto" />
+
+    <!-- Cruz más abajo, desplazada un poco a la derecha -->
+    <img src="./cross.svg" alt="cross" class="absolute top-1/4 left-2 w-8 h-auto" />
+
+    <!-- Otra cruz más arriba a la derecha -->
+    <img src="./cross.svg" alt="cross" class="absolute top-1/4 right-16 w-10 h-auto" />
+
+    <!-- Luna abajo a la derecha -->
+    <img src="./moon.svg" alt="moon" class="absolute bottom-1/4 right-8 w-20 h-auto animate-wiggle" />
+
+    <!-- Luna arriba centrada -->
+    <img src="./moon.svg" alt="moon" class="absolute top-5 left-1/2 transform -translate-x-1/2 w-20 h-auto animate-wiggle" />
+
+
         <p class="text-grape-dark font-bold text-7xl text-center">
-            <span class="block">¿ Te apasiona la</span>
-            <span class="block">tecnología ?</span>
+            <span class="block">¿Te apasiona la</span>
+            <span class="block">tecnología?</span>
         </p>
         <p class="text-blacky font-semibold text-4xl text-center">
             <span class="block">Amplía tus habilidades técnicas y forma</span>
             <span class="block">equipo con otras mujeres</span>
         </p>
         <p class="text-blacky text-2xl text-center">
-            Te invitamos a unirte a nuestra comunidad y formar parte de un grupo de mujeres que apoyan y se inspiran mutuamente.
+            <span class="block">Te invitamos a unirte a nuestra comunidad y formar parte de un grupo de</span>
+            <span class="block">mujeres que apoyan y se inspiran mutuamente.</span>
         </p>
+        <button class="bg-white border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] shadow-black transform hover:scale-105 transition-transform flex p-2 font-semibold">Únete a la comunidad</button>
+    </section>
+
+    <section class="py-12 px-4 bg-light-purple">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cards.map((card) => (
+        <Card {...card} />
+        ))}
     </div>
+    </section>
+
 </Layout> 
