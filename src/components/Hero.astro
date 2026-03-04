@@ -1,47 +1,52 @@
 ---
 ---
 
-<section class="relative overflow-hidden flex flex-col justify-center items-center space-y-8 h-screen bg-[repeating-linear-gradient(transparent_0_58px,_rgba(255,255,255,0.8)_60px),repeating-linear-gradient(90deg,transparent_0_58px,_rgba(255,255,255,0.4)_60px),linear-gradient(to_bottom,_#61CEE2,_#98CDCD,_#B6C2E3,_#AB7BB7)] bg-[length:60px_60px,_60px_60px,_100%_100%]">
-	<!-- Nube arriba a la derecha -->
-	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute top-10 right-0 w-32 h-auto animate-wiggle" />
+<section
+	class="relative overflow-hidden flex flex-col justify-center items-center space-y-4 sm:space-y-6 lg:space-y-8 h-screen px-4 bg-[repeating-linear-gradient(transparent_0_58px,_rgba(255,255,255,0.8)_60px),repeating-linear-gradient(90deg,transparent_0_58px,_rgba(255,255,255,0.4)_60px),linear-gradient(to_bottom,_#61CEE2,_#98CDCD,_#B6C2E3,_#AB7BB7)] bg-[length:60px_60px,_60px_60px,_100%_100%]"
+>
+	<!-- Nube arriba a la derecha (always visible) -->
+	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute top-10 right-0 w-24 sm:w-32 h-auto animate-wiggle" />
 
-	<!-- Nube al medio izquierda -->
-	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute top-1/4 left-18 w-32 h-auto animate-wiggle" />
+	<!-- Nube al medio izquierda (hidden on mobile) -->
+	<img src="/cloud.svg" alt="" aria-hidden="true" class="hidden sm:block absolute top-1/4 left-18 w-32 h-auto animate-wiggle" />
 
-	<!-- Nube abajo a la izquierda -->
-	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute bottom-10 left-0 w-32 h-auto rotate-180 animate-wiggle" />
+	<!-- Nube abajo a la izquierda (hidden on mobile) -->
+	<img src="/cloud.svg" alt="" aria-hidden="true" class="hidden sm:block absolute bottom-10 left-0 w-32 h-auto rotate-180 animate-wiggle" />
 
-	<!-- Cruz superior izquierda -->
+	<!-- Cruz superior izquierda (always visible) -->
 	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-10 left-10 w-8 h-auto" />
 
-	<!-- Cruz un poco más abajo y más al centro -->
-	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-24 left-1/4 w-10 h-auto" />
+	<!-- Cruz un poco más abajo y más al centro (hidden on mobile) -->
+	<img src="/cross.svg" alt="" aria-hidden="true" class="hidden sm:block absolute top-24 left-1/4 w-10 h-auto" />
 
-	<!-- Cruz más abajo, desplazada un poco a la derecha -->
-	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-1/4 left-2 w-8 h-auto" />
+	<!-- Cruz más abajo, desplazada un poco a la derecha (hidden on mobile) -->
+	<img src="/cross.svg" alt="" aria-hidden="true" class="hidden sm:block absolute top-1/4 left-2 w-8 h-auto" />
 
-	<!-- Otra cruz más arriba a la derecha -->
-	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-1/4 right-16 w-10 h-auto" />
+	<!-- Otra cruz más arriba a la derecha (hidden on mobile) -->
+	<img src="/cross.svg" alt="" aria-hidden="true" class="hidden sm:block absolute top-1/4 right-16 w-10 h-auto" />
 
-	<!-- Luna abajo a la derecha -->
-	<img src="/moon.svg" alt="" aria-hidden="true" class="absolute bottom-1/4 right-8 w-20 h-auto animate-wiggle" />
+	<!-- Luna abajo a la derecha (always visible) -->
+	<img src="/moon.svg" alt="" aria-hidden="true" class="absolute bottom-1/4 right-8 w-16 sm:w-20 h-auto animate-wiggle" />
 
-	<!-- Luna arriba centrada -->
-	<img src="/moon.svg" alt="" aria-hidden="true" class="absolute top-5 left-1/2 transform -translate-x-1/2 w-20 h-auto animate-wiggle" />
+	<!-- Luna arriba centrada (hidden on mobile) -->
+	<img src="/moon.svg" alt="" aria-hidden="true" class="hidden sm:block absolute top-5 left-1/2 transform -translate-x-1/2 w-20 h-auto animate-wiggle" />
 
-	<p class="text-grape-dark dark:text-white font-bold text-7xl text-center">
+	<p class="text-grape-dark dark:text-white font-bold text-3xl sm:text-5xl lg:text-7xl text-center">
 		<span class="block">¿Te apasiona la</span>
 		<span class="block">tecnología?</span>
 	</p>
-	<p class="text-blacky dark:text-gray-100 font-semibold text-4xl text-center">
+	<p class="text-blacky dark:text-gray-100 font-semibold text-xl sm:text-2xl lg:text-4xl text-center">
 		<span class="block">Amplía tus habilidades técnicas y forma</span>
 		<span class="block">equipo con otras mujeres</span>
 	</p>
-	<p class="text-blacky dark:text-gray-200 text-2xl text-center">
+	<p class="text-blacky dark:text-gray-200 text-sm sm:text-base lg:text-2xl text-center max-w-2xl">
 		<span class="block">Te invitamos a unirte a nuestra comunidad y formar parte de un grupo de</span>
 		<span class="block">mujeres que apoyan y se inspiran mutuamente.</span>
 	</p>
-	<a href="#sobre-nosotras" class="bg-white dark:bg-dark-surface dark:text-white dark:border-[#2d2d4e] border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.6)] transform hover:scale-105 transition-transform flex p-2 px-6 font-semibold">
+	<a
+		href="#sobre-nosotras"
+		class="bg-white dark:bg-dark-surface dark:text-white dark:border-[#2d2d4e] border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.6)] transform hover:scale-105 transition-transform flex p-2 px-4 sm:px-6 font-semibold"
+	>
 		Únete a la comunidad
 	</a>
 </section>
