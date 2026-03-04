@@ -1,0 +1,52 @@
+---
+import Card from "./Card.astro";
+
+interface MentoriaCard {
+	title: string;
+	description: string;
+}
+
+const mentoriasCards: MentoriaCard[] = [
+	{
+		title: "Mentoría 1:1",
+		description:
+			"Sesiones personalizadas con mentoras con experiencia en la industria. Define tus objetivos y trabaja hacia ellos con guía experta.",
+	},
+	{
+		title: "Grupos de estudio",
+		description:
+			"Aprende junto a otras mujeres en grupos pequeños. Cubre temas como algoritmos, diseño de sistemas y preparación para entrevistas técnicas.",
+	},
+	{
+		title: "Revisión de CV y portafolio",
+		description:
+			"Recibe feedback real de profesionales activas en el sector tech para mejorar tu perfil y destacar ante recruiters.",
+	},
+];
+---
+
+<section id="mentorias" class="py-20 px-6 bg-light-purple dark:bg-dark-bg transition-colors duration-200">
+	<div class="max-w-6xl mx-auto">
+		<div class="text-center mb-12">
+			<h2 class="text-5xl font-bold text-grape-dark mb-4">Mentorías</h2>
+			<p class="text-blacky dark:text-gray-300 text-xl max-w-2xl mx-auto">
+				Conectamos a mujeres que quieren crecer con quienes ya recorrieron el camino.
+			</p>
+		</div>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-12">
+			{mentoriasCards.map((card) => (
+				<Card title={card.title} description={card.description} />
+			))}
+		</div>
+		<div class="text-center">
+			<a
+				href="https://discord.gg/mermelada"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-block bg-yellow-sunflower border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.6)] px-8 py-3 font-semibold hover:scale-105 transition-transform"
+			>
+				Quiero ser mentee
+			</a>
+		</div>
+	</div>
+</section>

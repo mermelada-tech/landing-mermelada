@@ -1,13 +1,19 @@
 ---
-const { title, description, image, } = Astro.props;
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+
+const { title, description, image } = Astro.props;
 ---
 
-<div class="bg-white border border-black rounded-2xl shadow-black shadow-[4px_6px_0_0_rgba(0,0,0,1)] overflow-hidden max-w-sm transform hover:scale-105 transition-transform">
-    {image && (
-      <img src={image} alt={title} class="w-full h-48 object-cover" />
-    )}
-    <div class="p-4">
-      <h3 class="text-xl font-bold text-grape-dark mb-2">{title}</h3>
-      <p class="text-gray-600">{description}</p>
-    </div>
-  </div>
+<div
+	class="bg-white dark:bg-dark-surface border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] overflow-hidden max-w-sm transform hover:scale-105 transition-transform"
+>
+	{image && <img src={image} alt={title} class="w-full h-48 object-cover" />}
+	<div class="p-4">
+		<h3 class="text-xl font-bold text-grape-dark mb-2">{title}</h3>
+		<p class="text-gray-600 dark:text-gray-300">{description}</p>
+	</div>
+</div>

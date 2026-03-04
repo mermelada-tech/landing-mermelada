@@ -1,0 +1,42 @@
+---
+interface Colaboradora {
+	name: string;
+	logo?: string;
+	url: string;
+}
+
+const colaboradoras: Colaboradora[] = [
+	{ name: "Patreon", logo: "/logo-patreon.svg", url: "https://www.patreon.com/mermelada" },
+	{ name: "Discord", url: "https://discord.gg/mermelada" },
+	{ name: "Twitch", url: "https://www.twitch.tv/mermelada" },
+	{ name: "YouTube", url: "https://www.youtube.com/@mermelada" },
+	{ name: "GitHub", url: "https://github.com/mermelada-tech" },
+];
+---
+
+<section id="colaboradoras" class="py-20 px-6 bg-light-purple dark:bg-dark-bg transition-colors duration-200">
+	<div class="max-w-6xl mx-auto">
+		<div class="text-center mb-12">
+			<h2 class="text-5xl font-bold text-grape-dark mb-4">Colaboradoras</h2>
+			<p class="text-blacky dark:text-gray-300 text-xl max-w-2xl mx-auto">
+				Plataformas y organizaciones que hacen posible nuestra comunidad.
+			</p>
+		</div>
+		<div class="flex flex-wrap justify-center gap-6">
+			{colaboradoras.map((c) => (
+				<a
+					href={c.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="bg-white dark:bg-dark-surface border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] px-10 py-8 flex flex-col items-center justify-center gap-3 hover:scale-105 transition-transform min-w-[140px]"
+				>
+					{c.logo
+						? <img src={c.logo} alt={c.name} class="h-8 w-auto dark:invert" />
+						: <span class="font-bold text-grape-dark dark:text-light-purple text-xl">{c.name}</span>
+					}
+					{c.logo && <span class="text-sm font-medium text-blacky dark:text-gray-300">{c.name}</span>}
+				</a>
+			))}
+		</div>
+	</div>
+</section>

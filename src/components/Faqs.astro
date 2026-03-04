@@ -1,0 +1,63 @@
+---
+interface FAQ {
+	question: string;
+	answer: string;
+}
+
+const faqs: FAQ[] = [
+	{
+		question: "¿Necesito experiencia previa en tecnología para unirme?",
+		answer:
+			"No. Mermelada Tech da la bienvenida a mujeres en todas las etapas de su camino en tech: desde las que están explorando si les gusta programar, hasta desarrolladoras senior que quieren dar o recibir mentoría.",
+	},
+	{
+		question: "¿Dónde ocurren las actividades de la comunidad?",
+		answer:
+			"Principalmente en Discord (canal de chat y voz), Twitch (transmisiones en vivo) y YouTube (contenido grabado). Todo es online y accesible desde cualquier país de habla hispana.",
+	},
+	{
+		question: "¿Tiene algún costo unirse?",
+		answer:
+			"La comunidad base en Discord es gratuita. Apoyar en Patreon es opcional y permite acceder a beneficios exclusivos como mentorías prioritarias y sesiones privadas.",
+	},
+	{
+		question: "¿Puedo participar si soy de Latinoamérica o España?",
+		answer:
+			"¡Por supuesto! Mermelada Tech es una comunidad panlatina e inclusiva. Tenemos miembros de México, Argentina, España, Colombia, Chile y muchos otros países.",
+	},
+	{
+		question: "¿Cómo puedo postularme como mentora?",
+		answer:
+			"Puedes postularte directamente por Discord o escribirnos por nuestras redes sociales. Buscamos mujeres con al menos 2 años de experiencia en cualquier área de tecnología.",
+	},
+	{
+		question: "¿Con qué frecuencia se hacen eventos?",
+		answer:
+			"Organizamos eventos semanales: sesiones de estudio, charlas técnicas, talleres y streams en Twitch. El calendario se publica con antelación en el servidor de Discord.",
+	},
+];
+---
+
+<section id="faqs" class="py-20 px-6 bg-white dark:bg-dark-surface transition-colors duration-200">
+	<div class="max-w-3xl mx-auto">
+		<div class="text-center mb-12">
+			<h2 class="text-5xl font-bold text-grape-dark mb-4">Preguntas frecuentes</h2>
+			<p class="text-blacky dark:text-gray-300 text-xl">
+				Todo lo que necesitas saber antes de unirte.
+			</p>
+		</div>
+		<div class="flex flex-col gap-4">
+			{faqs.map((faq) => (
+				<details class="bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] group">
+					<summary class="flex justify-between items-center p-6 font-semibold text-blacky dark:text-white cursor-pointer list-none gap-4">
+						<span>{faq.question}</span>
+						<span class="text-grape-dark text-2xl leading-none flex-shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+					</summary>
+					<div class="px-6 pb-6">
+						<p class="text-gray-600 dark:text-gray-400 leading-relaxed">{faq.answer}</p>
+					</div>
+				</details>
+			))}
+		</div>
+	</div>
+</section>
