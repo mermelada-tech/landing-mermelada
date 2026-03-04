@@ -34,7 +34,15 @@ const {
 		</script>
 	</head>
 	<body class="bg-white dark:bg-dark-bg dark:text-white transition-colors duration-200">
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-yellow-sunflower focus:text-blacky focus:font-semibold focus:rounded focus:shadow-[4px_6px_0_0_rgba(0,0,0,1)]"
+		>
+			Saltar al contenido
+		</a>
 		<NavBar />
-		<slot />
+		<main id="main-content">
+			<slot />
+		</main>
 	</body>
 </html>

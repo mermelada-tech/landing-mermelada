@@ -13,7 +13,7 @@ const { title, description, image } = Astro.props;
 >
 	{image && <img src={image} alt={title} class="w-full h-48 object-cover" />}
 	<div class="p-4">
-		<h3 class="text-xl font-bold text-grape-dark mb-2">{title}</h3>
+		<h3 class="text-xl font-bold text-grape-dark dark:text-light-purple mb-2">{title}</h3>
 		<p class="text-gray-600 dark:text-gray-300">{description}</p>
 	</div>
 </div>
