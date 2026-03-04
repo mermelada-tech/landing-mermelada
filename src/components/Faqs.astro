@@ -41,7 +41,7 @@ const faqs: FAQ[] = [
 <section id="faqs" class="py-20 px-6 bg-white dark:bg-dark-surface transition-colors duration-200">
 	<div class="max-w-3xl mx-auto">
 		<div class="text-center mb-12">
-			<h2 class="text-5xl font-bold text-grape-dark mb-4">Preguntas frecuentes</h2>
+			<h2 class="text-5xl font-bold text-grape-dark dark:text-light-purple mb-4">Preguntas frecuentes</h2>
 			<p class="text-blacky dark:text-gray-300 text-xl">
 				Todo lo que necesitas saber antes de unirte.
 			</p>
@@ -51,7 +51,7 @@ const faqs: FAQ[] = [
 				<details class="bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] group">
 					<summary class="flex justify-between items-center p-6 font-semibold text-blacky dark:text-white cursor-pointer list-none gap-4">
 						<span>{faq.question}</span>
-						<span class="text-grape-dark text-2xl leading-none flex-shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+						<span aria-hidden="true" class="text-grape-dark dark:text-light-purple text-2xl leading-none flex-shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
 					</summary>
 					<div class="px-6 pb-6">
 						<p class="text-gray-600 dark:text-gray-400 leading-relaxed">{faq.answer}</p>
