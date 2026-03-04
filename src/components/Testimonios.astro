@@ -31,25 +31,25 @@ const testimonios: Testimonio[] = [
 ];
 ---
 
-<section id="testimonios" class="py-20 px-6 bg-white">
+<section id="testimonios" class="py-20 px-6 bg-white dark:bg-dark-surface transition-colors duration-200">
 	<div class="max-w-6xl mx-auto">
 		<div class="text-center mb-12">
 			<h2 class="text-5xl font-bold text-grape-dark mb-4">Testimonios</h2>
-			<p class="text-blacky text-xl max-w-2xl mx-auto">
+			<p class="text-blacky dark:text-gray-300 text-xl max-w-2xl mx-auto">
 				Las voces de nuestra comunidad lo dicen todo.
 			</p>
 		</div>
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 			{testimonios.map((t) => (
-				<div class="bg-white border border-black rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] p-6 flex flex-col gap-4 hover:scale-105 transition-transform">
-					<p class="text-blacky text-base leading-relaxed italic flex-1">"{t.quote}"</p>
-					<div class="flex items-center gap-3 mt-auto pt-4 border-t border-gray-100">
+				<div class="bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] p-6 flex flex-col gap-4 hover:scale-105 transition-transform">
+					<p class="text-blacky dark:text-gray-300 text-base leading-relaxed italic flex-1">"{t.quote}"</p>
+					<div class="flex items-center gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-[#2d2d4e]">
 						<div class="w-10 h-10 rounded-full bg-grape-dark flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
 							{t.initials}
 						</div>
 						<div>
-							<p class="font-semibold text-blacky text-sm">{t.name}</p>
-							<p class="text-xs text-gray-500">{t.role}</p>
+							<p class="font-semibold text-blacky dark:text-white text-sm">{t.name}</p>
+							<p class="text-xs text-gray-500 dark:text-gray-400">{t.role}</p>
 						</div>
 					</div>
 				</div>

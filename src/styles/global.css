@@ -1,24 +1,31 @@
 @import "tailwindcss";
 
+/* Class-based dark mode: dark: variants apply when an ancestor has class="dark" */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-primary: #673773; 
-  --color-secondary: #1b1b1b;
+	--color-primary: #673773;
+	--color-secondary: #1b1b1b;
 
-  --color-grape-dark: #673773;
-  --color-blacky: #1b1b1b;
+	--color-grape-dark: #673773;
+	--color-blacky: #1b1b1b;
 
-  --color-light-purple: #B6C2E3;
+	--color-light-purple: #b6c2e3;
+	--color-yellow-sunflower: #f5c43e;
 
-  --color-yellow-sunflower: #F5C43E;
-  --animate-wiggle: wiggle 1s ease-in-out infinite;
+	/* Dark mode surfaces */
+	--color-dark-bg: #0d0d17;
+	--color-dark-surface: #1a1a2e;
 
-  @keyframes wiggle {
-    0%,
-    100% {
-      transform: rotate(-3deg);
-    }
-    50% {
-      transform: rotate(3deg);
-    }
-  }
+	--animate-wiggle: wiggle 1s ease-in-out infinite;
+
+	@keyframes wiggle {
+		0%,
+		100% {
+			transform: rotate(-3deg);
+		}
+		50% {
+			transform: rotate(3deg);
+		}
+	}
 }

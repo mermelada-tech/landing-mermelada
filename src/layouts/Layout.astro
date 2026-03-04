@@ -1,5 +1,5 @@
 ---
-import NavBar from '../components/NavBar.astro';
+import NavBar from "../components/NavBar.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -7,7 +7,10 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "Mermelada Tech — comunidad de mujeres en tecnología. Aprende, crece y conecta con otras mujeres apasionadas por la tecnología." } = Astro.props;
+const {
+	title,
+	description = "Mermelada Tech — comunidad de mujeres en tecnología. Aprende, crece y conecta con otras mujeres apasionadas por la tecnología.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -19,8 +22,18 @@ const { title, description = "Mermelada Tech — comunidad de mujeres en tecnolo
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<!-- Prevent flash of wrong theme: apply dark class before CSS renders -->
+		<script is:inline>
+			(function () {
+				const stored = localStorage.getItem("theme");
+				const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+				if (stored === "dark" || (!stored && prefersDark)) {
+					document.documentElement.classList.add("dark");
+				}
+			})();
+		</script>
 	</head>
-	<body>
+	<body class="bg-white dark:bg-dark-bg dark:text-white transition-colors duration-200">
 		<NavBar />
 		<slot />
 	</body>

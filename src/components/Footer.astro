@@ -27,12 +27,12 @@ const socialLinks: SocialLink[] = [
 ];
 ---
 
-<footer class="bg-grape-dark text-white py-16 px-6">
+<footer class="bg-grape-dark dark:bg-dark-bg text-white py-16 px-6 transition-colors duration-200">
 	<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 		<!-- Brand column -->
 		<div class="space-y-4">
 			<img src="/logo-mermelada.svg" alt="Mermelada Tech" class="h-12 w-auto brightness-0 invert" />
-			<p class="text-light-purple leading-relaxed">
+			<p class="text-light-purple dark:text-gray-400 leading-relaxed">
 				Comunidad de mujeres en tecnología.<br />
 				Aprendemos juntas, crecemos juntas.
 			</p>
@@ -43,7 +43,7 @@ const socialLinks: SocialLink[] = [
 			<ul class="space-y-2">
 				{navLinks.map((link) => (
 					<li>
-						<a href={link.href} class="text-light-purple hover:text-white transition-colors">
+						<a href={link.href} class="text-light-purple dark:text-gray-400 hover:text-white transition-colors">
 							{link.label}
 						</a>
 					</li>
@@ -60,7 +60,7 @@ const socialLinks: SocialLink[] = [
 							href={link.href}
 							target="_blank"
 							rel="noopener noreferrer"
-							class="text-light-purple hover:text-white transition-colors"
+							class="text-light-purple dark:text-gray-400 hover:text-white transition-colors"
 						>
 							{link.label}
 						</a>
@@ -71,15 +71,15 @@ const socialLinks: SocialLink[] = [
 	</div>
 
 	<!-- Bottom bar -->
-	<div class="max-w-6xl mx-auto border-t border-light-purple pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-		<p class="text-light-purple text-sm">
+	<div class="max-w-6xl mx-auto border-t border-light-purple dark:border-[#2d2d4e] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+		<p class="text-light-purple dark:text-gray-500 text-sm">
 			© {currentYear} Mermelada Tech. Todos los derechos reservados.
 		</p>
 		<a
 			href="https://discord.gg/mermelada"
 			target="_blank"
 			rel="noopener noreferrer"
-			class="bg-yellow-sunflower text-blacky border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-6 py-2 font-semibold hover:scale-105 transition-transform"
+			class="bg-yellow-sunflower text-blacky border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.6)] px-6 py-2 font-semibold hover:scale-105 transition-transform"
 		>
 			Únete a la comunidad
 		</a>
