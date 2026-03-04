@@ -1,0 +1,87 @@
+---
+const currentYear = new Date().getFullYear();
+
+interface NavLink {
+	href: string;
+	label: string;
+}
+
+interface SocialLink {
+	href: string;
+	label: string;
+}
+
+const navLinks: NavLink[] = [
+	{ href: "#sobre-nosotras", label: "Sobre Nosotras" },
+	{ href: "#mentorias", label: "Mentorías" },
+	{ href: "#testimonios", label: "Testimonios" },
+	{ href: "#colaboradoras", label: "Colaboradoras" },
+	{ href: "#faqs", label: "FAQs" },
+];
+
+const socialLinks: SocialLink[] = [
+	{ href: "https://discord.gg/mermelada", label: "Discord" },
+	{ href: "https://www.twitch.tv/mermelada", label: "Twitch" },
+	{ href: "https://www.youtube.com/@mermelada", label: "YouTube" },
+	{ href: "https://www.patreon.com/mermelada", label: "Patreon" },
+];
+---
+
+<footer class="bg-grape-dark text-white py-16 px-6">
+	<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+		<!-- Brand column -->
+		<div class="space-y-4">
+			<img src="/logo-mermelada.svg" alt="Mermelada Tech" class="h-12 w-auto brightness-0 invert" />
+			<p class="text-light-purple leading-relaxed">
+				Comunidad de mujeres en tecnología.<br />
+				Aprendemos juntas, crecemos juntas.
+			</p>
+		</div>
+		<!-- Navigation column -->
+		<div>
+			<h3 class="font-bold text-yellow-sunflower mb-4 text-lg">Navegación</h3>
+			<ul class="space-y-2">
+				{navLinks.map((link) => (
+					<li>
+						<a href={link.href} class="text-light-purple hover:text-white transition-colors">
+							{link.label}
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+		<!-- Social column -->
+		<div>
+			<h3 class="font-bold text-yellow-sunflower mb-4 text-lg">Síguenos</h3>
+			<ul class="space-y-2">
+				{socialLinks.map((link) => (
+					<li>
+						<a
+							href={link.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-light-purple hover:text-white transition-colors"
+						>
+							{link.label}
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	</div>
+
+	<!-- Bottom bar -->
+	<div class="max-w-6xl mx-auto border-t border-light-purple pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+		<p class="text-light-purple text-sm">
+			© {currentYear} Mermelada Tech. Todos los derechos reservados.
+		</p>
+		<a
+			href="https://discord.gg/mermelada"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="bg-yellow-sunflower text-blacky border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-6 py-2 font-semibold hover:scale-105 transition-transform"
+		>
+			Únete a la comunidad
+		</a>
+	</div>
+</footer>
