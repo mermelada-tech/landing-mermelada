@@ -1,37 +1,232 @@
 ---
+interface Testimonio {
+	name: string;
+	role: string;
+	quote: string;
+	avatar: string;
+	github?: string;
+	linkedin?: string;
+	twitter?: string;
+}
+
+const testimonios: Testimonio[] = [
+	{
+		name: "Nombre de la persona",
+		role: "Rol profesional actual",
+		quote:
+			"\"Lorem ipsum dolor sit amet consectetur. Amet tellus volutpat in lectus nunc cursus eget laoreet. Nisl maecenas ut amet eget nisl semper pharetra porta. Dolor suspendisse ornare tempor nunc fermentum bibendum est donec. Bibendum nisl odio sit id pellentesque. Ac odio auctor mauris adipiscing arcu sollicitudin a tincidunt tortor. Amet risus elit.\"",
+		avatar: "NP",
+		github: "#",
+		linkedin: "#",
+		twitter: "#",
+	},
+	{
+		name: "Ana García",
+		role: "Desarrolladora Frontend",
+		quote:
+			"\"Mermelada Tech cambió mi perspectiva profesional. Encontré mentoras increíbles y una red de apoyo que nunca imaginé tener en el mundo tech.\"",
+		avatar: "AG",
+		linkedin: "#",
+	},
+	{
+		name: "Laura Rodríguez",
+		role: "Estudiante de Ingeniería",
+		quote:
+			"\"Gracias a los grupos de estudio pude conseguir mi primera pasantía. La comunidad me dio la confianza que necesitaba para aplicar.\"",
+		avatar: "LR",
+		linkedin: "#",
+	},
+];
 ---
 
-<section id="sobre-nosotras" class="py-20 px-6 bg-white dark:bg-dark-surface transition-colors duration-200">
+<section id="comunidad" class="py-20 px-6 bg-light-purple dark:bg-[#0d0d17] transition-colors duration-200">
 	<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-		<div class="space-y-6">
-			<h2 class="text-5xl font-bold text-grape-dark leading-tight">
-				Somos<br />Mermelada Tech
+		<!-- Left column: community values -->
+		<div class="space-y-8">
+			<h2 class="text-4xl font-bold text-grape-dark dark:text-white leading-tight">
+				La comunidad anda diciendo
 			</h2>
-			<p class="text-blacky dark:text-gray-300 text-lg leading-relaxed">
-				Mermelada Tech es una comunidad creada por y para mujeres apasionadas por la tecnología.
-				Nuestro espacio nació con la misión de romper barreras, fomentar el aprendizaje colectivo
-				y construir redes de apoyo reales entre mujeres de todo el mundo hispanohablante.
-			</p>
-			<p class="text-blacky dark:text-gray-300 text-lg leading-relaxed">
-				Desde sesiones en vivo en Twitch hasta proyectos colaborativos en GitHub, aquí encontrarás
-				compañeras que entienden tus retos y celebran tus logros.
-			</p>
+			<ul class="space-y-4">
+				<li class="flex gap-3 text-blacky dark:text-white/90 text-base leading-relaxed">
+					<span class="mt-1 text-grape-dark flex-shrink-0">•</span>
+					<span
+						>Buscamos que todos se puedan sentir conocidos siendo ellos mismos y compartiendo sus
+						ideas y experiencias sin temor a ser juzgados.</span
+					>
+				</li>
+				<li class="flex gap-3 text-blacky dark:text-white/90 text-base leading-relaxed">
+					<span class="mt-1 text-grape-dark flex-shrink-0">•</span>
+					<span>Promovemos la retroalimentación y feedback con respeto.</span>
+				</li>
+				<li class="flex gap-3 text-blacky dark:text-white/90 text-base leading-relaxed">
+					<span class="mt-1 text-grape-dark flex-shrink-0">•</span>
+					<span>No toleramos la falta de respeto y agresión de ningún manera.</span>
+				</li>
+			</ul>
 			<a
-				href="#mentorias"
-				class="inline-block bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] px-6 py-3 font-semibold dark:text-white hover:scale-105 transition-transform"
+				href="https://discord.gg/mermelada"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center gap-2 bg-white border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-6 py-3 font-semibold hover:scale-105 transition-transform"
 			>
-				Conoce nuestras mentorías
+				Nos vemos en Discord
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+					aria-hidden="true"
+				>
+					<path
+						d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.04.032.05a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"
+					></path>
+				</svg>
 			</a>
 		</div>
-		<div class="relative flex justify-center items-center min-h-[320px]">
+
+		<!-- Right column: illustration + testimonial carousel -->
+		<div class="relative flex flex-col items-center gap-6">
+			<!-- Woman with laptop illustration -->
+			<img
+				src="/woman-laptop.svg"
+				alt="Mujer con laptop y auriculares"
+				class="w-full max-w-[340px] h-auto mx-auto"
+			/>
+
+			<!-- Testimonial card -->
 			<div
-				class="bg-[repeating-linear-gradient(transparent_0_58px,_rgba(255,255,255,0.8)_60px),repeating-linear-gradient(90deg,transparent_0_58px,_rgba(255,255,255,0.4)_60px),linear-gradient(135deg,_#61CEE2,_#B6C2E3,_#AB7BB7)] bg-[length:60px_60px,_60px_60px,_100%_100%] rounded-2xl border border-black dark:border-[#2d2d4e] shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] p-12 flex items-center justify-center w-full"
+				class="w-full bg-white dark:bg-dark-surface border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] p-5"
 			>
-				<img src="/logo-mermelada.svg" alt="Mermelada Tech" class="w-56 h-auto" />
+				<div class="flex items-center gap-3 mb-3">
+					<div
+						class="w-12 h-12 rounded-full bg-grape-dark flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+						id="testimonial-avatar"
+					>
+						{testimonios[0].avatar}
+					</div>
+					<div class="flex-1">
+						<p class="font-bold text-blacky dark:text-white text-sm" id="testimonial-name">
+							{testimonios[0].name}
+						</p>
+						<p class="text-xs text-gray-500 dark:text-gray-400" id="testimonial-role">
+							{testimonios[0].role}
+						</p>
+					</div>
+					<!-- Social icons -->
+					<div class="flex gap-2">
+						{
+							testimonios[0].github && (
+								<a
+									href={testimonios[0].github}
+									aria-label="GitHub"
+									class="w-7 h-7 rounded-full bg-[#1b1b1b] flex items-center justify-center hover:scale-110 transition-transform"
+								>
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+										<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+									</svg>
+								</a>
+							)
+						}
+						{
+							testimonios[0].linkedin && (
+								<a
+									href={testimonios[0].linkedin}
+									aria-label="LinkedIn"
+									class="w-7 h-7 rounded-full bg-[#0A66C2] flex items-center justify-center hover:scale-110 transition-transform"
+								>
+									<svg width="14" height="14" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+										<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+									</svg>
+								</a>
+							)
+						}
+						{
+							testimonios[0].twitter && (
+								<a
+									href={testimonios[0].twitter}
+									aria-label="X / Twitter"
+									class="w-7 h-7 rounded-full bg-[#1b1b1b] flex items-center justify-center hover:scale-110 transition-transform"
+								>
+									<svg width="13" height="13" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+										<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.261 5.632 5.903-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+									</svg>
+								</a>
+							)
+						}
+					</div>
+				</div>
+				<p
+					class="text-blacky dark:text-gray-300 text-sm leading-relaxed italic mb-4"
+					id="testimonial-quote"
+				>
+					{testimonios[0].quote}
+				</p>
+				<div class="flex justify-between items-center">
+					<button
+						id="prev-testimonial"
+						aria-label="Testimonio anterior"
+						class="w-9 h-9 rounded-full border border-black dark:border-[#2d2d4e] flex items-center justify-center hover:bg-gray-100 dark:hover:bg-[#2d2d4e] transition-colors"
+					>
+						←
+					</button>
+					<button
+						id="next-testimonial"
+						aria-label="Siguiente testimonio"
+						class="w-9 h-9 rounded-full border border-black dark:border-[#2d2d4e] flex items-center justify-center hover:bg-gray-100 dark:hover:bg-[#2d2d4e] transition-colors"
+					>
+						→
+					</button>
+				</div>
 			</div>
-			<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-4 right-4 w-8 h-auto opacity-60 dark:opacity-30" />
-			<img src="/cross.svg" alt="" aria-hidden="true" class="absolute bottom-4 left-4 w-6 h-auto opacity-60 dark:opacity-30" />
-			<img src="/moon.svg" alt="" aria-hidden="true" class="absolute -bottom-4 -right-4 w-14 h-auto animate-wiggle dark:opacity-40" />
 		</div>
 	</div>
 </section>
+
+<script>
+	const testimonios = [
+		{
+			name: "Nombre de la persona",
+			role: "Rol profesional actual",
+			quote: '"Lorem ipsum dolor sit amet consectetur. Amet tellus volutpat in lectus nunc cursus eget laoreet. Nisl maecenas ut amet eget nisl semper pharetra porta. Dolor suspendisse ornare tempor nunc fermentum bibendum est donec. Bibendum nisl odio sit id pellentesque. Ac odio auctor mauris adipiscing arcu sollicitudin a tincidunt tortor. Amet risus elit."',
+			avatar: "NP",
+		},
+		{
+			name: "Ana García",
+			role: "Desarrolladora Frontend",
+			quote: '"Mermelada Tech cambió mi perspectiva profesional. Encontré mentoras increíbles y una red de apoyo que nunca imaginé tener en el mundo tech."',
+			avatar: "AG",
+		},
+		{
+			name: "Laura Rodríguez",
+			role: "Estudiante de Ingeniería",
+			quote: '"Gracias a los grupos de estudio pude conseguir mi primera pasantía. La comunidad me dio la confianza que necesitaba para aplicar."',
+			avatar: "LR",
+		},
+	];
+
+	let current = 0;
+
+	const avatarEl = document.getElementById("testimonial-avatar");
+	const nameEl = document.getElementById("testimonial-name");
+	const roleEl = document.getElementById("testimonial-role");
+	const quoteEl = document.getElementById("testimonial-quote");
+
+	function updateTestimonial(index: number) {
+		const t = testimonios[index];
+		if (avatarEl) avatarEl.textContent = t.avatar;
+		if (nameEl) nameEl.textContent = t.name;
+		if (roleEl) roleEl.textContent = t.role;
+		if (quoteEl) quoteEl.textContent = t.quote;
+	}
+
+	document.getElementById("prev-testimonial")?.addEventListener("click", () => {
+		current = (current - 1 + testimonios.length) % testimonios.length;
+		updateTestimonial(current);
+	});
+
+	document.getElementById("next-testimonial")?.addEventListener("click", () => {
+		current = (current + 1) % testimonios.length;
+		updateTestimonial(current);
+	});
+</script>

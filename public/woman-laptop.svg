@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 700" fill="none">
+
+  <!-- ===== LEGS / LOWER BODY (mint blue cross-legged) ===== -->
+  <!-- Main leg mass -->
+  <path d="M70,400 Q55,430 65,490 Q80,545 115,575 Q140,592 165,588 Q195,583 210,570
+           Q240,590 275,595 Q310,598 340,578 Q370,555 375,515 Q380,475 360,448
+           Q340,420 300,408 Q260,396 220,398 Q180,400 145,402 Q105,404 70,400 Z"
+        fill="#B8D8D4" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Left calf/lower leg going down-left -->
+  <path d="M75,448 Q55,488 62,535 Q68,565 88,578 Q108,590 125,578
+           Q140,562 135,535 Q128,505 112,475 Q96,450 78,445 Z"
+        fill="#B8D8D4" stroke="#1a1a1a" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- Right lower leg going down-right -->
+  <path d="M348,462 Q368,488 370,528 Q372,560 354,578 Q334,594 314,582
+           Q296,568 302,542 Q308,516 322,492 Q336,468 346,458 Z"
+        fill="#B8D8D4" stroke="#1a1a1a" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- Left foot -->
+  <path d="M68,565 Q52,578 60,596 Q70,612 95,612 Q116,610 122,596 Q126,582 110,572
+           Q92,563 72,566 Z"
+        fill="#A07050" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Right foot -->
+  <path d="M350,570 Q368,580 364,598 Q358,614 338,618 Q318,620 306,606
+           Q298,594 308,582 Q322,572 342,568 Z"
+        fill="#A07050" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- ===== LAPTOP (orange-red, resting on lap) ===== -->
+  <!-- Laptop bottom/base -->
+  <path d="M45,385 Q50,368 115,352 Q180,338 255,342 Q315,346 340,360
+           Q355,372 345,390 Q335,406 270,412 Q195,418 120,412 Q65,406 45,390 Z"
+        fill="#E85020" stroke="#1a1a1a" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- Laptop screen (open lid) -->
+  <path d="M58,382 Q62,302 125,272 Q195,248 265,258 Q325,268 335,318
+           Q342,352 320,374 Q295,392 220,396 Q145,400 90,392 Q62,386 58,382 Z"
+        fill="#E85020" stroke="#1a1a1a" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- Screen inner panel (slightly darker) -->
+  <path d="M72,376 Q76,308 132,281 Q196,258 260,267 Q312,276 320,316
+           Q326,345 308,364 Q286,380 215,383 Q145,386 96,378 Q74,372 72,376 Z"
+        fill="#C43C10" stroke="none"/>
+
+  <!-- Laptop logo circle on screen -->
+  <circle cx="196" cy="320" r="26" fill="none" stroke="#E85020" stroke-width="7"/>
+
+  <!-- Bottom base strip detail -->
+  <path d="M170,400 Q210,404 255,400" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Port details -->
+  <rect x="252" y="388" width="14" height="7" rx="1" fill="#1a1a1a"/>
+  <rect x="270" y="388" width="14" height="7" rx="1" fill="#1a1a1a"/>
+
+  <!-- ===== TORSO (white/cream tank top) ===== -->
+  <path d="M152,225 Q145,295 150,355 Q158,375 200,378 Q242,375 250,355
+           Q255,295 248,225 Q232,208 200,206 Q168,208 152,225 Z"
+        fill="#F0EDE5" stroke="#1a1a1a" stroke-width="3.5" stroke-linejoin="round"/>
+
+  <!-- Purple/lavender trim on left side of top -->
+  <path d="M155,228 Q148,295 153,353" stroke="#7B3FA0" stroke-width="3"
+        fill="none" stroke-linecap="round"/>
+  <!-- Purple trim on right side -->
+  <path d="M245,228 Q252,295 247,353" stroke="#7B3FA0" stroke-width="3"
+        fill="none" stroke-linecap="round"/>
+  <!-- Shoulder straps -->
+  <path d="M165,215 L168,240" stroke="#7B3FA0" stroke-width="3" stroke-linecap="round"/>
+  <path d="M235,215 L232,240" stroke="#7B3FA0" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- ===== ARMS (brown skin) ===== -->
+  <!-- Left arm (going towards laptop) -->
+  <path d="M158,240 Q128,272 108,312 Q98,340 112,355 Q128,368 145,350
+           Q165,325 175,292 Q183,265 175,245 Z"
+        fill="#A07050" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Left hand on laptop -->
+  <path d="M108,348 Q96,360 98,374 Q102,386 118,385 Q134,382 138,368
+           Q140,354 128,346 Z"
+        fill="#A07050" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Right arm -->
+  <path d="M242,240 Q268,265 282,298 Q296,330 286,350 Q272,366 256,352
+           Q240,336 240,305 Q238,272 240,248 Z"
+        fill="#A07050" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Right hand on laptop (darker purple/hand detail) -->
+  <path d="M282,345 Q295,348 298,360 Q300,372 288,378 Q275,381 266,370
+           Q260,358 268,348 Z"
+        fill="#A07050" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Small detail: purple item in hand -->
+  <rect x="270" y="352" width="14" height="20" rx="3" fill="#7B3FA0" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- ===== NECK ===== -->
+  <path d="M186,175 Q184,200 186,218 Q192,225 200,225 Q208,225 214,218
+           Q216,200 214,175 Q208,168 200,168 Q192,168 186,175 Z"
+        fill="#A07050" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- ===== HEAD ===== -->
+  <ellipse cx="204" cy="118" rx="66" ry="74" fill="#A07050" stroke="#1a1a1a" stroke-width="4"/>
+
+  <!-- ===== HAIR (dark brown, flowing right) ===== -->
+  <!-- Main hair top/back mass -->
+  <path d="M144,88 Q138,52 160,28 Q182,6 210,8 Q240,10 260,32 Q278,52 272,80
+           Q268,100 264,118
+           Q278,145 285,180 Q292,218 280,252 Q268,285 258,310 Q245,335 230,350
+           Q218,358 208,352 Q200,344 212,338 Q232,322 244,295 Q258,262 252,228
+           Q246,192 250,160 Q254,135 258,118
+           Q260,100 262,85 Q268,62 255,42 Q240,22 212,15 Q185,10 166,30
+           Q150,50 148,80 Z"
+        fill="#2A1810" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Hair flowing to the right side (the big wavy part) -->
+  <path d="M268,80 Q290,108 298,148 Q306,188 298,225 Q290,260 278,290
+           Q265,318 255,338"
+        stroke="#2A1810" stroke-width="28" fill="none" stroke-linecap="round"/>
+  <path d="M265,82 Q287,110 294,150 Q302,190 294,227 Q286,262 274,292"
+        stroke="#2A1810" stroke-width="18" fill="none" stroke-linecap="round"/>
+
+  <!-- Purple hair streak -->
+  <path d="M258,52 Q265,82 260,118 Q255,155 250,192 Q244,230 238,262"
+        stroke="#7B3FA0" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+  <!-- ===== HEADPHONES ===== -->
+  <!-- Headband arc over head -->
+  <path d="M144,108 Q148,38 204,30 Q256,24 268,108"
+        stroke="#F5C43E" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <!-- Left ear cup -->
+  <rect x="126" y="100" width="30" height="38" rx="10" fill="#F5C43E" stroke="#1a1a1a" stroke-width="3"/>
+  <!-- Left cup inner detail -->
+  <rect x="133" y="107" width="16" height="24" rx="5" fill="#D4A020" stroke="none"/>
+  <!-- Right ear cup -->
+  <rect x="266" y="100" width="30" height="38" rx="10" fill="#F5C43E" stroke="#1a1a1a" stroke-width="3"/>
+  <!-- Right cup inner detail -->
+  <rect x="273" y="107" width="16" height="24" rx="5" fill="#D4A020" stroke="none"/>
+
+  <!-- ===== FACE DETAILS ===== -->
+  <!-- Left eyebrow (purple) -->
+  <path d="M172,108 Q182,102 194,106" stroke="#7B3FA0" stroke-width="3.5"
+        fill="none" stroke-linecap="round"/>
+  <!-- Right eyebrow (purple) -->
+  <path d="M212,106 Q224,102 234,108" stroke="#7B3FA0" stroke-width="3.5"
+        fill="none" stroke-linecap="round"/>
+
+  <!-- Left eye -->
+  <circle cx="183" cy="120" r="6" fill="#2A1810"/>
+  <circle cx="185" cy="118" r="2" fill="white"/>
+  <!-- Right eye -->
+  <circle cx="222" cy="120" r="6" fill="#2A1810"/>
+  <circle cx="224" cy="118" r="2" fill="white"/>
+
+  <!-- Nose -->
+  <circle cx="202" cy="132" r="3.5" fill="#8A5530"/>
+
+  <!-- Smile (purple-ish pink) -->
+  <path d="M188,142 Q202,154 218,142" stroke="#C06080" stroke-width="3.5"
+        fill="none" stroke-linecap="round"/>
+
+  <!-- Cheek blush hint -->
+  <ellipse cx="172" cy="135" rx="10" ry="6" fill="#C07060" opacity="0.3"/>
+  <ellipse cx="232" cy="135" rx="10" ry="6" fill="#C07060" opacity="0.3"/>
+
+</svg>
