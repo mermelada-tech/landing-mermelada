@@ -1,16 +1,18 @@
 ---
-import Card from "./Card.astro";
-
 interface FeatureCard {
 	title: string;
-	description: string;
+	description?: string;
+	items?: string[];
 }
 
 const cards: FeatureCard[] = [
 	{
 		title: "Desarrollo de habilidades",
-		description:
-			"Espacios colaborativos para trabajar en proyectos de código, eventos virtuales sobre temas de tecnología y prácticas en el canal de YouTube y Twitch",
+		items: [
+			"Espacios colaborativos para trabajar en proyectos de código",
+			"Eventos virtuales sobre temas de tecnología",
+			"Cursos y prácticas en el canal de YouTube y Twitch",
+		],
 	},
 	{
 		title: "Espacio seguro y de apoyo",
@@ -25,10 +27,28 @@ const cards: FeatureCard[] = [
 ];
 ---
 
-<section class="py-16 px-4 bg-light-purple dark:bg-dark-bg transition-colors duration-200">
+<section class="py-16 px-4 bg-light-purple">
 	<div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-		{cards.map((card) => (
-			<Card title={card.title} description={card.description} />
-		))}
+		{
+			cards.map((card) => (
+				<div class="bg-white border border-black rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] overflow-hidden w-full max-w-sm transform hover:scale-105 transition-transform">
+					<div class="p-5">
+						<h3 class="text-base font-bold text-blacky mb-3">{card.title}</h3>
+						{card.items ? (
+							<ul class="space-y-1">
+								{card.items.map((item) => (
+									<li class="flex gap-2 text-gray-600 text-sm leading-relaxed">
+										<span class="mt-0.5 text-grape-dark flex-shrink-0">•</span>
+										<span>{item}</span>
+									</li>
+								))}
+							</ul>
+						) : (
+							<p class="text-gray-600 text-sm leading-relaxed">{card.description}</p>
+						)}
+					</div>
+				</div>
+			))
+		}
 	</div>
 </section>
