@@ -21,26 +21,26 @@ const founders: Founder[] = [
 		role: "CEO and Founder",
 		initials: "GM",
 		description:
-			"Lorem ipsum dolor sit amet consectetur. At et proin arcu vel. Morbi semper donec luctus quisque. Eget enim tempor ornare non sed. Purus nisl egestas ac quisque adipiscing sodales scelerisque quis. Et platea eu iaculis nullam ac commodo gravida. Gravida sed sagittis nam sapien blandit ut.",
+			"10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy.",
 		linkedin: "#",
 	},
 ];
 ---
 
-<section id="sobre-nosotras" class="py-20 px-6 bg-[#0d0d17]">
+<section id="sobre-nosotras" class="py-20 px-6 bg-light-purple dark:bg-[#0d0d17] transition-colors duration-200">
 	<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 		<!-- Left column: description -->
 		<div class="space-y-6">
-			<h2 class="text-4xl font-bold text-white">Sobre Nosotras</h2>
-			<p class="text-white/80 text-base leading-relaxed">
+			<h2 class="text-4xl font-bold text-grape-dark dark:text-white">Sobre Nosotras</h2>
+			<p class="text-blacky dark:text-white/80 text-base leading-relaxed">
 				Mermelada tech es una comunidad de tecnología de habla hispana creada y pensada para el
 				crecimiento profesional de todas las mujeres que se quieran introducir en el mundo tech.
 			</p>
-			<p class="text-white/80 text-base leading-relaxed">
+			<p class="text-blacky dark:text-white/80 text-base leading-relaxed">
 				Desde septiembre de 2022 estamos generando espacios colaborativos, desarrollando proyectos
 				de codigo abierto y dando charlas con voceras mujeres.
 			</p>
-			<p class="text-white/80 text-base leading-relaxed">
+			<p class="text-blacky dark:text-white/80 text-base leading-relaxed">
 				Si querés saber más de nosotras te invitamos a que nos contactes por nuestras redes.
 			</p>
 		</div>
@@ -49,7 +49,7 @@ const founders: Founder[] = [
 		<div class="space-y-6">
 			{
 				founders.map((founder) => (
-					<div class="bg-[#1a1a2e] border border-[#2d2d4e] rounded-2xl p-5 flex gap-4 items-start relative">
+					<div class="bg-white dark:bg-[#1a1a2e] border border-black dark:border-[#2d2d4e] rounded-2xl p-5 flex gap-4 items-start shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)]">
 						<!-- Profile avatar -->
 						<div class="relative flex-shrink-0">
 							<div class="w-16 h-16 rounded-full bg-grape-dark flex items-center justify-center text-white font-bold text-lg">
@@ -60,8 +60,8 @@ const founders: Founder[] = [
 						<div class="flex-1 min-w-0">
 							<div class="flex items-center justify-between mb-1">
 								<div>
-									<p class="font-bold text-white text-sm">{founder.name}</p>
-									<p class="text-white/60 text-xs">{founder.role}</p>
+									<p class="font-bold text-blacky dark:text-white text-sm">{founder.name}</p>
+									<p class="text-gray-500 dark:text-white/60 text-xs">{founder.role}</p>
 								</div>
 								{founder.linkedin && (
 									<a
@@ -77,7 +77,7 @@ const founders: Founder[] = [
 									</a>
 								)}
 							</div>
-							<p class="text-white/70 text-xs leading-relaxed">{founder.description}</p>
+							<p class="text-gray-600 dark:text-white/70 text-xs leading-relaxed">{founder.description}</p>
 						</div>
 					</div>
 				))

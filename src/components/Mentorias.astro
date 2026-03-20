@@ -1,10 +1,19 @@
 ---
 ---
 
-<section id="mentorias" class="py-20 px-6 bg-[#0d0d17]">
-	<div class="max-w-3xl mx-auto text-center">
-		<h2 class="text-4xl font-bold text-white mb-4">Sumate al programa de mentorías tech</h2>
-		<p class="text-white/70 text-lg mb-10">
+<section id="mentorias" class="relative overflow-hidden py-20 px-6 bg-light-purple dark:bg-[#0d0d17] transition-colors duration-200">
+	<!-- Decorative elements -->
+	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute top-8 left-4 w-20 h-auto animate-wiggle opacity-50 dark:opacity-20" />
+	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute bottom-8 right-4 w-24 h-auto animate-wiggle opacity-50 dark:opacity-20" />
+	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-12 right-24 w-7 h-auto opacity-40 dark:opacity-20" />
+	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute bottom-16 left-20 w-6 h-auto opacity-40 dark:opacity-20" />
+	<img src="/moon.svg" alt="" aria-hidden="true" class="absolute top-6 right-6 w-14 h-auto animate-wiggle opacity-40 dark:opacity-20" />
+
+	<div class="relative max-w-3xl mx-auto text-center">
+		<h2 class="text-4xl font-bold text-grape-dark dark:text-white mb-4">
+			Sumate al programa de mentorías tech
+		</h2>
+		<p class="text-blacky dark:text-white/70 text-lg mb-10">
 			Para que puedas tener como guía la experiencia de otras mujeres en Tecnología
 		</p>
 
@@ -12,13 +21,13 @@
 		<div class="flex justify-center gap-3 mb-10">
 			<button
 				id="tab-mentoras"
-				class="px-8 py-2 font-semibold border border-white rounded-xs text-blacky bg-white shadow-[4px_6px_0_0_rgba(0,0,0,1)] hover:scale-105 transition-transform"
+				class="px-8 py-2 font-semibold border border-black dark:border-white rounded-xs text-blacky bg-white shadow-[4px_6px_0_0_rgba(0,0,0,1)] hover:scale-105 transition-transform"
 			>
 				Mentoras
 			</button>
 			<button
 				id="tab-mentees"
-				class="px-8 py-2 font-semibold border border-white rounded-xs text-white bg-transparent hover:bg-white hover:text-blacky transition-colors"
+				class="px-8 py-2 font-semibold border border-black dark:border-white rounded-xs text-blacky dark:text-white bg-transparent hover:bg-white/80 hover:text-blacky transition-colors"
 			>
 				Mentees
 			</button>
@@ -27,27 +36,27 @@
 		<!-- Mentoras card -->
 		<div
 			id="panel-mentoras"
-			class="bg-white border border-black rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] p-8 text-left"
+			class="bg-white dark:bg-dark-surface border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] p-8 text-left"
 		>
-			<h3 class="text-xl font-bold text-blacky mb-4">
+			<h3 class="text-xl font-bold text-blacky dark:text-white mb-4">
 				¿Te gustaría compartir tu experiencia y acompañar a otras mujeres a alcanzar sus metas?
 			</h3>
-			<p class="text-gray-700 leading-relaxed mb-4">
+			<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
 				En Mermelada Tech ofrecemos un programa de mentorías para que mujeres con experiencia en la
 				industria puedan ayudar a otras a desarrollar sus carreras.
 			</p>
-			<p class="text-gray-700 leading-relaxed mb-4">
+			<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
 				Si estás interesada en participar como mentora, envíanos un correo electrónico a
 				[dirección de correo electrónico] con un breve resumen de tu experiencia en tecnología y
 				tus intereses en mentoring.
 			</p>
-			<p class="text-gray-700 leading-relaxed mb-8">
+			<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
 				¡Únete a nosotros y ayuda a crear un futuro más inclusivo para las mujeres en tecnología!
 			</p>
 			<div class="flex justify-center">
 				<a
 					href="mailto:mermelada.tech@gmail.com"
-					class="inline-block bg-white border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-8 py-3 font-semibold hover:scale-105 transition-transform"
+					class="inline-block bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-8 py-3 font-semibold dark:text-white hover:scale-105 transition-transform"
 				>
 					¡Quiero ser mentora tech!
 				</a>
@@ -57,16 +66,16 @@
 		<!-- Mentees card (hidden by default) -->
 		<div
 			id="panel-mentees"
-			class="hidden bg-white border border-black rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] p-8 text-left"
+			class="hidden bg-white dark:bg-dark-surface border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] p-8 text-left"
 		>
-			<h3 class="text-xl font-bold text-blacky mb-4">
+			<h3 class="text-xl font-bold text-blacky dark:text-white mb-4">
 				¿Te gustaría recibir la guía de otras mujeres con más experiencia en la industria?
 			</h3>
-			<p class="text-gray-700 leading-relaxed mb-4">
+			<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
 				En Mermelada Tech conectamos mujeres que quieren crecer con quienes ya recorrieron el
 				camino. Nuestras mentoras te ayudarán a definir objetivos y avanzar en tu carrera.
 			</p>
-			<p class="text-gray-700 leading-relaxed mb-8">
+			<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
 				¡Únete a nosotros y empieza a desarrollar tu carrera en tecnología con el apoyo que
 				necesitas!
 			</p>
@@ -75,7 +84,7 @@
 					href="https://discord.gg/mermelada"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-block bg-white border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-8 py-3 font-semibold hover:scale-105 transition-transform"
+					class="inline-block bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-8 py-3 font-semibold dark:text-white hover:scale-105 transition-transform"
 				>
 					¡Quiero coordinar una mentoría!
 				</a>
@@ -90,25 +99,22 @@
 	const panelMentoras = document.getElementById("panel-mentoras");
 	const panelMentees = document.getElementById("panel-mentees");
 
+	const activeClass =
+		"px-8 py-2 font-semibold border border-black dark:border-white rounded-xs text-blacky bg-white shadow-[4px_6px_0_0_rgba(0,0,0,1)] hover:scale-105 transition-transform";
+	const inactiveClass =
+		"px-8 py-2 font-semibold border border-black dark:border-white rounded-xs text-blacky dark:text-white bg-transparent hover:bg-white/80 hover:text-blacky transition-colors";
+
 	tabMentoras?.addEventListener("click", () => {
 		panelMentoras?.classList.remove("hidden");
 		panelMentees?.classList.add("hidden");
-		tabMentoras.className =
-			"px-8 py-2 font-semibold border border-white rounded-xs text-blacky bg-white shadow-[4px_6px_0_0_rgba(0,0,0,1)] hover:scale-105 transition-transform";
-		if (tabMentees) {
-			tabMentees.className =
-				"px-8 py-2 font-semibold border border-white rounded-xs text-white bg-transparent hover:bg-white hover:text-blacky transition-colors";
-		}
+		tabMentoras.className = activeClass;
+		if (tabMentees) tabMentees.className = inactiveClass;
 	});
 
 	tabMentees?.addEventListener("click", () => {
 		panelMentees?.classList.remove("hidden");
 		panelMentoras?.classList.add("hidden");
-		tabMentees.className =
-			"px-8 py-2 font-semibold border border-white rounded-xs text-blacky bg-white shadow-[4px_6px_0_0_rgba(0,0,0,1)] hover:scale-105 transition-transform";
-		if (tabMentoras) {
-			tabMentoras.className =
-				"px-8 py-2 font-semibold border border-white rounded-xs text-white bg-transparent hover:bg-white hover:text-blacky transition-colors";
-		}
+		tabMentees.className = activeClass;
+		if (tabMentoras) tabMentoras.className = inactiveClass;
 	});
 </script>

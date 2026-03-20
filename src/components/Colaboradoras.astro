@@ -1,22 +1,22 @@
 ---
 const colaboradores = [
-	{ initials: "C1", label: "Colaborador 1" },
-	{ initials: "C2", label: "Colaborador 2" },
-	{ initials: "C3", label: "Colaborador 3" },
-	{ initials: "C4", label: "Colaborador 4" },
-	{ initials: "C5", label: "Colaborador 5" },
+	{ initials: "C1" },
+	{ initials: "C2" },
+	{ initials: "C3" },
+	{ initials: "C4" },
+	{ initials: "C5" },
 ];
 ---
 
-<section id="colaboradoras" class="py-20 px-6 bg-[#0d0d17]">
+<section id="colaboradoras" class="py-20 px-6 bg-light-purple dark:bg-[#0d0d17] transition-colors duration-200">
 	<div class="max-w-4xl mx-auto text-center">
-		<h2 class="text-4xl font-bold text-white mb-10">Colaboradores</h2>
+		<h2 class="text-4xl font-bold text-grape-dark dark:text-white mb-10">Colaboradores</h2>
 
 		<!-- Circular avatar placeholders -->
 		<div class="flex flex-wrap justify-center gap-6 mb-12">
 			{
 				colaboradores.map((c) => (
-					<div class="w-20 h-20 rounded-full bg-[#2d2d4e] border border-[#3d3d6e] flex items-center justify-center text-white/40 font-bold text-sm">
+					<div class="w-20 h-20 rounded-full bg-white/60 dark:bg-[#2d2d4e] border border-black/20 dark:border-[#3d3d6e] flex items-center justify-center text-blacky/40 dark:text-white/40 font-bold text-sm shadow-[2px_3px_0_0_rgba(0,0,0,0.15)]">
 						{c.initials}
 					</div>
 				))
@@ -27,13 +27,13 @@ const colaboradores = [
 		<div class="flex flex-wrap justify-center gap-4">
 			<a
 				href="mailto:mermelada.tech@gmail.com"
-				class="inline-block bg-white border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-6 py-3 font-semibold hover:scale-105 transition-transform"
+				class="inline-block bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-6 py-3 font-semibold dark:text-white hover:scale-105 transition-transform"
 			>
 				¿Quiero ser colaborador!
 			</a>
 			<a
 				href="#colaboradoras"
-				class="inline-block bg-white border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-6 py-3 font-semibold hover:scale-105 transition-transform"
+				class="inline-block bg-grape-dark text-white border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] px-6 py-3 font-semibold hover:scale-105 transition-transform"
 			>
 				Conocé a los colaboradores
 			</a>
