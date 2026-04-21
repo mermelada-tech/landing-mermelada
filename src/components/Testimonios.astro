@@ -3,57 +3,138 @@ interface Testimonio {
 	name: string;
 	role: string;
 	quote: string;
-	initials: string;
 }
 
 const testimonios: Testimonio[] = [
 	{
-		name: "Ana García",
-		role: "Desarrolladora Frontend",
+		name: "Luciana G.",
+		role: "Frontend developer",
 		quote:
-			"Mermelada Tech cambió mi perspectiva profesional. Encontré mentoras increíbles y una red de apoyo que nunca imaginé tener en el mundo tech.",
-		initials: "AG",
+			"Encontré un espacio donde puedo preguntar sin miedo y recibir feedback con cariño.",
 	},
 	{
-		name: "Laura Rodríguez",
-		role: "Estudiante de Ingeniería",
+		name: "Sofía R.",
+		role: "QA engineer",
 		quote:
-			"Gracias a los grupos de estudio pude conseguir mi primera pasantía. La comunidad me dio la confianza que necesitaba para aplicar.",
-		initials: "LR",
+			"Me sumé a un proyecto open source junto a mentoras increíbles. Me cambió la forma de aprender.",
 	},
 	{
-		name: "María Fernández",
-		role: "UX Designer",
+		name: "Ana M.",
+		role: "Data analyst",
 		quote:
-			"El espacio seguro que describe Mermelada Tech es real. Aquí puedo hacer preguntas sin miedo y aprender a mi ritmo.",
-		initials: "MF",
+			"La comunidad me abrió puertas laborales y, sobre todo, amistades que duran.",
 	},
 ];
 ---
 
-<section id="testimonios" class="py-20 px-6 bg-white dark:bg-dark-surface transition-colors duration-200">
-	<div class="max-w-6xl mx-auto">
-		<div class="text-center mb-12">
-			<h2 class="text-5xl font-bold text-grape-dark mb-4">Testimonios</h2>
-			<p class="text-blacky dark:text-gray-300 text-xl max-w-2xl mx-auto">
-				Las voces de nuestra comunidad lo dicen todo.
-			</p>
+<section id="testimonios" class="bg-periwinkle dark:bg-dark-surface py-16 px-[88px] relative overflow-hidden transition-colors duration-200">
+	<h2 class="text-blacky dark:text-white font-bold text-4xl mb-10">La comunidad anda diciendo</h2>
+
+	<div class="grid grid-cols-[300px_1fr_1fr] gap-12 items-center">
+		<!-- Illustration -->
+		<div class="flex items-end justify-center self-stretch">
+			<img
+				src="/illustration-laptop-girl.png"
+				alt="Mujer con laptop"
+				class="w-full max-w-[280px] h-auto"
+			/>
 		</div>
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-			{testimonios.map((t) => (
-				<div class="bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-2xl shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] p-6 flex flex-col gap-4 hover:scale-105 transition-transform">
-					<p class="text-blacky dark:text-gray-300 text-base leading-relaxed italic flex-1">"{t.quote}"</p>
-					<div class="flex items-center gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-[#2d2d4e]">
-						<div class="w-10 h-10 rounded-full bg-grape-dark flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-							{t.initials}
-						</div>
-						<div>
-							<p class="font-semibold text-blacky dark:text-white text-sm">{t.name}</p>
-							<p class="text-xs text-gray-500 dark:text-gray-400">{t.role}</p>
-						</div>
+
+		<!-- Intro + Discord CTA -->
+		<div>
+			<p class="text-blacky dark:text-gray-300 text-base leading-relaxed">
+				Buscamos que todas se puedan sentir cómodas siendo ellas mismas y compartiendo sus ideas
+				y experiencias sin temor a ser juzgadas. Promovemos la retroalimentación con respeto.
+			</p>
+			<a
+				href="https://discord.gg/mermelada"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="mt-7 inline-flex items-center gap-2 bg-snow dark:bg-dark-bg text-blacky dark:text-white font-bold text-lg border-[1.5px] border-blacky dark:border-light-purple rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] dark:shadow-[4px_4px_0_0_#ab7bb7] px-4 py-[10px] hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
+			>
+				<img
+					src="https://api.iconify.design/flowbite/discord-solid.svg?color=%231b1b1b"
+					width="20"
+					alt=""
+					aria-hidden="true"
+				/>
+				Nos vemos en Discord
+			</a>
+		</div>
+
+		<!-- Quote carousel card -->
+		<div
+			id="testimonios-card"
+			class="bg-snow dark:bg-dark-bg border border-blacky dark:border-[#2d2d4e] rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] dark:shadow-[4px_4px_0_0_#ab7bb7] p-7"
+			data-testimonios={JSON.stringify(testimonios)}
+		>
+			<!-- Author -->
+			<div class="flex gap-5 items-center">
+				<div
+					id="testimonios-avatar"
+					class="w-[72px] h-[72px] rounded-full bg-[#c48270] border border-blacky shadow-[4px_4px_0_0_#1b1b1b] flex items-center justify-center font-bold text-2xl text-snow flex-shrink-0"
+				>
+					{testimonios[0]!.name[0]}
+				</div>
+				<div>
+					<div id="testimonios-name" class="font-bold text-[18px] text-grape-dark dark:text-lilac">
+						{testimonios[0]!.name}
+					</div>
+					<div id="testimonios-role" class="text-sm text-ink-2 dark:text-gray-400 mt-1">
+						{testimonios[0]!.role}
 					</div>
 				</div>
-			))}
+			</div>
+
+			<!-- Quote -->
+			<p id="testimonios-quote" class="font-body text-sm leading-snug text-blacky dark:text-gray-300 mt-5">
+				"{testimonios[0]!.quote}"
+			</p>
+
+			<!-- Prev / next -->
+			<div class="flex gap-2.5 mt-5">
+				<button
+					id="testimonios-prev"
+					aria-label="Testimonio anterior"
+					class="w-[42px] h-[38px] rounded-[8px] bg-white dark:bg-dark-surface border border-blacky dark:border-[#2d2d4e] shadow-[4px_4px_0_0_#1b1b1b] dark:shadow-[4px_4px_0_0_#ab7bb7] flex items-center justify-center hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms] cursor-pointer"
+				>
+					<img src="https://api.iconify.design/flowbite/arrow-left-outline.svg?color=%231b1b1b" width="18" alt="" aria-hidden="true" />
+				</button>
+				<button
+					id="testimonios-next"
+					aria-label="Testimonio siguiente"
+					class="w-[42px] h-[38px] rounded-[8px] bg-white dark:bg-dark-surface border border-blacky dark:border-[#2d2d4e] shadow-[-4px_4px_0_0_#1b1b1b] dark:shadow-[-4px_4px_0_0_#ab7bb7] flex items-center justify-center hover:translate-x-px hover:-translate-y-px hover:shadow-[-5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms] cursor-pointer"
+				>
+					<img src="https://api.iconify.design/flowbite/arrow-right-outline.svg?color=%231b1b1b" width="18" alt="" aria-hidden="true" />
+				</button>
+			</div>
 		</div>
 	</div>
 </section>
+
+<script>
+	const card = document.getElementById("testimonios-card") as HTMLElement;
+	const data = JSON.parse(card.dataset.testimonios as string) as Array<{
+		name: string;
+		role: string;
+		quote: string;
+	}>;
+	let current = 0;
+
+	function render(i: number) {
+		const t = data[i]!;
+		(document.getElementById("testimonios-avatar") as HTMLElement).textContent = t.name[0]!;
+		(document.getElementById("testimonios-name") as HTMLElement).textContent = t.name;
+		(document.getElementById("testimonios-role") as HTMLElement).textContent = t.role;
+		(document.getElementById("testimonios-quote") as HTMLElement).textContent = `"${t.quote}"`;
+	}
+
+	document.getElementById("testimonios-prev")!.addEventListener("click", () => {
+		current = (current - 1 + data.length) % data.length;
+		render(current);
+	});
+	document.getElementById("testimonios-next")!.addEventListener("click", () => {
+		current = (current + 1) % data.length;
+		render(current);
+	});
+</script>

@@ -4,19 +4,36 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+	/* ── Brand purples ────────────────────────── */
 	--color-primary: #673773;
-	--color-secondary: #1b1b1b;
-
 	--color-grape-dark: #673773;
+	--color-grape-deep: #642166;
+	--color-lilac: #ab7bb7;
+
+	/* ── Warm / cool accents ──────────────────── */
+	--color-secondary: #1b1b1b;
 	--color-blacky: #1b1b1b;
+	--color-ink-2: #242424;
+	--color-ink-3: #343434;
 
-	--color-light-purple: #b6c2e3;
 	--color-yellow-sunflower: #f5c43e;
+	--color-mint: #87cdc5;
+	--color-raspberry: #ed1568;
 
-	/* Dark mode surfaces */
+	/* ── Sky / pastel gradient family ────────── */
+	--color-sky-soft: #61cee2;
+	--color-light-purple: #b6c2e3;
+	--color-periwinkle: #c9d5f6;
+
+	/* ── Surfaces ─────────────────────────────── */
+	--color-snow: #fffafa;
+	--color-paper: #e6f2f7;
+
+	/* ── Dark mode surfaces ───────────────────── */
 	--color-dark-bg: #0d0d17;
 	--color-dark-surface: #1a1a2e;
 
+	/* ── Wiggle animation ─────────────────────── */
 	--animate-wiggle: wiggle 1s ease-in-out infinite;
 
 	@keyframes wiggle {

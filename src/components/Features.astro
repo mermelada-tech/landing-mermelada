@@ -10,25 +10,23 @@ const cards: FeatureCard[] = [
 	{
 		title: "Desarrollo de habilidades",
 		description:
-			"Espacios colaborativos para trabajar en proyectos de código, eventos virtuales sobre temas de tecnología y prácticas en el canal de YouTube y Twitch",
-	},
-	{
-		title: "Espacio seguro y de apoyo",
-		description:
-			"Nuestra misión es crear un espacio seguro y de apoyo para todos los integrantes, independientemente de su edad, raza, origen étnico, orientación sexual o identidad de género.",
+			"Espacios colaborativos para trabajar en proyectos de código, eventos virtuales sobre temas de tecnología y cursos y prácticas en el canal de YouTube y Twitch.",
 	},
 	{
 		title: "Conexiones / Networking",
 		description:
 			"En la comunidad puedes encontrar apoyo, inspiración y motivación de otras mujeres que compartan sus intereses y metas.",
 	},
+	{
+		title: "Espacio seguro y de apoyo",
+		description:
+			"Nuestra misión es crear un espacio seguro para todas, independientemente de su edad, raza, origen étnico, orientación sexual o identidad de género.",
+	},
 ];
 ---
 
-<section class="py-16 px-4 bg-light-purple dark:bg-dark-bg transition-colors duration-200">
-	<div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-		{cards.map((card) => (
-			<Card title={card.title} description={card.description} />
-		))}
+<section class="py-16 px-[126px] bg-paper dark:bg-dark-bg transition-colors duration-200">
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+		{cards.map((card) => <Card title={card.title} description={card.description} />)}
 	</div>
 </section>
