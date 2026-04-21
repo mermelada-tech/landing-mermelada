@@ -1,52 +1,122 @@
 ---
-import Card from "./Card.astro";
-
-interface MentoriaCard {
+interface TabContent {
 	title: string;
-	description: string;
+	body: string[];
+	cta: string;
 }
 
-const mentoriasCards: MentoriaCard[] = [
-	{
-		title: "Mentoría 1:1",
-		description:
-			"Sesiones personalizadas con mentoras con experiencia en la industria. Define tus objetivos y trabaja hacia ellos con guía experta.",
+interface Tabs {
+	mentoras: TabContent;
+	mentees: TabContent;
+}
+
+const tabs: Tabs = {
+	mentoras: {
+		title:
+			"¿Te gustaría compartir tu experiencia y acompañar a otras mujeres a alcanzar sus metas?",
+		body: [
+			"En Mermelada Tech ofrecemos un programa de mentorías para que mujeres con experiencia en la industria puedan ayudar a otras a desarrollar sus carreras.",
+			"Si estás interesada en participar como mentora, envíanos un correo con un breve resumen de tu experiencia en tecnología y tus intereses en mentoring.",
+		],
+		cta: "¡Quiero ser mentora tech!",
 	},
-	{
-		title: "Grupos de estudio",
-		description:
-			"Aprende junto a otras mujeres en grupos pequeños. Cubre temas como algoritmos, diseño de sistemas y preparación para entrevistas técnicas.",
+	mentees: {
+		title:
+			"¿Querés crecer profesionalmente con el apoyo de otra mujer en tech?",
+		body: [
+			"Conectamos mentees con mentoras experimentadas que acompañan tu camino: code reviews, dudas de carrera, preparación de entrevistas y más.",
+			"Escribinos contándonos en qué querés crecer y te conectamos con la mentora adecuada.",
+		],
+		cta: "¡Quiero una mentora!",
 	},
-	{
-		title: "Revisión de CV y portafolio",
-		description:
-			"Recibe feedback real de profesionales activas en el sector tech para mejorar tu perfil y destacar ante recruiters.",
-	},
-];
+};
 ---
 
-<section id="mentorias" class="py-20 px-6 bg-light-purple dark:bg-dark-bg transition-colors duration-200">
-	<div class="max-w-6xl mx-auto">
-		<div class="text-center mb-12">
-			<h2 class="text-5xl font-bold text-grape-dark mb-4">Mentorías</h2>
-			<p class="text-blacky dark:text-gray-300 text-xl max-w-2xl mx-auto">
-				Conectamos a mujeres que quieren crecer con quienes ya recorrieron el camino.
-			</p>
+<section id="mentorias" class="py-20 px-[120px] bg-paper dark:bg-dark-bg relative overflow-hidden transition-colors duration-200">
+	<!-- Decorative cloud -->
+	<img
+		src="/cloud.svg"
+		alt=""
+		aria-hidden="true"
+		class="absolute right-20 top-10 w-36 h-auto [filter:invert(26%)_sepia(11%)_saturate(2700%)_hue-rotate(255deg)_brightness(95%)_contrast(90%)] animate-wiggle [animation-duration:4s] dark:brightness-0 dark:invert dark:opacity-20"
+	/>
+
+	<!-- Header -->
+	<div class="text-center">
+		<h2 class="text-grape-dark font-bold text-4xl">Sumate al programa de mentorías tech</h2>
+		<p class="text-ink-2 dark:text-gray-300 text-base mt-3.5">
+			Para que puedas tener como guía la experiencia de otras mujeres en Tecnología.
+		</p>
+
+		<!-- Tabs -->
+		<div class="inline-flex gap-8 mt-7" id="mentorias-tabs" data-tabs={JSON.stringify(tabs)}>
+			<button
+				data-tab="mentoras"
+				class="font-bold text-base border-[1.5px] border-blacky rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] px-4 py-[10px] cursor-pointer bg-mint text-blacky hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
+			>
+				Mentoras
+			</button>
+			<button
+				data-tab="mentees"
+				class="font-bold text-base border-[1.5px] border-blacky rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] px-4 py-[10px] cursor-pointer bg-snow dark:bg-dark-surface text-blacky dark:text-white hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
+			>
+				Mentees
+			</button>
 		</div>
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mb-12">
-			{mentoriasCards.map((card) => (
-				<Card title={card.title} description={card.description} />
+	</div>
+
+	<!-- Content panel -->
+	<div class="max-w-[790px] mx-auto mt-8 bg-snow dark:bg-dark-surface border border-blacky dark:border-[#2d2d4e] rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] dark:shadow-[4px_4px_0_0_#ab7bb7] px-[60px] py-12">
+		<h3 id="mentorias-panel-title" class="text-grape-dark dark:text-lilac font-bold text-xl leading-snug">
+			{tabs.mentoras.title}
+		</h3>
+		<div id="mentorias-panel-body" class="flex flex-col gap-4 mt-6">
+			{tabs.mentoras.body.map((p) => (
+				<p class="text-ink-2 dark:text-gray-300 text-[15px] leading-relaxed">{p}</p>
 			))}
 		</div>
-		<div class="text-center">
+		<div class="text-center mt-8">
 			<a
-				href="https://discord.gg/mermelada"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="inline-block bg-yellow-sunflower border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.6)] px-8 py-3 font-semibold hover:scale-105 transition-transform"
+				id="mentorias-cta"
+				href="mailto:mermelada.tech@gmail.com"
+				class="inline-flex items-center gap-2 bg-snow dark:bg-dark-bg text-blacky dark:text-white font-bold text-lg border-[1.5px] border-blacky dark:border-light-purple rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] dark:shadow-[4px_4px_0_0_#ab7bb7] px-5 py-[10px] hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
 			>
-				Quiero ser mentee
+				{tabs.mentoras.cta}
 			</a>
 		</div>
 	</div>
 </section>
+
+<script>
+	type TabKey = "mentoras" | "mentees";
+
+	const tabsEl = document.getElementById("mentorias-tabs") as HTMLElement;
+	const tabsData = JSON.parse(tabsEl.dataset.tabs as string) as Record<
+		TabKey,
+		{ title: string; body: string[]; cta: string }
+	>;
+
+	const titleEl = document.getElementById("mentorias-panel-title") as HTMLElement;
+	const bodyEl = document.getElementById("mentorias-panel-body") as HTMLElement;
+	const ctaEl = document.getElementById("mentorias-cta") as HTMLElement;
+
+	const mintClasses = ["bg-mint", "text-blacky"];
+	const defaultClasses = ["bg-snow", "dark:bg-dark-surface", "text-blacky", "dark:text-white"];
+
+	function setTab(key: TabKey) {
+		const t = tabsData[key];
+		titleEl.textContent = t.title;
+		bodyEl.innerHTML = t.body.map((p) => `<p class="text-ink-2 dark:text-gray-300 text-[15px] leading-relaxed">${p}</p>`).join("");
+		ctaEl.textContent = t.cta;
+
+		tabsEl.querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
+			const isActive = btn.dataset.tab === key;
+			mintClasses.forEach((c) => btn.classList.toggle(c, isActive));
+			defaultClasses.forEach((c) => btn.classList.toggle(c, !isActive));
+		});
+	}
+
+	tabsEl.querySelectorAll<HTMLButtonElement>("button").forEach((btn) => {
+		btn.addEventListener("click", () => setTab(btn.dataset.tab as TabKey));
+	});
+</script>

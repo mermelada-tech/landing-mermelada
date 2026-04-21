@@ -23,18 +23,18 @@
 		}
 	},
 	"overrides": [
-    {
-      "include": ["*.astro"],
-      "linter": {
-        "rules": {
-          "style": {
-            "useConst": "error",
-            "useImportType": "error"
-          }
-        }
-      }
-    }
-  ],
+		{
+			"include": ["*.astro"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "error",
+						"useImportType": "error"
+					}
+				}
+			}
+		}
+	],
 	"javascript": {
 		"formatter": {
 			"quoteStyle": "double"

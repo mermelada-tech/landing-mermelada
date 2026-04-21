@@ -1,47 +1,67 @@
 ---
 ---
 
-<section class="relative overflow-hidden flex flex-col justify-center items-center space-y-8 h-screen bg-[repeating-linear-gradient(transparent_0_58px,_rgba(255,255,255,0.8)_60px),repeating-linear-gradient(90deg,transparent_0_58px,_rgba(255,255,255,0.4)_60px),linear-gradient(to_bottom,_#61CEE2,_#98CDCD,_#B6C2E3,_#AB7BB7)] bg-[length:60px_60px,_60px_60px,_100%_100%]">
-	<!-- Nube arriba a la derecha -->
-	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute top-10 right-0 w-32 h-auto animate-wiggle" />
+<section
+	class="relative h-[704px] overflow-hidden bg-[linear-gradient(180deg,#61CEE2_0%,#98CDCD_36%,#B6C2E3_67%,#AB7BB7_95%)]"
+>
+	<!-- Pixel grid overlay -->
+	<div
+		class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.14)_1px,transparent_1px)] bg-[size:32px_32px]"
+		aria-hidden="true"
+	>
+	</div>
 
-	<!-- Nube al medio izquierda -->
-	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute top-1/4 left-18 w-32 h-auto animate-wiggle" />
+	<!-- Decorative SVGs (white filter against gradient) -->
+	<img
+		src="/cloud.svg"
+		alt=""
+		aria-hidden="true"
+		class="absolute left-10 top-20 w-32 h-auto brightness-0 invert animate-wiggle"
+	/>
+	<img
+		src="/cloud.svg"
+		alt=""
+		aria-hidden="true"
+		class="absolute right-20 top-28 w-44 h-auto brightness-0 invert animate-wiggle [animation-duration:4s]"
+	/>
+	<img
+		src="/moon.svg"
+		alt=""
+		aria-hidden="true"
+		class="absolute right-16 top-[330px] w-36 h-auto brightness-0 invert animate-wiggle [animation-duration:5s]"
+	/>
+	<img
+		src="/cross.svg"
+		alt=""
+		aria-hidden="true"
+		class="absolute left-[200px] top-16 w-6 h-auto brightness-0 invert animate-wiggle [animation-duration:2s]"
+	/>
+	<img
+		src="/cross.svg"
+		alt=""
+		aria-hidden="true"
+		class="absolute right-[250px] top-[450px] w-5 h-auto brightness-0 invert animate-wiggle [animation-duration:2.5s]"
+	/>
 
-	<!-- Nube abajo a la izquierda -->
-	<img src="/cloud.svg" alt="" aria-hidden="true" class="absolute bottom-10 left-0 w-32 h-auto rotate-180 animate-wiggle" />
-
-	<!-- Cruz superior izquierda -->
-	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-10 left-10 w-8 h-auto" />
-
-	<!-- Cruz un poco más abajo y más al centro -->
-	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-24 left-1/4 w-10 h-auto" />
-
-	<!-- Cruz más abajo, desplazada un poco a la derecha -->
-	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-1/4 left-2 w-8 h-auto" />
-
-	<!-- Otra cruz más arriba a la derecha -->
-	<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-1/4 right-16 w-10 h-auto" />
-
-	<!-- Luna abajo a la derecha -->
-	<img src="/moon.svg" alt="" aria-hidden="true" class="absolute bottom-1/4 right-8 w-20 h-auto animate-wiggle" />
-
-	<!-- Luna arriba centrada -->
-	<img src="/moon.svg" alt="" aria-hidden="true" class="absolute top-5 left-1/2 transform -translate-x-1/2 w-20 h-auto animate-wiggle" />
-
-	<p class="text-grape-dark font-bold text-7xl text-center">
-		<span class="block">¿Te apasiona la</span>
-		<span class="block">tecnología?</span>
-	</p>
-	<p class="text-blacky font-semibold text-4xl text-center">
-		<span class="block">Amplía tus habilidades técnicas y forma</span>
-		<span class="block">equipo con otras mujeres</span>
-	</p>
-	<p class="text-blacky text-2xl text-center">
-		<span class="block">Te invitamos a unirte a nuestra comunidad y formar parte de un grupo de</span>
-		<span class="block">mujeres que apoyan y se inspiran mutuamente.</span>
-	</p>
-	<a href="#comunidad" class="bg-white border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] transform hover:scale-105 transition-transform flex p-2 px-6 font-semibold">
-		Únete a la comunidad
-	</a>
+	<!-- Content -->
+	<div class="relative max-w-3xl mx-auto pt-28 text-center px-6">
+		<h1 class="text-grape-dark font-bold text-7xl leading-none">
+			¿Te apasiona la tecnología?
+		</h1>
+		<p class="text-grape-dark font-bold text-[26px] leading-tight mt-6">
+			Amplía tus habilidades técnicas y forma equipo con otras mujeres
+		</p>
+		<p class="text-ink-2 text-lg leading-snug mt-5 max-w-lg mx-auto">
+			Te invitamos a unirte a nuestra comunidad y formar parte de un grupo de
+			mujeres que se apoyan y se inspiran mutuamente.
+		</p>
+		<div class="mt-9">
+			<a
+				href="#sobre-nosotras"
+				class="inline-flex items-center gap-2 bg-snow text-blacky font-bold text-xl border border-blacky rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] px-5 py-3 hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
+			>
+				Sumate a la comunidad
+			</a>
+		</div>
+	</div>
 </section>

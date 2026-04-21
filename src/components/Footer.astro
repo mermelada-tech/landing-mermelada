@@ -1,87 +1,59 @@
 ---
-const currentYear = new Date().getFullYear();
-
-interface NavLink {
-	href: string;
-	label: string;
-}
-
 interface SocialLink {
+	name: string;
 	href: string;
-	label: string;
 }
 
-const navLinks: NavLink[] = [
-	{ href: "#sobre-nosotras", label: "Sobre Nosotras" },
-	{ href: "#mentorias", label: "Mentorías" },
-	{ href: "#testimonios", label: "Testimonios" },
-	{ href: "#colaboradoras", label: "Colaboradoras" },
-	{ href: "#faqs", label: "FAQs" },
-];
-
-const socialLinks: SocialLink[] = [
-	{ href: "https://discord.gg/mermelada", label: "Discord" },
-	{ href: "https://www.twitch.tv/mermelada", label: "Twitch" },
-	{ href: "https://www.youtube.com/@mermelada", label: "YouTube" },
-	{ href: "https://www.patreon.com/mermelada", label: "Patreon" },
+const socials: SocialLink[] = [
+	{ name: "linkedin", href: "https://linkedin.com/company/mermelada-tech" },
+	{ name: "twitter", href: "https://twitter.com/mermelada_tech" },
+	{ name: "github", href: "https://github.com/mermelada-tech" },
+	{ name: "youtube", href: "https://youtube.com/@mermeladatech" },
+	{ name: "twitch", href: "https://twitch.tv/mermelada_tech" },
 ];
 ---
 
-<footer class="bg-grape-dark dark:bg-dark-bg text-white py-16 px-6 transition-colors duration-200">
-	<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-		<!-- Brand column -->
-		<div class="space-y-4">
-			<img src="/logo-mermelada.svg" alt="Mermelada Tech" class="h-12 w-auto brightness-0 invert" />
-			<p class="text-light-purple dark:text-gray-400 leading-relaxed">
-				Comunidad de mujeres en tecnología.<br />
-				Aprendemos juntas, crecemos juntas.
-			</p>
-		</div>
-		<!-- Navigation column -->
-		<div>
-			<h3 class="font-bold text-yellow-sunflower mb-4 text-lg">Navegación</h3>
-			<ul class="space-y-2">
-				{navLinks.map((link) => (
-					<li>
-						<a href={link.href} class="text-light-purple dark:text-gray-400 hover:text-white transition-colors">
-							{link.label}
-						</a>
-					</li>
-				))}
-			</ul>
-		</div>
-		<!-- Social column -->
-		<div>
-			<h3 class="font-bold text-yellow-sunflower mb-4 text-lg">Síguenos</h3>
-			<ul class="space-y-2">
-				{socialLinks.map((link) => (
-					<li>
-						<a
-							href={link.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="text-light-purple dark:text-gray-400 hover:text-white transition-colors"
-						>
-							{link.label}
-						</a>
-					</li>
-				))}
-			</ul>
-		</div>
-	</div>
+<footer class="bg-snow dark:bg-dark-surface py-7 px-14 flex items-center gap-8 relative transition-colors duration-200">
+	<!-- Logo -->
+	<a href="/" class="flex-shrink-0">
+		<img
+			src="/logo-mermelada.svg"
+			alt="Mermelada Tech"
+			class="h-9 w-auto dark:brightness-0 dark:invert"
+		/>
+	</a>
 
-	<!-- Bottom bar -->
-	<div class="max-w-6xl mx-auto border-t border-light-purple dark:border-[#2d2d4e] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-		<p class="text-light-purple dark:text-gray-500 text-sm">
-			© {currentYear} Mermelada Tech. Todos los derechos reservados.
-		</p>
+	<!-- Social icons + CTA (right side) -->
+	<div class="ml-auto flex items-center gap-4">
+		<nav aria-label="Redes sociales" class="flex items-center gap-3.5">
+			{socials.map((s) => (
+				<a
+					href={s.href}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label={s.name}
+					class="opacity-80 hover:opacity-100 transition-opacity"
+				>
+					<img
+						src={`https://api.iconify.design/bi/${s.name}.svg?color=%23242424`}
+						width="22"
+						alt={s.name}
+						class="dark:brightness-0 dark:invert"
+					/>
+				</a>
+			))}
+		</nav>
+
 		<a
-			href="https://discord.gg/mermelada"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="bg-yellow-sunflower text-blacky border border-black rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.6)] px-6 py-2 font-semibold hover:scale-105 transition-transform"
+			href="#sobre-nosotras"
+			class="inline-flex items-center gap-2 bg-yellow-sunflower text-blacky font-bold text-sm border-[1.5px] border-blacky rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] px-4 py-[8px] hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
 		>
-			Únete a la comunidad
+			Sumate a la comunidad
 		</a>
 	</div>
+
+	<!-- Copyright — centered -->
+	<p class="absolute left-1/2 -translate-x-1/2 bottom-2.5 font-body text-sm text-ink-2 dark:text-gray-400 whitespace-nowrap">
+		© 2024 — Hecho con <span class="text-grape-dark dark:text-lilac">♥</span> y Astro
+	</p>
 </footer>

@@ -1,37 +1,114 @@
 ---
+interface Founder {
+	name: string;
+	role: string;
+	bio: string;
+	img: string;
+	linkedin: string;
+}
+
+const founders: Founder[] = [
+	{
+		name: "Nadia Ujovich",
+		role: "CEO and Founder",
+		bio: "Cofundadora de Mermelada Tech. Apasionada por crear espacios inclusivos donde las mujeres puedan crecer en tecnología y construir carrera con apoyo real.",
+		img: "/founder-nadia.jpg",
+		linkedin: "https://linkedin.com/in/nadiaujovich",
+	},
+	{
+		name: "Gisele Manzano",
+		role: "CEO and Founder",
+		bio: "Cofundadora de Mermelada Tech. Convencida de que la diversidad en tech no es un bonus, es la base. Trabaja para que más mujeres encuentren su lugar en la industria.",
+		img: "/founder-gisele.jpg",
+		linkedin: "https://linkedin.com/in/giselemanzano",
+	},
+];
+
+const collaboratorColors = [
+	"hsl(260,40%,70%)",
+	"hsl(280,40%,70%)",
+	"hsl(300,40%,70%)",
+	"hsl(320,40%,70%)",
+	"hsl(340,40%,70%)",
+];
 ---
 
-<section id="sobre-nosotras" class="py-20 px-6 bg-white dark:bg-dark-surface transition-colors duration-200">
-	<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-		<div class="space-y-6">
-			<h2 class="text-5xl font-bold text-grape-dark leading-tight">
-				Somos<br />Mermelada Tech
-			</h2>
-			<p class="text-blacky dark:text-gray-300 text-lg leading-relaxed">
-				Mermelada Tech es una comunidad creada por y para mujeres apasionadas por la tecnología.
-				Nuestro espacio nació con la misión de romper barreras, fomentar el aprendizaje colectivo
-				y construir redes de apoyo reales entre mujeres de todo el mundo hispanohablante.
+<section id="sobre-nosotras" class="py-20 px-[94px] bg-periwinkle dark:bg-dark-surface transition-colors duration-200">
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-[72px]">
+
+		<!-- Left: about + collaborators -->
+		<div id="colaboradoras">
+			<h2 class="text-grape-dark font-bold text-4xl mb-6">Colaboradores</h2>
+
+			<p class="text-ink-2 dark:text-gray-300 text-base leading-relaxed mb-4">
+				Mermelada tech es una comunidad de tecnología de habla hispana creada y pensada para el
+				crecimiento profesional de todas las mujeres que se quieran introducir en el mundo tech.
 			</p>
-			<p class="text-blacky dark:text-gray-300 text-lg leading-relaxed">
-				Desde sesiones en vivo en Twitch hasta proyectos colaborativos en GitHub, aquí encontrarás
-				compañeras que entienden tus retos y celebran tus logros.
+			<p class="text-ink-2 dark:text-gray-300 text-base leading-relaxed mb-4">
+				Desde septiembre de 2022 estamos generando espacios colaborativos, desarrollando
+				proyectos de código abierto y dando charlas con voceras mujeres.
 			</p>
-			<a
-				href="#mentorias"
-				class="inline-block bg-white dark:bg-dark-bg border border-black dark:border-[#2d2d4e] rounded-xs shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] px-6 py-3 font-semibold dark:text-white hover:scale-105 transition-transform"
-			>
-				Conoce nuestras mentorías
-			</a>
-		</div>
-		<div class="relative flex justify-center items-center min-h-[320px]">
-			<div
-				class="bg-[repeating-linear-gradient(transparent_0_58px,_rgba(255,255,255,0.8)_60px),repeating-linear-gradient(90deg,transparent_0_58px,_rgba(255,255,255,0.4)_60px),linear-gradient(135deg,_#61CEE2,_#B6C2E3,_#AB7BB7)] bg-[length:60px_60px,_60px_60px,_100%_100%] rounded-2xl border border-black dark:border-[#2d2d4e] shadow-[4px_6px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_6px_0_0_rgba(103,55,115,0.5)] p-12 flex items-center justify-center w-full"
-			>
-				<img src="/logo-mermelada.svg" alt="Mermelada Tech" class="w-56 h-auto" />
+			<p class="text-ink-2 dark:text-gray-300 text-base leading-relaxed">
+				Si querés saber más de nosotras te invitamos a que nos contactes por nuestras redes.
+			</p>
+
+			<!-- Placeholder collaborator avatars -->
+			<div class="flex gap-3 mt-8">
+				{collaboratorColors.map((color) => (
+					<div
+						class="w-16 h-16 rounded-full border border-blacky dark:border-light-purple flex-shrink-0"
+						style={`background: ${color};`}
+					/>
+				))}
 			</div>
-			<img src="/cross.svg" alt="" aria-hidden="true" class="absolute top-4 right-4 w-8 h-auto opacity-60 dark:opacity-30" />
-			<img src="/cross.svg" alt="" aria-hidden="true" class="absolute bottom-4 left-4 w-6 h-auto opacity-60 dark:opacity-30" />
-			<img src="/moon.svg" alt="" aria-hidden="true" class="absolute -bottom-4 -right-4 w-14 h-auto animate-wiggle dark:opacity-40" />
+
+			<div class="flex flex-wrap gap-4 mt-9">
+				<a
+					href="mailto:mermelada.tech@gmail.com"
+					class="inline-flex items-center gap-2 bg-snow dark:bg-dark-bg text-blacky dark:text-white font-bold text-base border-[1.5px] border-blacky dark:border-light-purple rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] dark:shadow-[4px_4px_0_0_#ab7bb7] px-4 py-[10px] hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
+				>
+					¡Quiero ser colaborador!
+				</a>
+				<a
+					href="#sobre-nosotras"
+					class="inline-flex items-center gap-2 bg-mint text-blacky font-bold text-base border-[1.5px] border-blacky rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] px-4 py-[10px] hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
+				>
+					Conocé a los colaboradores
+				</a>
+			</div>
+		</div>
+
+		<!-- Right: founder cards -->
+		<div class="flex flex-col gap-8">
+			{founders.map((f) => (
+				<article class="bg-snow dark:bg-dark-bg border border-[#e6f2f7] dark:border-[#2d2d4e] rounded-[45px] shadow-[0_4px_0_0_#ab7bb7] p-8 flex items-center gap-5 relative">
+					<img
+						src={f.img}
+						alt={f.name}
+						class="w-24 h-24 rounded-full object-cover object-center border-2 border-[#231f20] flex-shrink-0"
+					/>
+					<div class="flex-1 min-w-0">
+						<div class="font-bold text-xl text-grape-dark dark:text-lilac">{f.name}</div>
+						<div class="text-base text-ink-2 dark:text-gray-300 mt-1">{f.role}</div>
+						<hr class="border-0 border-t border-ink-2 dark:border-[#2d2d4e] my-4" />
+						<p class="text-sm text-ink-2 dark:text-gray-400 leading-snug">{f.bio}</p>
+					</div>
+					<a
+						href={f.linkedin}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={`LinkedIn de ${f.name}`}
+						class="absolute right-9 top-8 w-[34px] h-[34px] rounded-full bg-ink-2 flex items-center justify-center flex-shrink-0 hover:opacity-80 transition-opacity"
+					>
+						<img
+							src="https://api.iconify.design/bi/linkedin.svg?color=%23ab7bb7"
+							width="16"
+							alt=""
+							aria-hidden="true"
+						/>
+					</a>
+				</article>
+			))}
 		</div>
 	</div>
 </section>
