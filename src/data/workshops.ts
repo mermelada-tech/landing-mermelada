@@ -46,7 +46,7 @@ export const workshops: Workshop[] = [
 		duracion: "2 horas",
 		esGratis: false,
 		precioEUR: 45,
-		// stripePriceId: "price_xxx", // ← pegá acá el Price ID de Stripe (ver SETUP.md)
+		stripePriceId: "price_1TcOiqA69jSFK1Crv5zVG2U3",
 		queAprenderas: [
 			"Verdades sobre mujeres en open source (9.8% de contributors)",
 			"Búsqueda inteligente de proyectos",
