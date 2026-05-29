@@ -96,7 +96,7 @@ const calLink = import.meta.env.PUBLIC_CALCOM_LINK ?? "";
 			</p>
 			<div class="merme-card p-2 sm:p-4 overflow-hidden">
 				<div class="cal-embed-wrap min-h-[600px] h-[70vh]">
-					<CalEmbed calLink={calLink} client:visible />
+					<CalEmbed calLink={calLink} client:load />
 				</div>
 			</div>
 		</div>
