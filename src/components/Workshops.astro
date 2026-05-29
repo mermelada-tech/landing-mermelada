@@ -45,7 +45,23 @@ const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 						<p class="text-merme-purple font-semibold mt-1">{w.subtitulo}</p>
 
 						{w.colaboracion && (
-							<p class="text-sm font-medium text-merme-black/70 mt-2">{w.colaboracion}</p>
+							<p class="text-sm font-medium text-merme-black/70 mt-2">
+								{w.colaboracionUrl ? (
+									<>
+										En colaboración con{" "}
+										<a
+											href={w.colaboracionUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											class="underline hover:text-merme-purple transition-colors"
+										>
+											The Bridge
+										</a>
+									</>
+								) : (
+									w.colaboracion
+								)}
+							</p>
 						)}
 
 						<p class="text-merme-black/85 mt-3">{w.descripcion}</p>
@@ -70,6 +86,14 @@ const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 									data-titulo={w.titulo}
 								>
 									Anotarme a la lista de espera
+								</button>
+							) : !w.inscripcionAbierta ? (
+								<button
+									type="button"
+									disabled
+									class="merme-btn w-full opacity-50 cursor-not-allowed"
+								>
+									Próximamente
 								</button>
 							) : w.esGratis ? (
 								<a

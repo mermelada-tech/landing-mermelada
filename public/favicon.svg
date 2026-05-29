@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Mermelada Tech">
+    
+    <rect x="2.5" y="2.5" width="59" height="59" rx="12" fill="#F5C43E" stroke="#1B1B1B" stroke-width="3"></rect>
+
+    
+    <defs>
+        <clipPath id="jarBody">
+            <rect x="18" y="22" width="28" height="30" rx="6"></rect>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#jarBody)">
+        <path d="M16 37 q8 -6 16 0 t16 0 L48 54 L16 54 Z" fill="#673773"></path>
+    </g>
+
+    
+    <rect x="18" y="22" width="28" height="30" rx="6" fill="none" stroke="#642166" stroke-width="2.6"></rect>
+    
+    <path d="M21 27 q11 -4 22 0" fill="none" stroke="#642166" stroke-width="2.2" stroke-linecap="round"></path>
+    
+    <rect x="19" y="12" width="26" height="8.5" rx="3" fill="#FFFAFA" stroke="#642166" stroke-width="2.6"></rect>
+</svg>

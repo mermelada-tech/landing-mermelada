@@ -7,6 +7,8 @@ export interface Workshop {
 	formato: string; // "Virtual" | "Online" | "Presencial"
 	duracion: string;
 	colaboracion?: string;
+	colaboracionUrl?: string;
+	inscripcionAbierta: boolean;
 	esGratis: boolean;
 	precioEUR?: number;
 	/** Stripe Price ID (modo test). Pegalo desde el Dashboard — ver SETUP.md. */
@@ -28,6 +30,8 @@ export const workshops: Workshop[] = [
 		formato: "Virtual",
 		duracion: "2.5 horas",
 		colaboracion: "En colaboración con The Bridge",
+		colaboracionUrl: "https://thebridge.tech/",
+		inscripcionAbierta: false,
 		esGratis: true,
 		waitlistMode: true,
 		queAprenderas: [
@@ -47,6 +51,7 @@ export const workshops: Workshop[] = [
 		fecha: "Por definir",
 		formato: "Online",
 		duracion: "2 horas",
+		inscripcionAbierta: false,
 		esGratis: false,
 		precioEUR: 45,
 		stripePriceId: "price_1TcOiqA69jSFK1Crv5zVG2U3",
