@@ -1,0 +1,121 @@
+---
+import { workshops } from "../data/workshops";
+
+const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
+---
+
+<section id="workshops" class="py-20 px-6 bg-merme-purple scroll-mt-20 relative overflow-hidden">
+	<img
+		src="/moon.svg"
+		alt=""
+		aria-hidden="true"
+		class="absolute right-6 top-8 w-20 h-auto brightness-0 invert opacity-30 animate-wiggle [animation-duration:5s]"
+	/>
+
+	<div class="max-w-5xl mx-auto">
+		<div class="text-center text-white">
+			<span class="text-merme-sunflower font-semibold uppercase tracking-wide text-sm">Workshops</span>
+			<h2 class="text-4xl sm:text-5xl mt-2">Talleres prácticos, en vivo</h2>
+			<p class="text-white/85 text-lg mt-3 max-w-xl mx-auto">
+				Sesiones intensivas donde salís con algo hecho, no con apuntes para "después".
+			</p>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-6 mt-12">
+			{
+				workshops.map((w) => (
+					<article class="merme-card flex flex-col p-6">
+						<!-- Badge precio / gratis -->
+						<div class="flex items-center justify-between gap-3 mb-4">
+							{w.esGratis ? (
+								<span class="bg-merme-mint text-merme-black font-bold text-sm border-[1.5px] border-merme-black rounded-full px-3 py-1">
+									GRATIS
+								</span>
+							) : (
+								<span class="bg-merme-sunflower text-merme-black font-bold text-sm border-[1.5px] border-merme-black rounded-full px-3 py-1">
+									{w.precioEUR}€
+								</span>
+							)}
+							<span class="text-sm font-medium text-merme-black/70">
+								{w.formato} · {w.duracion}
+							</span>
+						</div>
+
+						<h3 class="text-merme-black text-2xl leading-tight">{w.titulo}</h3>
+						<p class="text-merme-purple font-semibold mt-1">{w.subtitulo}</p>
+
+						{w.colaboracion && (
+							<p class="text-sm font-medium text-merme-black/70 mt-2">{w.colaboracion}</p>
+						)}
+
+						<p class="text-merme-black/85 mt-3">{w.descripcion}</p>
+
+						<p class="text-sm font-semibold text-merme-black mt-4">📅 {w.fecha}</p>
+
+						<ul class="mt-4 space-y-2 text-merme-black/90 text-[15px] list-none">
+							{w.queAprenderas.map((item) => (
+								<li class="flex gap-2">
+									<span aria-hidden="true" class="text-merme-purple font-bold">→</span>
+									<span>{item}</span>
+								</li>
+							))}
+						</ul>
+
+						<div class="mt-6 pt-2">
+							{w.esGratis ? (
+								<a
+									href={DISCORD_URL}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="merme-btn w-full"
+								>
+									Anotate gratis
+								</a>
+							) : (
+								<button
+									type="button"
+									class="merme-btn w-full js-checkout"
+									data-slug={w.slug}
+								>
+									Anotate ({w.precioEUR}€)
+								</button>
+							)}
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<script>
+	// Paid workshops → create a Stripe Checkout session and redirect.
+	const buttons = document.querySelectorAll<HTMLButtonElement>(".js-checkout");
+	buttons.forEach((btn) => {
+		btn.addEventListener("click", async () => {
+			const slug = btn.dataset.slug;
+			if (!slug) return;
+			const original = btn.textContent;
+			btn.disabled = true;
+			btn.textContent = "Redirigiendo…";
+			try {
+				const res = await fetch("/api/checkout", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ slug }),
+				});
+				const data = (await res.json()) as { url?: string; error?: string };
+				if (data.url) {
+					window.location.href = data.url;
+					return;
+				}
+				throw new Error(data.error ?? "No se pudo iniciar el pago");
+			} catch (err) {
+				console.error(err);
+				alert("Ups, no pudimos abrir el pago. Probá de nuevo en un momento.");
+				btn.disabled = false;
+				btn.textContent = original;
+			}
+		});
+	});
+</script>

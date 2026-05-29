@@ -1,0 +1,89 @@
+---
+interface Social {
+	label: string;
+	href: string;
+	icon: string; // iconify name (bi/*)
+}
+
+const socials: Social[] = [
+	{
+		label: "LinkedIn",
+		href: "https://linkedin.com/in/nadiaujovich",
+		icon: "linkedin",
+	},
+	{
+		label: "Instagram",
+		href: "https://instagram.com/mermelada.techok",
+		icon: "instagram",
+	},
+	{ label: "Discord", href: "https://discord.gg/HFV4QXJKNh", icon: "discord" },
+];
+---
+
+<section id="sobre-mi" class="py-20 px-6 scroll-mt-20">
+	<div class="max-w-5xl mx-auto grid md:grid-cols-[minmax(0,320px)_1fr] gap-10 md:gap-14 items-start">
+		<!-- Foto -->
+		<div class="relative mx-auto md:mx-0 w-full max-w-[320px]">
+			<img
+				src="/founder-nadia.jpg"
+				alt="Nadia Ujovich, fundadora de Mermelada Tech"
+				width="320"
+				height="400"
+				loading="lazy"
+				class="merme-card w-full aspect-[4/5] object-cover p-0"
+			/>
+			<img
+				src="/cross.svg"
+				alt=""
+				aria-hidden="true"
+				class="absolute -top-4 -right-3 w-8 h-auto animate-wiggle [animation-duration:2.5s]"
+			/>
+		</div>
+
+		<!-- Texto -->
+		<div>
+			<span class="text-merme-purple font-semibold uppercase tracking-wide text-sm">Sobre mí</span>
+			<h2 class="text-merme-black text-4xl sm:text-5xl mt-2">Hola, soy Nai 👋</h2>
+
+			<div class="mt-6 space-y-4 text-merme-black/90 text-lg leading-relaxed">
+				<p>
+					Fundadora de <strong>Mermelada Tech</strong> y desarrolladora fullstack con más de
+					<strong>14 años de experiencia</strong> (TypeScript, Astro, Next.js, React, Node, Supabase).
+					Trabajé en empresas grandes y en producto.
+				</p>
+				<p>
+					Hoy dedico mi tiempo a ayudar a otras mujeres a crecer en tecnología sin perderse en el
+					camino. <strong>Doy los workshops y acompaño las mentorías personalmente</strong>: no es
+					contenido genérico, es lo que aprendí construyendo, equivocándome y volviendo a empezar.
+				</p>
+				<p>
+					Mi enfoque: claridad sobre la era de la IA, crecimiento sin burnout, y contribuir a open
+					source sin síndrome impostor.
+				</p>
+			</div>
+
+			<!-- Redes -->
+			<div class="flex flex-wrap gap-3 mt-8">
+				{
+					socials.map((s) => (
+						<a
+							href={s.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="merme-card inline-flex items-center gap-2 px-4 py-2 font-semibold text-merme-black hover:-translate-y-0.5 transition-transform"
+						>
+							<img
+								src={`https://api.iconify.design/bi/${s.icon}.svg?color=%23673773`}
+								width="20"
+								height="20"
+								alt=""
+								aria-hidden="true"
+							/>
+							{s.label}
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>

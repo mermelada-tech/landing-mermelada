@@ -1,39 +1,30 @@
 @import "tailwindcss";
 
-/* Class-based dark mode: dark: variants apply when an ancestor has class="dark" */
-@custom-variant dark (&:where(.dark, .dark *));
+/* ════════════════════════════════════════════════════════════
+   Mermelada Tech — Design System
+   Neo-brutalism juguetón + pixel-art 90s.
+   Bordes negros finos · sombras HARD-OFFSET (nunca blur).
+   ════════════════════════════════════════════════════════════ */
 
 @theme {
-	/* ── Brand purples ────────────────────────── */
-	--color-primary: #673773;
-	--color-grape-dark: #673773;
-	--color-grape-deep: #642166;
-	--color-lilac: #ab7bb7;
+	/* ── Brand tokens ─────────────────────────── */
+	--color-merme-purple: #673773; /* primario */
+	--color-merme-sunflower: #f5c43e; /* CTA / botones de acción */
+	--color-merme-paper: #e6f2f7; /* fondo */
+	--color-merme-black: #1b1b1b; /* texto y bordes */
+	--color-merme-mint: #87cdc5; /* acento (badge "gratis") */
+	--color-merme-sky: #61cee2; /* gradiente hero */
+	--color-merme-lilac: #b6c2e3; /* gradiente hero */
 
-	/* ── Warm / cool accents ──────────────────── */
-	--color-secondary: #1b1b1b;
-	--color-blacky: #1b1b1b;
-	--color-ink-2: #242424;
-	--color-ink-3: #343434;
+	/* ── Fonts ────────────────────────────────── */
+	--font-heading: "Archivo", system-ui, sans-serif;
+	--font-body: "Inter", system-ui, sans-serif;
 
-	--color-yellow-sunflower: #f5c43e;
-	--color-mint: #87cdc5;
-	--color-raspberry: #ed1568;
+	/* ── Hard-offset shadow tokens ────────────── */
+	--shadow-merme: 4px 4px 0 0 var(--color-merme-black);
+	--shadow-merme-lg: 6px 6px 0 0 var(--color-merme-black);
 
-	/* ── Sky / pastel gradient family ────────── */
-	--color-sky-soft: #61cee2;
-	--color-light-purple: #b6c2e3;
-	--color-periwinkle: #c9d5f6;
-
-	/* ── Surfaces ─────────────────────────────── */
-	--color-snow: #fffafa;
-	--color-paper: #e6f2f7;
-
-	/* ── Dark mode surfaces ───────────────────── */
-	--color-dark-bg: #0d0d17;
-	--color-dark-surface: #1a1a2e;
-
-	/* ── Wiggle animation ─────────────────────── */
+	/* ── Wiggle animation (decoraciones SVG) ──── */
 	--animate-wiggle: wiggle 1s ease-in-out infinite;
 
 	@keyframes wiggle {
@@ -45,4 +36,104 @@
 			transform: rotate(3deg);
 		}
 	}
+}
+
+/* ── Base ─────────────────────────────────────── */
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-body);
+	color: var(--color-merme-black);
+	background-color: var(--color-merme-paper);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-heading);
+	font-weight: 700;
+}
+
+/* Visible focus for accessibility */
+:where(a, button, input, [tabindex]):focus-visible {
+	outline: 3px solid var(--color-merme-purple);
+	outline-offset: 2px;
+}
+
+/* ════════════════════════════════════════════════════════════
+   Component classes (.merme-*)
+   ════════════════════════════════════════════════════════════ */
+
+/* Card: white surface, black border, hard shadow */
+.merme-card {
+	background-color: #fff;
+	border: 1.5px solid var(--color-merme-black);
+	border-radius: 10px;
+	box-shadow: var(--shadow-merme);
+}
+
+/* Button: sunflower, black border, hard shadow + "pressed" hover.
+   Always black text on sunflower (contrast). */
+.merme-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-family: var(--font-heading);
+	font-weight: 700;
+	color: var(--color-merme-black);
+	background-color: var(--color-merme-sunflower);
+	border: 1.5px solid var(--color-merme-black);
+	border-radius: 8px;
+	padding: 0.75rem 1.25rem;
+	box-shadow: var(--shadow-merme);
+	cursor: pointer;
+	transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.merme-btn:hover {
+	transform: translate(2px, 2px);
+	box-shadow: 2px 2px 0 0 var(--color-merme-black);
+}
+
+.merme-btn:active {
+	transform: translate(4px, 4px);
+	box-shadow: 0 0 0 0 var(--color-merme-black);
+}
+
+.merme-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+	box-shadow: var(--shadow-merme);
+}
+
+/* Secondary button: white surface variant */
+.merme-btn--ghost {
+	background-color: #fff;
+}
+
+/* Hero gradient: sky → lilac → purple */
+.merme-hero-gradient {
+	background: linear-gradient(
+		180deg,
+		var(--color-merme-sky) 0%,
+		#98cdcd 34%,
+		var(--color-merme-lilac) 66%,
+		var(--color-merme-purple) 100%
+	);
+}
+
+/* Pixel grid overlay */
+.merme-grid-overlay {
+	background-image: linear-gradient(
+			to right,
+			rgba(255, 255, 255, 0.16) 1px,
+			transparent 1px
+		),
+		linear-gradient(to bottom, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+	background-size: 32px 32px;
 }

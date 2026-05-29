@@ -9,7 +9,7 @@ interface Props {
 
 const {
 	title,
-	description = "Mermelada Tech — comunidad de mujeres en tecnología. Aprende, crece y conecta con otras mujeres apasionadas por la tecnología.",
+	description = "Mermelada Tech — workshops y mentorías 1:1 con Nai Ujovich para mujeres que crecen en tecnología.",
 } = Astro.props;
 ---
 
@@ -21,19 +21,18 @@ const {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+
+		<!-- Fonts: Archivo (headings) + Inter (body) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+
 		<title>{title}</title>
-		<!-- Prevent flash of wrong theme: apply dark class before CSS renders -->
-		<script is:inline>
-			(function () {
-				const stored = localStorage.getItem("theme");
-				const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-				if (stored === "dark" || (!stored && prefersDark)) {
-					document.documentElement.classList.add("dark");
-				}
-			})();
-		</script>
 	</head>
-	<body class="bg-white dark:bg-dark-bg dark:text-white transition-colors duration-200">
+	<body class="bg-merme-paper text-merme-black">
 		<NavBar />
 		<slot />
 	</body>

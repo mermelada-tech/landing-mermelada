@@ -1,0 +1,33 @@
+---
+import { getWorkshop } from "../../data/workshops";
+import Layout from "../../layouts/Layout.astro";
+
+const slug = Astro.url.searchParams.get("slug") ?? "";
+const workshop = getWorkshop(slug);
+const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
+---
+
+<Layout title="¡Gracias por anotarte! — Mermelada Tech">
+	<section class="min-h-[70vh] grid place-items-center px-6 py-20">
+		<div class="merme-card max-w-lg w-full p-8 sm:p-10 text-center">
+			<div class="text-5xl mb-4" aria-hidden="true">🎉</div>
+			<h1 class="text-merme-black text-3xl sm:text-4xl">¡Listo, quedaste anotada!</h1>
+
+			{workshop && (
+				<p class="text-merme-purple font-semibold text-lg mt-3">{workshop.titulo}</p>
+			)}
+
+			<p class="text-merme-black/85 mt-4">
+				Te mandamos los detalles por mail. Si no lo ves, revisá spam (o escribinos por Discord).
+				Nos vemos pronto. 💜
+			</p>
+
+			<div class="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+				<a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" class="merme-btn">
+					Sumate al Discord
+				</a>
+				<a href="/" class="merme-btn merme-btn--ghost">Volver al inicio</a>
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,13 +1,20 @@
 {
+	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "Bundler",
 		"strict": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"types": ["node"]
+		"types": ["node", "@astrojs/cloudflare"]
 	},
-	"include": ["src/**/*.ts", "src/**/*.astro"]
+	"include": [
+		".astro/types.d.ts",
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"src/**/*.astro"
+	]
 }

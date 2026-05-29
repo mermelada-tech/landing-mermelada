@@ -1,67 +1,60 @@
 ---
+// Brand hero: identidad Mermelada Tech + Nai como cara visible.
 ---
 
 <section
-	class="relative h-[704px] overflow-hidden bg-[linear-gradient(180deg,#61CEE2_0%,#98CDCD_36%,#B6C2E3_67%,#AB7BB7_95%)]"
+	class="merme-hero-gradient relative overflow-hidden border-b-[1.5px] border-merme-black"
 >
 	<!-- Pixel grid overlay -->
-	<div
-		class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.14)_1px,transparent_1px)] bg-[size:32px_32px]"
-		aria-hidden="true"
-	>
-	</div>
+	<div class="absolute inset-0 merme-grid-overlay" aria-hidden="true"></div>
 
-	<!-- Decorative SVGs (white filter against gradient) -->
+	<!-- Decorative SVGs -->
 	<img
 		src="/cloud.svg"
 		alt=""
 		aria-hidden="true"
-		class="absolute left-10 top-20 w-32 h-auto brightness-0 invert animate-wiggle"
+		class="absolute left-4 top-16 w-24 sm:w-32 h-auto brightness-0 invert opacity-90 animate-wiggle"
 	/>
 	<img
 		src="/cloud.svg"
 		alt=""
 		aria-hidden="true"
-		class="absolute right-20 top-28 w-44 h-auto brightness-0 invert animate-wiggle [animation-duration:4s]"
+		class="absolute right-6 top-24 w-28 sm:w-40 h-auto brightness-0 invert opacity-90 animate-wiggle [animation-duration:4s]"
 	/>
 	<img
 		src="/moon.svg"
 		alt=""
 		aria-hidden="true"
-		class="absolute right-16 top-[330px] w-36 h-auto brightness-0 invert animate-wiggle [animation-duration:5s]"
+		class="hidden sm:block absolute right-12 bottom-24 w-28 h-auto brightness-0 invert opacity-90 animate-wiggle [animation-duration:5s]"
 	/>
 	<img
 		src="/cross.svg"
 		alt=""
 		aria-hidden="true"
-		class="absolute left-[200px] top-16 w-6 h-auto brightness-0 invert animate-wiggle [animation-duration:2s]"
-	/>
-	<img
-		src="/cross.svg"
-		alt=""
-		aria-hidden="true"
-		class="absolute right-[250px] top-[450px] w-5 h-auto brightness-0 invert animate-wiggle [animation-duration:2.5s]"
+		class="absolute left-1/4 top-10 w-5 h-auto brightness-0 invert animate-wiggle [animation-duration:2s]"
 	/>
 
-	<!-- Content -->
-	<div class="relative max-w-3xl mx-auto pt-28 text-center px-6">
-		<h1 class="text-grape-dark font-bold text-7xl leading-none">
-			¿Te apasiona la tecnología?
+	<div
+		class="relative max-w-3xl mx-auto px-6 pt-20 pb-24 sm:pt-28 sm:pb-32 text-center"
+	>
+		<span
+			class="inline-block bg-white text-merme-black text-sm font-semibold border-[1.5px] border-merme-black rounded-full px-4 py-1 shadow-[var(--shadow-merme)]"
+		>
+			Comunidad de mujeres en tecnología
+		</span>
+
+		<h1 class="text-merme-purple text-5xl sm:text-6xl leading-[1.05] mt-6">
+			Crecé en tech<br />sin perderte en el camino
 		</h1>
-		<p class="text-grape-dark font-bold text-[26px] leading-tight mt-6">
-			Amplía tus habilidades técnicas y forma equipo con otras mujeres
+
+		<p class="text-merme-black/90 font-medium text-lg sm:text-xl mt-6 max-w-xl mx-auto">
+			Workshops y mentorías 1:1 con Nai Ujovich. Claridad sobre la era de la IA,
+			crecimiento sin burnout y open source sin síndrome impostor.
 		</p>
-		<p class="text-ink-2 text-lg leading-snug mt-5 max-w-lg mx-auto">
-			Te invitamos a unirte a nuestra comunidad y formar parte de un grupo de
-			mujeres que se apoyan y se inspiran mutuamente.
-		</p>
-		<div class="mt-9">
-			<a
-				href="#sobre-nosotras"
-				class="inline-flex items-center gap-2 bg-snow text-blacky font-bold text-xl border border-blacky rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] px-5 py-3 hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
-			>
-				Sumate a la comunidad
-			</a>
+
+		<div class="flex flex-col sm:flex-row gap-4 justify-center mt-9">
+			<a href="#workshops" class="merme-btn text-lg">Ver workshops</a>
+			<a href="#mentorias" class="merme-btn merme-btn--ghost text-lg">Reservá tu sesión</a>
 		</div>
 	</div>
 </section>

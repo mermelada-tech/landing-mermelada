@@ -1,0 +1,19 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "landing-mermelada",
+	"compatibility_date": "2025-05-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"main": "./dist/_worker.js/index.js",
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
+	}
+	// Secrets (no se versionan): cargalos con
+	//   wrangler secret put STRIPE_SECRET_KEY
+	//   wrangler secret put STRIPE_WEBHOOK_SECRET
+	// Variables públicas (PUBLIC_SITE_URL, PUBLIC_CALCOM_LINK) van como [vars]
+	// o en el dashboard del proyecto.
+	//
+	// Astro habilita sessions con Cloudflare KV. Si las usás, agregá:
+	// "kv_namespaces": [{ "binding": "SESSION", "id": "<tu-kv-id>" }]
+}

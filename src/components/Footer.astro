@@ -1,59 +1,60 @@
 ---
 interface SocialLink {
-	name: string;
+	label: string;
 	href: string;
+	icon: string; // iconify bi/*
 }
 
 const socials: SocialLink[] = [
-	{ name: "linkedin", href: "https://linkedin.com/company/mermelada-tech" },
-	{ name: "twitter", href: "https://twitter.com/mermelada_tech" },
-	{ name: "github", href: "https://github.com/mermelada-tech" },
-	{ name: "youtube", href: "https://youtube.com/@mermeladatech" },
-	{ name: "twitch", href: "https://twitch.tv/mermelada_tech" },
+	{
+		label: "LinkedIn",
+		href: "https://linkedin.com/in/nadiaujovich",
+		icon: "linkedin",
+	},
+	{
+		label: "Instagram",
+		href: "https://instagram.com/mermelada.techok",
+		icon: "instagram",
+	},
+	{ label: "Discord", href: "https://discord.gg/HFV4QXJKNh", icon: "discord" },
 ];
+
+const year = new Date().getFullYear();
 ---
 
-<footer class="bg-snow dark:bg-dark-surface py-7 px-14 flex items-center gap-8 relative transition-colors duration-200">
-	<!-- Logo -->
-	<a href="/" class="flex-shrink-0">
-		<img
-			src="/logo-mermelada.svg"
-			alt="Mermelada Tech"
-			class="h-9 w-auto dark:brightness-0 dark:invert"
-		/>
-	</a>
+<footer class="bg-merme-black text-white px-6 py-12">
+	<div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-8 md:justify-between">
+		<div>
+			<img src="/logo-mermelada.svg" alt="Mermelada Tech" class="h-10 w-auto brightness-0 invert" />
+			<p class="text-white/70 mt-3 max-w-sm">
+				Workshops y mentorías para mujeres que crecen en tecnología. Sumate a la comunidad.
+			</p>
+		</div>
 
-	<!-- Social icons + CTA (right side) -->
-	<div class="ml-auto flex items-center gap-4">
-		<nav aria-label="Redes sociales" class="flex items-center gap-3.5">
-			{socials.map((s) => (
-				<a
-					href={s.href}
-					target="_blank"
-					rel="noopener noreferrer"
-					aria-label={s.name}
-					class="opacity-80 hover:opacity-100 transition-opacity"
-				>
-					<img
-						src={`https://api.iconify.design/bi/${s.name}.svg?color=%23242424`}
-						width="22"
-						alt={s.name}
-						class="dark:brightness-0 dark:invert"
-					/>
-				</a>
-			))}
+		<nav aria-label="Redes y contacto" class="flex flex-col gap-3">
+			{
+				socials.map((s) => (
+					<a
+						href={s.href}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center gap-3 text-white/90 hover:text-merme-sunflower transition-colors font-medium"
+					>
+						<img
+							src={`https://api.iconify.design/bi/${s.icon}.svg?color=%23ffffff`}
+							width="20"
+							height="20"
+							alt=""
+							aria-hidden="true"
+						/>
+						{s.label}
+					</a>
+				))
+			}
 		</nav>
-
-		<a
-			href="#sobre-nosotras"
-			class="inline-flex items-center gap-2 bg-yellow-sunflower text-blacky font-bold text-sm border-[1.5px] border-blacky rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] px-4 py-[8px] hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
-		>
-			Sumate a la comunidad
-		</a>
 	</div>
 
-	<!-- Copyright — centered -->
-	<p class="absolute left-1/2 -translate-x-1/2 bottom-2.5 font-body text-sm text-ink-2 dark:text-gray-400 whitespace-nowrap">
-		© 2024 — Hecho con <span class="text-grape-dark dark:text-lilac">♥</span> y Astro
-	</p>
+	<div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-white/20 text-white/60 text-sm">
+		<p>© {year} Mermelada Tech — Hecho con ♥ y Astro</p>
+	</div>
 </footer>
