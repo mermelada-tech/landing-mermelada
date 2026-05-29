@@ -7,15 +7,19 @@ interface CalEmbedProps {
 }
 
 const TIME_ZONE = "Europe/Madrid";
+const NAMESPACE = "mentoria";
 
 export default function CalEmbed({ calLink }: CalEmbedProps) {
 	useEffect(() => {
 		(async () => {
-			const cal = await getCalApi();
+			// Namespace must match the <Cal namespace> prop below, otherwise the
+			// embed initializes a different instance and renders blank.
+			const cal = await getCalApi({ namespace: NAMESPACE });
 			cal("ui", {
 				// Keep it on-brand: light theme, no extra chrome.
 				theme: "light",
 				hideEventTypeDetails: false,
+				layout: "month_view",
 				cssVarsPerTheme: {
 					light: { "cal-brand": "#673773" },
 					dark: { "cal-brand": "#673773" },
@@ -34,9 +38,10 @@ export default function CalEmbed({ calLink }: CalEmbedProps) {
 
 	return (
 		<Cal
+			namespace={NAMESPACE}
 			calLink={calLink}
 			config={{ timeZone: TIME_ZONE, layout: "month_view" }}
-			style={{ width: "100%", height: "100%", overflow: "scroll" }}
+			style={{ width: "100%", height: "100%", minHeight: "600px", overflow: "scroll" }}
 		/>
 	);
 }

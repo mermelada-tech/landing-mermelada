@@ -95,10 +95,21 @@ const calLink = import.meta.env.PUBLIC_CALCOM_LINK ?? "";
 				20 minutos para ver si hay fit. Horario en <strong>Europe/Madrid</strong>.
 			</p>
 			<div class="merme-card p-2 sm:p-4 overflow-hidden">
-				<div class="min-h-[600px] h-[70vh]">
+				<div class="cal-embed-wrap min-h-[600px] h-[70vh]">
 					<CalEmbed calLink={calLink} client:visible />
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<style is:global>
+	/* Astro wraps the React island in <astro-island>, which is display:inline by
+	   default — that collapses the embed's height:100% to 0 (blank render).
+	   Force the wrapper chain to fill the sized container. */
+	.cal-embed-wrap > astro-island,
+	.cal-embed-wrap > astro-island > div {
+		display: block;
+		height: 100%;
+	}
+</style>
