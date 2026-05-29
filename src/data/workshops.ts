@@ -13,6 +13,8 @@ export interface Workshop {
 	stripePriceId?: string;
 	queAprenderas: string[];
 	cupoMaximo?: number;
+	/** Muestra "Anotarme a la lista de espera" en lugar del CTA normal. */
+	waitlistMode?: boolean;
 }
 
 export const workshops: Workshop[] = [
@@ -27,6 +29,7 @@ export const workshops: Workshop[] = [
 		duracion: "2.5 horas",
 		colaboracion: "En colaboración con The Bridge",
 		esGratis: true,
+		waitlistMode: true,
 		queAprenderas: [
 			"La realidad del mercado (datos reales, sin hype)",
 			"5 mitos desmontados sobre IA",
