@@ -36,7 +36,7 @@ export function getServerEnv(context: APIContext): ServerEnv {
 		SUPABASE_URL: read("SUPABASE_URL"),
 		SUPABASE_SERVICE_ROLE_KEY: read("SUPABASE_SERVICE_ROLE_KEY"),
 		RESEND_API_KEY: read("RESEND_API_KEY"),
-		RESEND_FROM_EMAIL: read("RESEND_FROM_EMAIL") || "Nai · Mermelada Tech <hola@mermelada.tech>",
+		RESEND_FROM_EMAIL: read("RESEND_FROM_EMAIL") || "Nai · Mermelada Tech <nai@mermeladatech.com>",
 		BLAST_SECRET: read("BLAST_SECRET"),
 	};
 }
