@@ -1,4 +1,6 @@
 ---
+import NewsletterForm from "./NewsletterForm.astro";
+
 interface SocialLink {
 	label: string;
 	href: string;
@@ -29,6 +31,10 @@ const year = new Date().getFullYear();
 			<p class="text-white/70 mt-3 max-w-sm">
 				Workshops y mentorías para mujeres que crecen en tecnología. Sumate a la comunidad.
 			</p>
+			<div class="mt-5 max-w-sm">
+				<p class="text-white font-semibold mb-2 text-sm">Sumate al newsletter</p>
+				<NewsletterForm variant="footer" />
+			</div>
 		</div>
 
 		<nav aria-label="Redes y contacto" class="flex flex-col gap-3">

@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
 import Mentorias from "../components/Mentorias.astro";
+import Newsletter from "../components/Newsletter.astro";
 import SobreMi from "../components/SobreMi.astro";
 import Workshops from "../components/Workshops.astro";
 import Layout from "../layouts/Layout.astro";
@@ -18,5 +19,6 @@ const jsonLd = [buildWebSiteSchema(Astro.site), buildPersonSchema(Astro.site)];
 	<SobreMi />
 	<Workshops />
 	<Mentorias />
+	<Newsletter />
 	<Footer />
 </Layout>

@@ -1,0 +1,16 @@
+---
+import NewsletterForm from "./NewsletterForm.astro";
+---
+
+<section id="newsletter" class="py-20 px-6 bg-merme-paper scroll-mt-20">
+	<div class="merme-card max-w-2xl mx-auto p-8 sm:p-10 text-center">
+		<span class="text-merme-purple font-semibold uppercase tracking-wide text-sm">Newsletter</span>
+		<h2 class="text-3xl sm:text-4xl mt-2 text-merme-black">No te pierdas nada</h2>
+		<p class="text-merme-black/80 text-lg mt-3 max-w-xl mx-auto">
+			Novedades, workshops y recursos para mujeres que crecen en tecnología. Directo a tu mail, sin spam.
+		</p>
+		<div class="mt-6 flex justify-center">
+			<NewsletterForm variant="section" />
+		</div>
+	</div>
+</section>
