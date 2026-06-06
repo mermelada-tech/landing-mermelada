@@ -1,0 +1,110 @@
+---
+import WaitlistModal from "../../components/WaitlistModal.astro";
+import { type Workshop, workshops } from "../../data/workshops";
+import Layout from "../../layouts/Layout.astro";
+import { buildEventSchema } from "../../lib/seo.ts";
+
+export function getStaticPaths() {
+	return workshops.map((w) => ({
+		params: { slug: w.slug },
+		props: { workshop: w },
+	}));
+}
+
+interface Props {
+	workshop: Workshop;
+}
+
+const { workshop: w } = Astro.props;
+const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
+
+const eventSchema = buildEventSchema(w, Astro.site);
+const description = `${w.subtitulo} ${w.descripcion}`.slice(0, 160);
+---
+
+<Layout
+	title={`${w.titulo} — Workshop · Mermelada Tech`}
+	description={description}
+	ogType="article"
+	ogImage={w.imagen ?? "/og-image.png"}
+	jsonLd={eventSchema ?? undefined}
+>
+	<main class="px-6 py-16 max-w-3xl mx-auto">
+		<a href="/#workshops" class="text-sm font-semibold text-merme-purple hover:underline">
+			← Volver a workshops
+		</a>
+
+		<div class="merme-card p-8 mt-6">
+			<div class="flex items-center justify-between gap-3 mb-4">
+				{w.esGratis ? (
+					<span class="bg-merme-mint text-merme-black font-bold text-sm border-[1.5px] border-merme-black rounded-full px-3 py-1">
+						GRATIS
+					</span>
+				) : (
+					<span class="bg-merme-sunflower text-merme-black font-bold text-sm border-[1.5px] border-merme-black rounded-full px-3 py-1">
+						{w.precioEUR}€
+					</span>
+				)}
+				<span class="text-sm font-medium text-merme-black/70">{w.formato} · {w.duracion}</span>
+			</div>
+
+			<h1 class="text-merme-black text-3xl sm:text-4xl leading-tight">{w.titulo}</h1>
+			<p class="text-merme-purple font-semibold text-lg mt-2">{w.subtitulo}</p>
+
+			{w.colaboracion && (
+				<p class="text-sm font-medium text-merme-black/70 mt-2">
+					{w.colaboracionUrl ? (
+						<>
+							En colaboración con{" "}
+							<a href={w.colaboracionUrl} target="_blank" rel="noopener noreferrer" class="underline hover:text-merme-purple">
+								The Bridge
+							</a>
+						</>
+					) : (
+						w.colaboracion
+					)}
+				</p>
+			)}
+
+			<p class="text-merme-black/85 mt-4 text-lg">{w.descripcion}</p>
+			<p class="text-sm font-semibold text-merme-black mt-4">📅 {w.fecha}</p>
+
+			<h2 class="text-xl mt-8 mb-3">Qué vas a aprender</h2>
+			<ul class="space-y-2 text-merme-black/90 list-none">
+				{w.queAprenderas.map((item) => (
+					<li class="flex gap-2">
+						<span aria-hidden="true" class="text-merme-purple font-bold">→</span>
+						<span>{item}</span>
+					</li>
+				))}
+			</ul>
+
+			<div class="mt-8">
+				{w.waitlistMode ? (
+					<button type="button" class="merme-btn w-full js-waitlist-open" data-slug={w.slug} data-titulo={w.titulo}>
+						Anotarme a la lista de espera
+					</button>
+				) : !w.inscripcionAbierta ? (
+					<button type="button" disabled class="merme-btn w-full opacity-50 cursor-not-allowed">
+						Próximamente
+					</button>
+				) : w.esGratis ? (
+					<a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" class="merme-btn w-full">
+						Anotate gratis
+					</a>
+				) : (
+					<button type="button" class="merme-btn w-full js-checkout" data-slug={w.slug}>
+						Anotate ({w.precioEUR}€)
+					</button>
+				)}
+			</div>
+		</div>
+	</main>
+
+	<WaitlistModal />
+</Layout>
+
+<script>
+	import { initCheckout } from "../../scripts/checkout.ts";
+	initCheckout();
+</script>
