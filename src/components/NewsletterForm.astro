@@ -12,6 +12,7 @@ const uid = isFooter ? "nl-footer" : "nl-section";
 <form
 	class:list={["js-newsletter-form", isFooter ? "flex flex-col sm:flex-row gap-2" : "flex flex-col gap-3 max-w-md"]}
 	data-uid={uid}
+	data-variant={variant}
 	novalidate
 >
 	<label for={`${uid}-email`} class="sr-only">Tu email</label>
@@ -41,12 +42,16 @@ const uid = isFooter ? "nl-footer" : "nl-section";
 		const hpInput = form.querySelector<HTMLInputElement>('input[name="hp"]')!;
 		const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
 		const msg = form.querySelector<HTMLElement>(".js-newsletter-msg")!;
+		const isFooter = form.dataset.variant === "footer";
 
 		function showMsg(text: string, ok: boolean) {
 			msg.textContent = text;
-			msg.classList.remove("hidden");
-			msg.classList.toggle("text-merme-purple", ok);
-			msg.classList.toggle("text-red-600", !ok);
+			msg.classList.remove("hidden", "text-merme-purple", "text-red-600", "text-merme-mint", "text-red-400");
+			if (ok) {
+				msg.classList.add(isFooter ? "text-merme-mint" : "text-merme-purple");
+			} else {
+				msg.classList.add(isFooter ? "text-red-400" : "text-red-600");
+			}
 		}
 
 		form.addEventListener("submit", async (e) => {
