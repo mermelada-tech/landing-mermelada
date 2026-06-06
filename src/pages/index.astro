@@ -5,9 +5,15 @@ import Mentorias from "../components/Mentorias.astro";
 import SobreMi from "../components/SobreMi.astro";
 import Workshops from "../components/Workshops.astro";
 import Layout from "../layouts/Layout.astro";
+import { buildPersonSchema, buildWebSiteSchema } from "../lib/seo.ts";
+
+const jsonLd = [buildWebSiteSchema(Astro.site), buildPersonSchema(Astro.site)];
 ---
 
-<Layout title="Mermelada Tech — Workshops y mentorías con Nai Ujovich">
+<Layout
+	title="Mermelada Tech — Workshops y mentorías con Nai Ujovich"
+	jsonLd={jsonLd}
+>
 	<Hero />
 	<SobreMi />
 	<Workshops />
