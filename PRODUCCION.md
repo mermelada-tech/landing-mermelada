@@ -105,3 +105,14 @@ con secrets reales). Usá un email de prueba propio:
       suscripta; decisión de privacidad anti-enumeración).
 - [ ] Honeypot: completar el campo oculto `hp` (vía devtools) y enviar → no se
       crea ninguna fila.
+
+---
+
+## Backlog de features
+
+- [x] **SEO** — meta tags, Open Graph, Twitter Card, sitemap.xml, robots.txt,
+      datos estructurados (schema.org Person + Event para workshops).
+      *Implementado en este branch.*
+- [x] **Newsletter** — alta de suscriptores (formulario en el sitio) y envío
+      de campañas vía Resend Broadcasts, con doble opt-in.
+      *Implementado en este branch.*
