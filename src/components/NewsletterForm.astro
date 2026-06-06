@@ -1,0 +1,83 @@
+---
+interface Props {
+	variant?: "section" | "footer";
+}
+const { variant = "section" } = Astro.props;
+const isFooter = variant === "footer";
+
+// id único por instancia para no chocar si hay 2 forms en la misma página.
+const uid = isFooter ? "nl-footer" : "nl-section";
+---
+
+<form
+	class:list={["js-newsletter-form", isFooter ? "flex flex-col sm:flex-row gap-2" : "flex flex-col gap-3 max-w-md"]}
+	data-uid={uid}
+	novalidate
+>
+	<label for={`${uid}-email`} class="sr-only">Tu email</label>
+	<input
+		id={`${uid}-email`}
+		type="email"
+		name="email"
+		required
+		autocomplete="email"
+		placeholder="vos@ejemplo.com"
+		class:list={[
+			"border-[1.5px] border-merme-black rounded px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-merme-purple/40",
+			isFooter ? "flex-1 text-merme-black" : "w-full text-merme-black",
+		]}
+	/>
+	<!-- Honeypot anti-bot: oculto para humanos. -->
+	<input type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
+	<button type="submit" class:list={["merme-btn", isFooter ? "" : "w-full"]}>
+		Suscribirme
+	</button>
+	<p class="js-newsletter-msg text-sm mt-1 hidden" role="status"></p>
+</form>
+
+<script>
+	document.querySelectorAll<HTMLFormElement>(".js-newsletter-form").forEach((form) => {
+		const emailInput = form.querySelector<HTMLInputElement>('input[name="email"]')!;
+		const hpInput = form.querySelector<HTMLInputElement>('input[name="hp"]')!;
+		const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+		const msg = form.querySelector<HTMLElement>(".js-newsletter-msg")!;
+
+		function showMsg(text: string, ok: boolean) {
+			msg.textContent = text;
+			msg.classList.remove("hidden");
+			msg.classList.toggle("text-merme-purple", ok);
+			msg.classList.toggle("text-red-600", !ok);
+		}
+
+		form.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			const email = emailInput.value.trim();
+			if (!email) {
+				showMsg("Ingresá tu email.", false);
+				return;
+			}
+			const original = submitBtn.textContent;
+			submitBtn.disabled = true;
+			submitBtn.textContent = "Enviando…";
+			try {
+				const res = await fetch("/api/newsletter/subscribe", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ email, hp: hpInput.value }),
+				});
+				const data = (await res.json()) as { ok?: boolean; error?: string };
+				if (data.ok) {
+					showMsg("Te mandamos un mail para confirmar tu suscripción 🍓", true);
+					form.reset();
+				} else {
+					showMsg(data.error ?? "No se pudo procesar. Intentá de nuevo.", false);
+				}
+			} catch {
+				showMsg("Error de conexión. Intentá de nuevo.", false);
+			} finally {
+				submitBtn.disabled = false;
+				submitBtn.textContent = original ?? "Suscribirme";
+			}
+		});
+	});
+</script>

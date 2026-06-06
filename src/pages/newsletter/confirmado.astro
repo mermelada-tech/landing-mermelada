@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const error = Astro.url.searchParams.get("error");
+const isError = error !== null;
+---
+
+<Layout title="Suscripción confirmada — Mermelada Tech" noindex>
+	<section class="min-h-[70vh] grid place-items-center px-6 py-20">
+		<div class="merme-card max-w-lg w-full p-8 sm:p-10 text-center">
+			{
+				isError ? (
+					<>
+						<div class="text-5xl mb-4" aria-hidden="true">🤔</div>
+						<h1 class="text-merme-black text-3xl sm:text-4xl">No pudimos confirmar</h1>
+						<p class="text-merme-black/85 mt-4">
+							El link no es válido o ya lo usaste. Probá suscribirte de nuevo desde la página principal.
+						</p>
+					</>
+				) : (
+					<>
+						<div class="text-5xl mb-4" aria-hidden="true">🍓</div>
+						<h1 class="text-merme-black text-3xl sm:text-4xl">¡Suscripción confirmada!</h1>
+						<p class="text-merme-black/85 mt-4">
+							Listo, ya estás en el newsletter de Mermelada Tech. Te vamos a escribir con novedades, workshops y recursos. 💜
+						</p>
+					</>
+				)
+			}
+			<div class="mt-8">
+				<a href="/" class="merme-btn">Volver al inicio</a>
+			</div>
+		</div>
+	</section>
+</Layout>
