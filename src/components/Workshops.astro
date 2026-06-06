@@ -1,5 +1,6 @@
 ---
 import { workshops } from "../data/workshops";
+import WaitlistModal from "./WaitlistModal.astro";
 
 const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 ---
@@ -25,7 +26,6 @@ const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 			{
 				workshops.map((w) => (
 					<article class="merme-card flex flex-col p-6">
-						<!-- Badge precio / gratis -->
 						<div class="flex items-center justify-between gap-3 mb-4">
 							{w.esGratis ? (
 								<span class="bg-merme-mint text-merme-black font-bold text-sm border-[1.5px] border-merme-black rounded-full px-3 py-1">
@@ -41,7 +41,11 @@ const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 							</span>
 						</div>
 
-						<h3 class="text-merme-black text-2xl leading-tight">{w.titulo}</h3>
+						<h3 class="text-merme-black text-2xl leading-tight">
+							<a href={`/workshops/${w.slug}`} class="hover:text-merme-purple transition-colors">
+								{w.titulo}
+							</a>
+						</h3>
 						<p class="text-merme-purple font-semibold mt-1">{w.subtitulo}</p>
 
 						{w.colaboracion && (
@@ -77,7 +81,7 @@ const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 							))}
 						</ul>
 
-						<div class="mt-6 pt-2">
+						<div class="mt-6 pt-2 flex flex-col gap-2">
 							{w.waitlistMode ? (
 								<button
 									type="button"
@@ -88,31 +92,21 @@ const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 									Anotarme a la lista de espera
 								</button>
 							) : !w.inscripcionAbierta ? (
-								<button
-									type="button"
-									disabled
-									class="merme-btn w-full opacity-50 cursor-not-allowed"
-								>
+								<button type="button" disabled class="merme-btn w-full opacity-50 cursor-not-allowed">
 									Próximamente
 								</button>
 							) : w.esGratis ? (
-								<a
-									href={DISCORD_URL}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="merme-btn w-full"
-								>
+								<a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" class="merme-btn w-full">
 									Anotate gratis
 								</a>
 							) : (
-								<button
-									type="button"
-									class="merme-btn w-full js-checkout"
-									data-slug={w.slug}
-								>
+								<button type="button" class="merme-btn w-full js-checkout" data-slug={w.slug}>
 									Anotate ({w.precioEUR}€)
 								</button>
 							)}
+							<a href={`/workshops/${w.slug}`} class="text-center text-sm font-semibold text-merme-purple hover:underline">
+								Ver detalle →
+							</a>
 						</div>
 					</article>
 				))
@@ -121,184 +115,9 @@ const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 	</div>
 </section>
 
-<!-- Modal lista de espera -->
-<div
-	id="waitlist-modal"
-	role="dialog"
-	aria-modal="true"
-	aria-labelledby="waitlist-modal-title"
-	class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-merme-black/60"
->
-	<div class="merme-card w-full max-w-md p-8 relative">
-		<button
-			type="button"
-			id="waitlist-modal-close"
-			class="absolute top-4 right-4 text-merme-black/60 hover:text-merme-black text-2xl leading-none"
-			aria-label="Cerrar"
-		>
-			&times;
-		</button>
-
-		<!-- Estado: formulario -->
-		<div id="waitlist-form-wrap">
-			<h2 id="waitlist-modal-title" class="text-xl font-bold text-merme-black mb-1">
-				Anotarme a la lista de espera
-			</h2>
-			<p class="text-merme-black/75 text-sm mb-6">
-				Te escribimos cuando el workshop esté confirmado para que puedas anotarte directo desde The Bridge.
-			</p>
-			<form id="waitlist-form" novalidate>
-				<label for="waitlist-email" class="block text-sm font-semibold text-merme-black mb-1">
-					Tu email
-				</label>
-				<input
-					id="waitlist-email"
-					type="email"
-					name="email"
-					required
-					autocomplete="email"
-					placeholder="vos@ejemplo.com"
-					class="w-full border-[1.5px] border-merme-black rounded px-4 py-2.5 text-merme-black placeholder:text-merme-black/40 focus:outline-none focus:ring-2 focus:ring-merme-purple/40 mb-4"
-				/>
-				<p id="waitlist-error" class="text-red-600 text-sm mb-3 hidden"></p>
-				<button type="submit" id="waitlist-submit" class="merme-btn w-full">
-					Anotarme
-				</button>
-			</form>
-		</div>
-
-		<!-- Estado: éxito -->
-		<div id="waitlist-success" class="hidden text-center py-4">
-			<p class="text-4xl mb-4">🍓</p>
-			<h2 class="text-xl font-bold text-merme-black mb-2">¡Listo, te anotamos!</h2>
-			<p class="text-merme-black/75 text-sm">
-				Cuando el workshop se confirme te mandamos un mail con el link para inscribirte desde The Bridge.
-			</p>
-		</div>
-	</div>
-</div>
+<WaitlistModal />
 
 <script>
-	// ── Waitlist modal ────────────────────────────────────────────────────────
-	const modal = document.getElementById("waitlist-modal")!;
-	const formWrap = document.getElementById("waitlist-form-wrap")!;
-	const successWrap = document.getElementById("waitlist-success")!;
-	const form = document.getElementById("waitlist-form") as HTMLFormElement;
-	const emailInput = document.getElementById("waitlist-email") as HTMLInputElement;
-	const submitBtn = document.getElementById("waitlist-submit") as HTMLButtonElement;
-	const errorEl = document.getElementById("waitlist-error")!;
-	const closeBtn = document.getElementById("waitlist-modal-close")!;
-
-	let currentSlug = "";
-
-	function openModal(slug: string) {
-		currentSlug = slug;
-		formWrap.classList.remove("hidden");
-		successWrap.classList.add("hidden");
-		form.reset();
-		hideError();
-		modal.classList.remove("hidden");
-		modal.classList.add("flex");
-		emailInput.focus();
-	}
-
-	function closeModal() {
-		modal.classList.add("hidden");
-		modal.classList.remove("flex");
-	}
-
-	function showError(msg: string) {
-		errorEl.textContent = msg;
-		errorEl.classList.remove("hidden");
-	}
-
-	function hideError() {
-		errorEl.classList.add("hidden");
-	}
-
-	// Abrir modal al clic en cualquier botón de waitlist
-	document.querySelectorAll<HTMLButtonElement>(".js-waitlist-open").forEach((btn) => {
-		btn.addEventListener("click", () => openModal(btn.dataset.slug ?? ""));
-	});
-
-	// Cerrar con botón ×
-	closeBtn.addEventListener("click", closeModal);
-
-	// Cerrar al hacer clic en el fondo
-	modal.addEventListener("click", (e) => {
-		if (e.target === modal) closeModal();
-	});
-
-	// Cerrar con Escape
-	document.addEventListener("keydown", (e) => {
-		if (e.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
-	});
-
-	// Submit
-	form.addEventListener("submit", async (e) => {
-		e.preventDefault();
-		hideError();
-
-		const email = emailInput.value.trim();
-		if (!email) {
-			showError("Ingresá tu email.");
-			emailInput.focus();
-			return;
-		}
-
-		const originalText = submitBtn.textContent;
-		submitBtn.disabled = true;
-		submitBtn.textContent = "Enviando…";
-
-		try {
-			const res = await fetch("/api/waitlist", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ email, slug: currentSlug }),
-			});
-			const data = (await res.json()) as { ok?: boolean; alreadyRegistered?: boolean; error?: string };
-
-			if (data.ok) {
-				formWrap.classList.add("hidden");
-				successWrap.classList.remove("hidden");
-				return;
-			}
-			showError(data.error ?? "No se pudo guardar. Intentá de nuevo.");
-		} catch {
-			showError("Error de conexión. Intentá de nuevo.");
-		} finally {
-			submitBtn.disabled = false;
-			submitBtn.textContent = originalText ?? "Anotarme";
-		}
-	});
-
-	// ── Checkout Stripe ───────────────────────────────────────────────────────
-	const checkoutButtons = document.querySelectorAll<HTMLButtonElement>(".js-checkout");
-	checkoutButtons.forEach((btn) => {
-		btn.addEventListener("click", async () => {
-			const slug = btn.dataset.slug;
-			if (!slug) return;
-			const original = btn.textContent;
-			btn.disabled = true;
-			btn.textContent = "Redirigiendo…";
-			try {
-				const res = await fetch("/api/checkout", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ slug }),
-				});
-				const data = (await res.json()) as { url?: string; error?: string };
-				if (data.url) {
-					window.location.href = data.url;
-					return;
-				}
-				throw new Error(data.error ?? "No se pudo iniciar el pago");
-			} catch (err) {
-				console.error(err);
-				alert("Ups, no pudimos abrir el pago. Probá de nuevo en un momento.");
-				btn.disabled = false;
-				btn.textContent = original;
-			}
-		});
-	});
+	import { initCheckout } from "../scripts/checkout.ts";
+	initCheckout();
 </script>
