@@ -71,3 +71,13 @@ Estas NO son de deploy, son acciones puntuales a ejecutar cuando corresponda:
       ```sql
       delete from public.waitlist where workshop_slug = 'manual-supervivencia-ia';
       ```
+
+---
+
+## Backlog de features pendientes
+
+- [ ] **SEO** — meta tags, Open Graph, Twitter Card, sitemap.xml, robots.txt,
+      datos estructurados (schema.org Person + Event para workshops).
+- [ ] **Newsletter** — alta de suscriptores (formulario en el sitio) y envío
+      de campañas. Evaluar integrar Resend Broadcasts o una herramienta
+      dedicada (Buttondown, ConvertKit, etc.).
