@@ -2,10 +2,9 @@ export const prerender = false;
 
 import type { APIRoute } from "astro";
 import { workshops } from "../../data/workshops";
+import { EMAIL_RE } from "../../lib/constants.ts";
 import { getServerEnv } from "../../lib/env";
 import { getSupabaseAdmin } from "../../lib/supabase";
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export const POST: APIRoute = async (context) => {
 	const env = getServerEnv(context);

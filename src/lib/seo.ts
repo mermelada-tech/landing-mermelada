@@ -1,4 +1,5 @@
 import type { Workshop } from "../data/workshops";
+import { DISCORD_URL } from "./constants.ts";
 
 /** Datos canónicos del sitio reutilizados en meta tags y JSON-LD. */
 export const SITE = {
@@ -11,7 +12,7 @@ export const SITE = {
 const SAME_AS = [
 	"https://linkedin.com/in/nadiaujovich",
 	"https://instagram.com/mermelada.techok",
-	"https://discord.gg/HFV4QXJKNh",
+	DISCORD_URL,
 ];
 
 /** Construye una URL absoluta a partir de un path y el `site` configurado. */

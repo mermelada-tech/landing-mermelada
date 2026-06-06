@@ -1,5 +1,8 @@
 import type { Resend } from "resend";
 
+/** Tabla de Supabase para suscriptoras del newsletter (doble opt-in). */
+export const NEWSLETTER_TABLE = "newsletter_subscribers";
+
 /** Token de confirmación opaco para el doble opt-in. */
 export function generateToken(): string {
 	return crypto.randomUUID();

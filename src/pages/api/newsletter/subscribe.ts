@@ -4,12 +4,13 @@ import { render } from "@react-email/components";
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 import { NewsletterConfirm } from "../../../emails/NewsletterConfirm";
+import { EMAIL_RE } from "../../../lib/constants.ts";
 import { getServerEnv } from "../../../lib/env";
-import { generateToken } from "../../../lib/newsletter";
+import {
+	NEWSLETTER_TABLE as TABLE,
+	generateToken,
+} from "../../../lib/newsletter";
 import { getSupabaseAdmin } from "../../../lib/supabase";
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const TABLE = "newsletter_subscribers";
 
 export const POST: APIRoute = async (context) => {
 	const env = getServerEnv(context);

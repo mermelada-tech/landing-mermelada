@@ -3,10 +3,11 @@ export const prerender = false;
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
 import { getServerEnv } from "../../../lib/env";
-import { addContactToAudience } from "../../../lib/newsletter";
+import {
+	NEWSLETTER_TABLE as TABLE,
+	addContactToAudience,
+} from "../../../lib/newsletter";
 import { getSupabaseAdmin } from "../../../lib/supabase";
-
-const TABLE = "newsletter_subscribers";
 
 export const GET: APIRoute = async (context) => {
 	const env = getServerEnv(context);
