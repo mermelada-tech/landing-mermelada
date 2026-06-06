@@ -17,6 +17,10 @@ export interface Workshop {
 	cupoMaximo?: number;
 	/** Muestra "Anotarme a la lista de espera" en lugar del CTA normal. */
 	waitlistMode?: boolean;
+	/** Fecha en ISO 8601 (ej. "2026-06-18T18:00:00-03:00"). Habilita Event schema. */
+	fechaISO?: string;
+	/** Imagen OG específica del workshop (path en /public). Default: /og-image.png */
+	imagen?: string;
 }
 
 export const workshops: Workshop[] = [
@@ -27,6 +31,7 @@ export const workshops: Workshop[] = [
 		descripcion:
 			"Una mirada honesta a cómo está cambiando el trabajo dev con la IA y cómo posicionarte sin que el ruido te paralice.",
 		fecha: "18 de junio",
+		fechaISO: "2026-06-18T18:00:00-03:00",
 		formato: "Virtual",
 		duracion: "2.5 horas",
 		colaboracion: "En colaboración con The Bridge",
