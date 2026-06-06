@@ -3,7 +3,7 @@
 // Engancha cualquier botón con la clase `.js-checkout` y `data-slug`.
 export function initCheckout(): void {
 	const buttons = document.querySelectorAll<HTMLButtonElement>(".js-checkout");
-	buttons.forEach((btn) => {
+	for (const btn of buttons) {
 		btn.addEventListener("click", async () => {
 			const slug = btn.dataset.slug;
 			if (!slug) return;
@@ -29,5 +29,5 @@ export function initCheckout(): void {
 				btn.textContent = original;
 			}
 		});
-	});
+	}
 }
