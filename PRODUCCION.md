@@ -28,6 +28,22 @@ Marcá cada ítem al completarlo.
   - [ ] `npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY`
         (Settings → API → service_role — NUNCA en el cliente)
 
+## 2b. Supabase — tabla `newsletter_subscribers` (newsletter)
+
+- [ ] Crear la tabla con doble opt-in (RLS on, acceso solo service_role):
+      ```sql
+      create table if not exists public.newsletter_subscribers (
+        id           uuid primary key default gen_random_uuid(),
+        email        text not null unique,
+        status       text not null default 'pending'
+                     check (status in ('pending','confirmed','unsubscribed')),
+        token        text,
+        created_at   timestamptz not null default now(),
+        confirmed_at timestamptz
+      );
+      alter table public.newsletter_subscribers enable row level security;
+      ```
+
 ## 3. Resend (emails de la waitlist)
 
 - [ ] Dominio `mermeladatech.com` verificado en Resend. **HECHO.**
@@ -36,6 +52,8 @@ Marcá cada ítem al completarlo.
   - [ ] `npx wrangler secret put RESEND_FROM_EMAIL`
         (`Nai de Mermelada Tech <nai@mermeladatech.com>` — solo ASCII en el nombre)
   - [ ] `npx wrangler secret put BLAST_SECRET` (generar con `openssl rand -hex 32`)
+  - [ ] `npx wrangler secret put RESEND_AUDIENCE_ID` (crear antes el Audience
+        en Resend → Audiences; es el destino de los Broadcasts del newsletter)
 
 ## 4. Cal.com (mentorías)
 
@@ -71,3 +89,19 @@ Estas NO son de deploy, son acciones puntuales a ejecutar cuando corresponda:
       ```sql
       delete from public.waitlist where workshop_slug = 'manual-supervivencia-ia';
       ```
+
+## QA manual del newsletter (doble opt-in) — post-deploy
+
+Checklist para correr a mano una vez que el sitio está en producción (o en dev
+con secrets reales). Usá un email de prueba propio:
+
+- [ ] Suscribirse desde la sección Newsletter → aparece una fila `pending` con
+      `token` seteado en `newsletter_subscribers`.
+- [ ] Llega el mail de confirmación (Resend) → al clickear el botón, redirige a
+      `/newsletter/confirmado` y la fila pasa a `confirmed` (`confirmed_at`
+      seteado, `token` null).
+- [ ] El contacto aparece en el Audience de Resend.
+- [ ] Reintento con el mismo email → respuesta genérica (no revela si ya estaba
+      suscripta; decisión de privacidad anti-enumeración).
+- [ ] Honeypot: completar el campo oculto `hp` (vía devtools) y enviar → no se
+      crea ninguna fila.
