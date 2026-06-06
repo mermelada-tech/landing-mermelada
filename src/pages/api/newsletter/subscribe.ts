@@ -41,7 +41,10 @@ export const POST: APIRoute = async (context) => {
 	}
 
 	const cleanEmail = email.toLowerCase().trim();
-	const supabase = getSupabaseAdmin(env.SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
+	const supabase = getSupabaseAdmin(
+		env.SUPABASE_URL,
+		env.SUPABASE_SERVICE_ROLE_KEY,
+	);
 
 	// ¿Ya existe?
 	const { data: existing } = await supabase

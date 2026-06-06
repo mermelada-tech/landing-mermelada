@@ -25,14 +25,17 @@ const COLOR = {
 	muted: "#666666",
 } as const;
 
-const FONT_HEADING = "'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+const FONT_HEADING =
+	"'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 const FONT_BODY = "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 export function NewsletterConfirm({ confirmUrl }: NewsletterConfirmProps) {
 	return (
 		<Html lang="es">
 			<Head />
-			<Preview>Confirmá tu suscripción al newsletter de Mermelada Tech 🍓</Preview>
+			<Preview>
+				Confirmá tu suscripción al newsletter de Mermelada Tech 🍓
+			</Preview>
 			<Body style={body}>
 				<Container style={card}>
 					<Text style={emoji}>🍓</Text>
@@ -40,8 +43,8 @@ export function NewsletterConfirm({ confirmUrl }: NewsletterConfirmProps) {
 
 					<Text style={paragraph}>¡Hola!</Text>
 					<Text style={paragraph}>
-						Gracias por sumarte al newsletter de Mermelada Tech. Solo falta un paso:
-						confirmá que este es tu email tocando el botón.
+						Gracias por sumarte al newsletter de Mermelada Tech. Solo falta un
+						paso: confirmá que este es tu email tocando el botón.
 					</Text>
 
 					<Section style={buttonWrap}>
@@ -61,7 +64,8 @@ export function NewsletterConfirm({ confirmUrl }: NewsletterConfirmProps) {
 							mermeladatech.com
 						</Link>
 						<br />
-						Recibís este mail porque alguien usó esta dirección para suscribirse.
+						Recibís este mail porque alguien usó esta dirección para
+						suscribirse.
 					</Text>
 				</Container>
 			</Body>
@@ -123,7 +127,10 @@ const button: React.CSSProperties = {
 	display: "inline-block",
 };
 
-const hr: React.CSSProperties = { borderColor: "#e5e5e5", margin: "32px 0 20px" };
+const hr: React.CSSProperties = {
+	borderColor: "#e5e5e5",
+	margin: "32px 0 20px",
+};
 
 const footer: React.CSSProperties = {
 	fontSize: "13px",
@@ -138,5 +145,6 @@ const footerLink: React.CSSProperties = {
 };
 
 NewsletterConfirm.PreviewProps = {
-	confirmUrl: "https://mermeladatech.com/api/newsletter/confirm?token=demo-token",
+	confirmUrl:
+		"https://mermeladatech.com/api/newsletter/confirm?token=demo-token",
 } satisfies NewsletterConfirmProps;

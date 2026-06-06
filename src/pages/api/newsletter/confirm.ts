@@ -24,7 +24,10 @@ export const GET: APIRoute = async (context) => {
 		return context.redirect(dest("server"), 302);
 	}
 
-	const supabase = getSupabaseAdmin(env.SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
+	const supabase = getSupabaseAdmin(
+		env.SUPABASE_URL,
+		env.SUPABASE_SERVICE_ROLE_KEY,
+	);
 
 	const { data: row } = await supabase
 		.from(TABLE)
@@ -37,7 +40,11 @@ export const GET: APIRoute = async (context) => {
 	// Marcar confirmado (idempotente) y limpiar el token.
 	const { error: updErr } = await supabase
 		.from(TABLE)
-		.update({ status: "confirmed", confirmed_at: new Date().toISOString(), token: null })
+		.update({
+			status: "confirmed",
+			confirmed_at: new Date().toISOString(),
+			token: null,
+		})
 		.eq("token", token);
 
 	if (updErr) {
