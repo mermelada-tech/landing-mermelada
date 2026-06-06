@@ -29,14 +29,17 @@ const COLOR = {
 	muted: "#666666",
 } as const;
 
-const FONT_HEADING = "'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif";
+const FONT_HEADING =
+	"'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 const FONT_BODY = "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif";
 
 export function WaitlistBlast({ titulo, bridgeUrl }: WaitlistBlastProps) {
 	return (
 		<Html lang="es">
 			<Head />
-			<Preview>¡El workshop "{titulo}" está confirmado! Anotate desde The Bridge.</Preview>
+			<Preview>
+				¡El workshop "{titulo}" está confirmado! Anotate desde The Bridge.
+			</Preview>
 			<Body style={body}>
 				<Container style={card}>
 					<Text style={emoji}>🍓</Text>
@@ -48,7 +51,8 @@ export function WaitlistBlast({ titulo, bridgeUrl }: WaitlistBlastProps) {
 						<strong>"{titulo}"</strong>.
 					</Text>
 					<Text style={paragraph}>
-						¡Buenas noticias! Ya está confirmado. Podés anotarte desde la página de The Bridge:
+						¡Buenas noticias! Ya está confirmado. Podés anotarte desde la página
+						de The Bridge:
 					</Text>
 
 					<Section style={buttonWrap}>

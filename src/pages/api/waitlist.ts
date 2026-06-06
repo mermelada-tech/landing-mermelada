@@ -1,9 +1,9 @@
 export const prerender = false;
 
 import type { APIRoute } from "astro";
+import { workshops } from "../../data/workshops";
 import { getServerEnv } from "../../lib/env";
 import { getSupabaseAdmin } from "../../lib/supabase";
-import { workshops } from "../../data/workshops";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -30,7 +30,10 @@ export const POST: APIRoute = async (context) => {
 		return json({ error: "Servicio no disponible" }, 503);
 	}
 
-	const supabase = getSupabaseAdmin(env.SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
+	const supabase = getSupabaseAdmin(
+		env.SUPABASE_URL,
+		env.SUPABASE_SERVICE_ROLE_KEY,
+	);
 	const { error } = await supabase
 		.from("waitlist")
 		.insert({ email: email.toLowerCase().trim(), workshop_slug: slug });

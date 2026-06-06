@@ -29,7 +29,9 @@ export default defineConfig({
 		react(),
 		sitemap({
 			filter: (page) =>
-				!NOINDEX_PATHS.some((p) => new URL(page).pathname.replace(/\/$/, "") === p),
+				!NOINDEX_PATHS.some(
+					(p) => new URL(page).pathname.replace(/\/$/, "") === p,
+				),
 		}),
 	],
 

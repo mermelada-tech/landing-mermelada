@@ -41,7 +41,12 @@ export default function CalEmbed({ calLink }: CalEmbedProps) {
 			namespace={NAMESPACE}
 			calLink={calLink}
 			config={{ timeZone: TIME_ZONE, layout: "month_view" }}
-			style={{ width: "100%", height: "100%", minHeight: "600px", overflow: "scroll" }}
+			style={{
+				width: "100%",
+				height: "100%",
+				minHeight: "600px",
+				overflow: "scroll",
+			}}
 		/>
 	);
 }

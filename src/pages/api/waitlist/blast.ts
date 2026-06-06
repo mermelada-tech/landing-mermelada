@@ -1,12 +1,12 @@
 export const prerender = false;
 
-import type { APIRoute } from "astro";
 import { render } from "@react-email/components";
+import type { APIRoute } from "astro";
 import { Resend } from "resend";
-import { getServerEnv } from "../../../lib/env";
-import { getSupabaseAdmin } from "../../../lib/supabase";
 import { workshops } from "../../../data/workshops";
 import { WaitlistBlast } from "../../../emails/WaitlistBlast";
+import { getServerEnv } from "../../../lib/env";
+import { getSupabaseAdmin } from "../../../lib/supabase";
 
 export const POST: APIRoute = async (context) => {
 	const env = getServerEnv(context);
@@ -24,7 +24,11 @@ export const POST: APIRoute = async (context) => {
 		return json({ error: "No autorizado" }, 401);
 	}
 
-	if (typeof slug !== "string" || typeof bridge_url !== "string" || !bridge_url.startsWith("https://")) {
+	if (
+		typeof slug !== "string" ||
+		typeof bridge_url !== "string" ||
+		!bridge_url.startsWith("https://")
+	) {
 		return json({ error: "slug y bridge_url (https) requeridos" }, 400);
 	}
 
@@ -33,7 +37,10 @@ export const POST: APIRoute = async (context) => {
 		return json({ error: "Workshop desconocido" }, 400);
 	}
 
-	const supabase = getSupabaseAdmin(env.SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY);
+	const supabase = getSupabaseAdmin(
+		env.SUPABASE_URL,
+		env.SUPABASE_SERVICE_ROLE_KEY,
+	);
 	const { data: rows, error: dbError } = await supabase
 		.from("waitlist")
 		.select("email")
