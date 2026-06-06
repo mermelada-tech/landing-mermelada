@@ -73,7 +73,7 @@ const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
 		{
 			jsonLdItems.map((item) => (
-				<script type="application/ld+json" set:html={JSON.stringify(item)} />
+				<script is:inline type="application/ld+json" set:html={JSON.stringify(item).replace(/</g, "\\u003c")} />
 			))
 		}
 	</head>
