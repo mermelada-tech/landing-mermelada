@@ -18,6 +18,7 @@ export interface ServerEnv {
 	RESEND_API_KEY: string;
 	RESEND_FROM_EMAIL: string;
 	BLAST_SECRET: string;
+	RESEND_AUDIENCE_ID: string;
 }
 
 type RuntimeEnv = Partial<Record<keyof ServerEnv, string>>;
@@ -40,5 +41,6 @@ export function getServerEnv(context: APIContext): ServerEnv {
 			read("RESEND_FROM_EMAIL") ||
 			"Nai de Mermelada Tech <nai@mermeladatech.com>",
 		BLAST_SECRET: read("BLAST_SECRET"),
+		RESEND_AUDIENCE_ID: read("RESEND_AUDIENCE_ID"),
 	};
 }
