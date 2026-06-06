@@ -55,7 +55,7 @@ export const POST: APIRoute = async (context) => {
 
 	if (existing?.status === "confirmed") {
 		// Ya está suscripta y confirmada: no reenviamos.
-		return json({ ok: true, alreadyConfirmed: true }, 200);
+		return json({ ok: true }, 200);
 	}
 
 	// Nuevo / pending / unsubscribed → (re)generar token y poner pending.
@@ -95,7 +95,7 @@ export const POST: APIRoute = async (context) => {
 		return json({ error: "No se pudo enviar el mail de confirmación." }, 502);
 	}
 
-	return json({ ok: true }, 201);
+	return json({ ok: true }, 200);
 };
 
 function json(data: unknown, status: number) {
