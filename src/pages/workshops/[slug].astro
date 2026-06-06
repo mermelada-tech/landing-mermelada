@@ -2,6 +2,7 @@
 import WaitlistModal from "../../components/WaitlistModal.astro";
 import { type Workshop, workshops } from "../../data/workshops";
 import Layout from "../../layouts/Layout.astro";
+import { DISCORD_URL } from "../../lib/constants.ts";
 import { buildEventSchema } from "../../lib/seo.ts";
 
 export function getStaticPaths() {
@@ -16,7 +17,6 @@ interface Props {
 }
 
 const { workshop: w } = Astro.props;
-const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 
 const eventSchema = buildEventSchema(w, Astro.site);
 const description = `${w.subtitulo} ${w.descripcion}`.slice(0, 160);
@@ -81,7 +81,7 @@ const description = `${w.subtitulo} ${w.descripcion}`.slice(0, 160);
 
 			<div class="mt-8">
 				{w.waitlistMode ? (
-					<button type="button" class="merme-btn w-full js-waitlist-open" data-slug={w.slug} data-titulo={w.titulo}>
+					<button type="button" class="merme-btn w-full js-waitlist-open" data-slug={w.slug}>
 						Anotarme a la lista de espera
 					</button>
 				) : !w.inscripcionAbierta ? (

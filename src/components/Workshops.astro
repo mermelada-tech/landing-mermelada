@@ -1,8 +1,7 @@
 ---
 import { workshops } from "../data/workshops";
+import { DISCORD_URL } from "../lib/constants.ts";
 import WaitlistModal from "./WaitlistModal.astro";
-
-const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 ---
 
 <section id="workshops" class="py-20 px-6 bg-merme-purple scroll-mt-20 relative overflow-hidden">
@@ -87,7 +86,6 @@ const DISCORD_URL = "https://discord.gg/HFV4QXJKNh";
 									type="button"
 									class="merme-btn w-full js-waitlist-open"
 									data-slug={w.slug}
-									data-titulo={w.titulo}
 								>
 									Anotarme a la lista de espera
 								</button>
