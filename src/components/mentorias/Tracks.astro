@@ -1,0 +1,46 @@
+---
+const tracks = [
+	{
+		k: "track/carrera",
+		title: "Primeros pasos",
+		text: "Por dónde empezar, qué aprender primero, cambio de rol.",
+	},
+	{
+		k: "track/portfolio",
+		title: "Portfolio y proyectos",
+		text: "Revisamos tu GitHub o un proyecto a medias y lo dejamos presentable.",
+	},
+	{
+		k: "track/empleabilidad",
+		title: "CV, LinkedIn y entrevistas",
+		text: "Cómo contar lo que sabés y simulacro de entrevista.",
+	},
+	{
+		k: "track/tecnico",
+		title: "Data, IA y Cloud",
+		text: "Pipelines, SQL, Python, LLMs, AWS/GCP: cómo armar algo real.",
+	},
+];
+---
+
+<section id="que-hacemos" style="padding-block:72px">
+	<div class="wrap">
+		<div class="sec-head">
+			<div>
+				<p class="eyebrow">Qué trabajamos</p>
+				<h2>No es una clase. Es una charla con alguien que ya pasó por ahí.</h2>
+			</div>
+		</div>
+		<div class="cover">
+			{
+				tracks.map((t) => (
+					<div class="card">
+						<span class="k">{t.k}</span>
+						<h3>{t.title}</h3>
+						<p>{t.text}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

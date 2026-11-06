@@ -1,67 +1,73 @@
 ---
+import { links } from "../data/links";
+
+const tags = [
+	"Python",
+	"JavaScript",
+	"Data",
+	"IA",
+	"UX/UI",
+	"Cloud",
+	"QA",
+	"Backend",
+	"Product",
+];
 ---
 
-<section
-	class="relative h-[704px] overflow-hidden bg-[linear-gradient(180deg,#61CEE2_0%,#98CDCD_36%,#B6C2E3_67%,#AB7BB7_95%)]"
->
-	<!-- Pixel grid overlay -->
-	<div
-		class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.14)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.14)_1px,transparent_1px)] bg-[size:32px_32px]"
-		aria-hidden="true"
-	>
-	</div>
-
-	<!-- Decorative SVGs (white filter against gradient) -->
-	<img
-		src="/cloud.svg"
-		alt=""
-		aria-hidden="true"
-		class="absolute left-10 top-20 w-32 h-auto brightness-0 invert animate-wiggle"
-	/>
-	<img
-		src="/cloud.svg"
-		alt=""
-		aria-hidden="true"
-		class="absolute right-20 top-28 w-44 h-auto brightness-0 invert animate-wiggle [animation-duration:4s]"
-	/>
-	<img
-		src="/moon.svg"
-		alt=""
-		aria-hidden="true"
-		class="absolute right-16 top-[330px] w-36 h-auto brightness-0 invert animate-wiggle [animation-duration:5s]"
-	/>
-	<img
-		src="/cross.svg"
-		alt=""
-		aria-hidden="true"
-		class="absolute left-[200px] top-16 w-6 h-auto brightness-0 invert animate-wiggle [animation-duration:2s]"
-	/>
-	<img
-		src="/cross.svg"
-		alt=""
-		aria-hidden="true"
-		class="absolute right-[250px] top-[450px] w-5 h-auto brightness-0 invert animate-wiggle [animation-duration:2.5s]"
-	/>
-
-	<!-- Content -->
-	<div class="relative max-w-3xl mx-auto pt-28 text-center px-6">
-		<h1 class="text-grape-dark font-bold text-7xl leading-none">
-			¿Te apasiona la tecnología?
-		</h1>
-		<p class="text-grape-dark font-bold text-[26px] leading-tight mt-6">
-			Amplía tus habilidades técnicas y forma equipo con otras mujeres
-		</p>
-		<p class="text-ink-2 text-lg leading-snug mt-5 max-w-lg mx-auto">
-			Te invitamos a unirte a nuestra comunidad y formar parte de un grupo de
-			mujeres que se apoyan y se inspiran mutuamente.
-		</p>
-		<div class="mt-9">
-			<a
-				href="#sobre-nosotras"
-				class="inline-flex items-center gap-2 bg-snow text-blacky font-bold text-xl border border-blacky rounded-[8px] shadow-[4px_4px_0_0_#1b1b1b] px-5 py-3 hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_#1b1b1b] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[1px_1px_0_0_#1b1b1b] transition-[transform,box-shadow] duration-[120ms]"
-			>
-				Sumate a la comunidad
-			</a>
+<section class="hero" id="inicio">
+	<div class="wrap">
+		<div>
+			<span class="status"><i></i> +1.200 mujeres conectadas en Discord</span>
+			<h1>¿Te apasiona la <em>tecnología?</em></h1>
+			<p class="sub" style="color:#fff;font-weight:500">
+				Amplía tus habilidades técnicas y forma equipo con otras mujeres.
+			</p>
+			<p class="sub" style="margin-top:12px">
+				Te invitamos a unirte a nuestra comunidad y formar parte de un grupo de mujeres que se apoyan y se
+				inspiran mutuamente.
+			</p>
+			<div class="ctas">
+				<a class="btn p" href="/mentorias">Pedí tu mentoría →</a>
+				<a class="btn s" href={links.discord} target="_blank" rel="noopener noreferrer">Sumate al Discord</a>
+			</div>
+			<div class="tags">{tags.map((t) => <span>{t}</span>)}</div>
+		</div>
+		<div class="term" aria-label="Demo de la comunidad">
+			<div class="tb">
+				<i style="background:#FF5F57"></i><i style="background:#FFBD2E"></i><i style="background:#28C840"></i>
+				<span style="margin-left:8px">~/mermelada — zsh</span>
+			</div>
+			<pre id="term"></pre>
 		</div>
 	</div>
 </section>
+
+<script>
+	const lines: [string, number][] = [
+		['<span class="g">➜</span> <span class="c">mermelada</span> join --nombre <span class="y">"Luciana"</span>', 0],
+		['<span class="d">✓</span> Bienvenida, Luciana 👋', 400],
+		['<span class="d">✓</span> Canal asignado: <span class="v">#frontend</span>', 300],
+		['<span class="d">✓</span> Espacio seguro: <span class="v">activado</span>', 300],
+		["", 200],
+		['<span class="g">➜</span> <span class="c">mermelada</span> mentoria --buscar data', 700],
+		['<span class="d">→</span> Match: <span class="y">Sol G.</span> · AI &amp; Data Engineer · Aliada LATAM', 500],
+		['<span class="d">→</span> Franja: <span class="v">tarde</span> · coordinamos por mail', 300],
+		["", 200],
+		['<span class="g">➜</span> <span class="cur"></span>', 400],
+	];
+	const el = document.getElementById("term");
+	if (el) {
+		if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			el.innerHTML = lines.map((l) => l[0]).join("\n");
+		} else {
+			let i = 0;
+			const next = () => {
+				if (i >= lines.length) return;
+				el.innerHTML += (i ? "\n" : "") + lines[i][0];
+				i++;
+				if (i < lines.length) setTimeout(next, lines[i][1]);
+			};
+			setTimeout(next, 500);
+		}
+	}
+</script>

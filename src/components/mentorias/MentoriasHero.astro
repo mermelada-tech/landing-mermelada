@@ -1,0 +1,45 @@
+---
+const steps = [
+	{ n: "01", title: "Elegí tu mentora", text: "Según lo que querés trabajar." },
+	{
+		n: "02",
+		title: "Decinos tu franja",
+		text: "Mañana, tarde o noche, los días que te queden cómodos.",
+	},
+	{
+		n: "03",
+		title: "Coordinamos",
+		text: "Te escribimos con día, hora y link según la disponibilidad de la mentora.",
+	},
+];
+---
+
+<section class="hero">
+	<div class="wrap">
+		<div>
+			<p class="crumb"><a href="/">~/mermelada</a> / mentorias</p>
+			<h1>Pedí tu <em>mentoría.</em></h1>
+			<p class="sub">
+				Sesiones 1:1 de 45 minutos, gratis, por Discord o Meet. Elegís tu mentora, nos decís tu franja horaria y
+				coordinamos por mail.
+			</p>
+			<div class="ctas">
+				<a class="btn p" href="#reservar">Pedir mentoría ↓</a>
+				<a class="btn s" href="#ser-mentora">Quiero ser mentora</a>
+			</div>
+		</div>
+		<div class="how">
+			{
+				steps.map((s) => (
+					<div class="step">
+						<b>{s.n}</b>
+						<p>
+							<strong>{s.title}</strong>
+							{s.text}
+						</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

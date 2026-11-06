@@ -1,0 +1,13 @@
+---
+const items = [
+	"Mentorías 1:1",
+	"Proyectos de código",
+	"Espacio seguro",
+	"Comunidad en español",
+];
+const loop = [...items, ...items];
+---
+
+<div class="ticker" aria-hidden="true">
+	<span>{loop.map((i) => <>{i} <em>★</em> </>)}</span>
+</div>
