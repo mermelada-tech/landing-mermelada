@@ -1,15 +1,18 @@
 ---
+import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 import "../styles/global.css";
 
 interface Props {
 	title: string;
 	description?: string;
+	page: "home" | "mentorias";
 }
 
 const {
 	title,
-	description = "Mermelada Tech — comunidad de mujeres en tecnología. Aprende, crece y conecta con otras mujeres apasionadas por la tecnología.",
+	description = "Mermelada Tech — comunidad de mujeres en tecnología. Mentorías 1:1, proyectos de código y un espacio seguro para aprender, crecer y conectar.",
+	page,
 } = Astro.props;
 ---
 
@@ -21,20 +24,20 @@ const {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#120E1A" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Bungee&display=swap"
+		/>
 		<title>{title}</title>
-		<!-- Prevent flash of wrong theme: apply dark class before CSS renders -->
-		<script is:inline>
-			(function () {
-				const stored = localStorage.getItem("theme");
-				const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-				if (stored === "dark" || (!stored && prefersDark)) {
-					document.documentElement.classList.add("dark");
-				}
-			})();
-		</script>
 	</head>
-	<body class="bg-white dark:bg-dark-bg dark:text-white transition-colors duration-200">
-		<NavBar />
-		<slot />
+	<body>
+		<NavBar page={page} />
+		<main class={`page-${page}`}>
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>

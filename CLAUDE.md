@@ -14,31 +14,47 @@ This file provides guidance for AI assistants working on this codebase.
 
 ```
 landing-mermelada/
-├── public/                  # Static assets served at root
-│   ├── favicon.svg
-│   ├── logo-mermelada.svg
-│   ├── logo-patreon.svg
-│   ├── cloud.svg            # Decorative animation element
-│   ├── cross.svg            # Decorative element
-│   └── moon.svg             # Decorative animation element
+├── public/                      # Static assets served at root
+│   ├── favicon.svg              # Jar mark (brand icon)
+│   ├── founder-nadia.jpg        # Nadia Ujovich (founder + mentora)
+│   ├── mentora-sol.jpg          # Solange Guerrero (mentora, aliada LATAM)
+│   └── logo-patreon.svg
 ├── src/
-│   ├── components/          # Reusable Astro components (PascalCase)
-│   │   ├── Card.astro
-│   │   ├── Hero.astro
-│   │   └── NavBar.astro
-│   ├── layouts/             # Page layout wrappers
-│   │   └── Layout.astro
-│   ├── pages/               # File-based routing (each file = a route)
-│   │   └── index.astro      # → /
-│   ├── styles/
-│   │   └── global.css       # Tailwind import + @theme tokens
-│   └── env.d.ts             # Astro client type reference
-├── astro.config.mjs         # Astro config (Tailwind via Vite plugin)
-├── tailwind.config.mjs      # Tailwind content paths
-├── tsconfig.json            # TypeScript strict config
-├── biome.json               # Biome linter/formatter config
-└── .prettierrc.json         # Prettier config (with astro plugin)
+│   ├── components/              # Home sections (PascalCase)
+│   │   ├── NavBar.astro, Footer.astro, Logo.astro
+│   │   ├── Hero.astro           # Headline + animated terminal
+│   │   ├── Ticker.astro, Features.astro, Mentorias.astro (teaser → /mentorias)
+│   │   ├── About.astro, Testimonios.astro, Colaboradoras.astro, Faqs.astro, CtaFinal.astro
+│   │   └── mentorias/           # /mentorias page sections
+│   │       ├── MentoriasHero.astro, Tracks.astro, Mentoras.astro
+│   │       └── Booking.astro    # Mentora picker + franja horaria + FormSubmit form
+│   ├── data/
+│   │   ├── links.ts             # Every external URL + contact email (single source of truth)
+│   │   └── mentoras.ts          # Mentor profiles shown on home + /mentorias
+│   ├── layouts/Layout.astro     # <head>, fonts, NavBar, <main class="page-{home|mentorias}">, Footer
+│   ├── pages/
+│   │   ├── index.astro          # → /
+│   │   └── mentorias.astro      # → /mentorias ("Pedí tu mentoría")
+│   └── styles/global.css        # Tailwind import + brand tokens + all component CSS
+└── .github/workflows/deploy.yml # Cloudflare Pages on push to main
 ```
+
+---
+
+## Design System (rebrand 2026)
+
+Dark, "console" aesthetic. Tokens live as CSS custom properties in `src/styles/global.css` (`:root`):
+
+- Surfaces: `--ink #120E1A` (page), `--ink-2 #1B1526` (cards/bands), `--line #2C2439` (borders)
+- Brand: `--grape #6E4FD6` (primary, gradient CTAs), `--cyan #64D5E5` (eyebrows/code), `--sun #FFD54F` (yellow CTA + ticker), `--rasp #EF4C7E` (submit)
+- Type: Archivo 900 for headings, Inter for body, JetBrains Mono for eyebrows/menu/chips, Bungee for the wordmark (`.wm`)
+- Shared classes: `.wrap`, `.btn.p|.s|.y|.r`, `.card`, `.chip`, `.tags`, `.eyebrow`, `.sec-head`
+- Page-specific rules are nested under `.page-home { … }` and `.page-mentorias { … }` (native CSS nesting, compiled by Lightning CSS via Tailwind 4). Tailwind utilities remain available but the layout is authored in plain CSS classes.
+- Single dark theme; there is no light mode or theme toggle.
+
+### Mentorship form
+
+`Booking.astro` posts to FormSubmit (`https://formsubmit.co/<links.email>`) with `_cc` to the LATAM ally. The first submission triggers a one-time activation email to the inbox. Change the CC/email in `src/data/links.ts` and the `formCc` const in `Booking.astro`.
 
 ---
 
@@ -87,28 +103,10 @@ const { title, description, image } = Astro.props;
 - Use `import type` for type-only imports (Biome enforces this as an error in `.astro` files)
 - Target: ESNext
 
-### Styling with Tailwind CSS 4
+### Styling
 
-- All Tailwind classes used inline on elements
-- Use custom theme tokens defined in `src/styles/global.css` via `@theme`:
-  - `bg-primary` → `#673773` (Grape Dark — primary brand color)
-  - `bg-secondary` / `text-secondary` → `#1b1b1b` (Blacky)
-  - `bg-grape-dark` → `#673773`
-  - `bg-light-purple` → `#B6C2E3`
-  - `bg-yellow-sunflower` → `#F5C43E` (CTAs/buttons)
-- Use arbitrary values for precise one-off styles:
-  ```
-  shadow-[4px_6px_0_0_rgba(0,0,0,1)]
-  bg-[repeating-linear-gradient(...)]
-  ```
-- Custom animation: `animate-wiggle` (defined in `@theme`, wiggles SVG decorations)
-
-### Design System Patterns
-
-- **Buttons:** white background, black border, drop shadow `shadow-[4px_6px_0_0_rgba(0,0,0,1)]`, `hover:scale-105` transition
-- **Cards:** white background, black border, same shadow pattern, hover scale effect
-- **Backgrounds:** gradient from cyan `#61CEE2` to purple tones, with grid overlay pattern
-- **Decorative SVGs:** cloud, cross, moon — positioned absolutely with `animate-wiggle`
+- Prefer the shared classes and tokens documented in **Design System** above; use Tailwind utilities only for one-off spacing.
+- New colors go in `:root` of `src/styles/global.css` as `--name` custom properties.
 
 ### File Organization Rules
 
@@ -118,6 +116,7 @@ const { title, description, image } = Astro.props;
 | Page wrapper with `<NavBar>` and `<slot>` | `src/layouts/` |
 | Route pages | `src/pages/` |
 | Global CSS / design tokens | `src/styles/global.css` |
+| External links, email, mentor profiles | `src/data/` |
 | Static files (images, SVGs, fonts) | `public/` |
 
 ### Naming Conventions
@@ -185,7 +184,7 @@ import Layout from '../layouts/Layout.astro';
 ### Adding a New Page
 
 1. Create `src/pages/my-page.astro`
-2. Wrap content in `<Layout title="...">`
+2. Wrap content in `<Layout title="..." page="home">` (add the page key to the `Props` union in `Layout.astro`/`NavBar.astro` and a `.page-<key>` block in `global.css` if it needs its own styles)
 3. Add navigation link in `src/components/NavBar.astro`
 
 ### Adding a New Component
@@ -217,5 +216,5 @@ All user-facing content is in **Spanish**. When modifying copy, labels, or navig
 ## Git Workflow
 
 - Active development branch: feature branches prefixed with `claude/`
-- Main branch: `master`
+- Main branch: `main`
 - Commit messages: imperative English, e.g. `feat: add hero section`, `fix: navbar alignment`

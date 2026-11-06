@@ -1,32 +1,44 @@
 ---
-import Card from "./Card.astro";
-
-interface FeatureCard {
-	title: string;
-	description: string;
-}
-
-const cards: FeatureCard[] = [
+const mods = [
 	{
+		key: "mod/habilidades",
+		color: "var(--grape-300)",
 		title: "Desarrollo de habilidades",
-		description:
-			"Espacios colaborativos para trabajar en proyectos de código, eventos virtuales sobre temas de tecnología y cursos y prácticas en el canal de YouTube y Twitch.",
+		text: "Proyectos de código en equipo, eventos virtuales y cursos grabados en YouTube y Twitch.",
 	},
 	{
-		title: "Conexiones / Networking",
-		description:
-			"En la comunidad puedes encontrar apoyo, inspiración y motivación de otras mujeres que compartan sus intereses y metas.",
+		key: "mod/networking",
+		color: "var(--cyan)",
+		title: "Conexiones",
+		text: "Apoyo, inspiración y contactos de mujeres que comparten tus intereses y tus metas.",
 	},
 	{
-		title: "Espacio seguro y de apoyo",
-		description:
-			"Nuestra misión es crear un espacio seguro para todas, independientemente de su edad, raza, origen étnico, orientación sexual o identidad de género.",
+		key: "mod/espacio-seguro",
+		color: "var(--rasp)",
+		title: "Espacio seguro",
+		text: "Para todas, sin importar edad, origen, orientación sexual o identidad de género.",
 	},
 ];
 ---
 
-<section class="py-16 px-[126px] bg-paper dark:bg-dark-bg transition-colors duration-200">
-	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-		{cards.map((card) => <Card title={card.title} description={card.description} />)}
+<section id="comunidad" style="padding-top:72px">
+	<div class="wrap">
+		<div class="sec-head">
+			<div><p class="eyebrow">Qué hacemos</p><h2>Tres módulos. Una comunidad.</h2></div>
+		</div>
+		<div class="mods">
+			{
+				mods.map((m) => (
+					<article class="card mod">
+						<div class="k">
+							<span>{m.key}</span>
+							<i style={`background:${m.color}`} />
+						</div>
+						<h3>{m.title}</h3>
+						<p>{m.text}</p>
+					</article>
+				))
+			}
+		</div>
 	</div>
 </section>

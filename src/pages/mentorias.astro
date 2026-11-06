@@ -1,0 +1,18 @@
+---
+import Booking from "../components/mentorias/Booking.astro";
+import Mentoras from "../components/mentorias/Mentoras.astro";
+import MentoriasHero from "../components/mentorias/MentoriasHero.astro";
+import Tracks from "../components/mentorias/Tracks.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+	title="Pedí tu mentoría — Mermelada Tech"
+	description="Mentorías 1:1 gratuitas para mujeres en tecnología. Elegí tu mentora, contanos tu franja horaria y coordinamos."
+	page="mentorias"
+>
+	<MentoriasHero />
+	<Tracks />
+	<Mentoras />
+	<Booking />
+</Layout>

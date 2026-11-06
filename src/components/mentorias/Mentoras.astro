@@ -1,0 +1,42 @@
+---
+import { mentoras } from "../../data/mentoras";
+---
+
+<section id="mentoras" style="padding-top:0">
+	<div class="wrap">
+		<div class="sec-head">
+			<div><p class="eyebrow">Mentoras · piloto 2026</p><h2>Con quién vas a hablar.</h2></div>
+			<p>Tocá una tarjeta para elegirla.</p>
+		</div>
+		<div class="mentoras">
+			{
+				mentoras.map((m, i) => (
+					<article
+						class={`card mentora${i === 0 ? " sel" : ""}`}
+						id={m.id}
+						data-m={m.id}
+						role="button"
+						tabindex="0"
+						aria-pressed={i === 0 ? "true" : "false"}
+					>
+						<span class="chk">✓ elegida</span>
+						<img class="ph" src={m.photo} alt={m.name} />
+						<div>
+							<h3>{m.name}</h3>
+							<div class="role">{m.role}</div>
+							<p>{m.bio}</p>
+							<div class="st">
+								{m.tags.map((t) => (
+									<span class="chip">{t}</span>
+								))}
+							</div>
+							<a class="lk" href={m.link.href} target="_blank" rel="noopener noreferrer">
+								{m.link.label}
+							</a>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

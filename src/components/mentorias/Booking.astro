@@ -1,0 +1,251 @@
+---
+import { links } from "../../data/links";
+import { mentoras } from "../../data/mentoras";
+
+const franjas = [
+	{ v: "Mañana", h: "9 a 13 hs" },
+	{ v: "Tarde", h: "14 a 18 hs" },
+	{ v: "Noche", h: "19 a 22 hs" },
+];
+const dias = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+const areas = ["Fullstack", "Data", "IA", "Diseño UX/UI", "QA", "Otra"];
+const formAction = `https://formsubmit.co/${links.email}`;
+const formCc = "solangeguerreo@gmail.com";
+---
+
+<section id="reservar" style="padding-top:0">
+	<div class="wrap">
+		<div class="book" id="book">
+			<div class="bh" role="tablist">
+				<button class="on" data-mode="mentee" role="tab" aria-selected="true">
+					<b>01 · QUIERO UNA MENTORA</b>Pedí tu mentoría con Nadia o Sol
+				</button>
+				<button data-mode="mentora" id="ser-mentora" role="tab" aria-selected="false">
+					<b>02 · QUIERO SER MENTORA</b>Sumate como aliada LATAM
+				</button>
+			</div>
+			<div class="bb">
+				<div class="steps">
+					<div id="stepSlots">
+						<h4><b>1</b>Mentora elegida: <span id="mName" style="color:#fff">{mentoras[0].name}</span></h4>
+						<div class="pick" id="mPick">
+							{
+								mentoras.map((m, i) => (
+									<button type="button" class={i === 0 ? "on" : undefined} data-m={m.id}>
+										{m.short}
+									</button>
+								))
+							}
+						</div>
+						<h4><b>2</b>¿Qué franja te queda cómoda?</h4>
+						<div class="slots" id="franjas">
+							{
+								franjas.map((f) => (
+									<button type="button" class="slot" data-f={f.v}>
+										<b>{f.v}</b>
+										{f.h}
+									</button>
+								))
+							}
+						</div>
+						<div class="slots" id="dias" style="grid-template-columns:repeat(auto-fill,minmax(64px,1fr))">
+							{
+								dias.map((d) => (
+									<button type="button" class="slot" data-d={d}>
+										<b>{d}</b>
+									</button>
+								))
+							}
+						</div>
+						<p class="tz">
+							Hora Argentina (GMT-3). Podés marcar varias. Después coordinamos día y hora con la mentora según su
+							disponibilidad.
+						</p>
+					</div>
+					<div id="stepMentora" hidden>
+						<h4><b>1</b>Mentoras aliadas LATAM</h4>
+						<div class="sermentora">
+							<h3>Sumate como mentora voluntaria.</h3>
+							<p>
+								Una sesión quincenal de 45 min, en la franja que vos elijas. Te contactamos por mail y aparecés en
+								esta página con tu perfil.
+							</p>
+							<div class="tags">
+								<span>Fullstack</span><span>Data</span><span>IA</span><span>UX/UI</span><span>QA</span><span>Cloud</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<form class="form" id="form" action={formAction} method="POST">
+					<input type="hidden" name="_cc" value={formCc} />
+					<input type="hidden" name="_subject" id="fSubject" value="[Mermelada] Nueva solicitud de mentoría" />
+					<input type="hidden" name="_template" value="table" />
+					<input type="hidden" name="_captcha" value="false" />
+					<input type="hidden" name="_next" id="fNext" value="" />
+					<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+					<input type="hidden" name="Tipo" id="fTipo" value="Quiero una mentora" />
+					<input type="hidden" name="Mentora elegida" id="fMentora" value={mentoras[0].name} />
+					<input type="hidden" name="Franja horaria" id="fSlot" value="" />
+					<input type="hidden" name="Dias preferidos" id="fDias" value="" />
+					<h4 class="fh"><b id="stepN">3</b>Contanos de vos</h4>
+					<div class="two">
+						<label>Nombre<input type="text" name="Nombre" id="fNombre" required placeholder="Tu nombre" /></label>
+						<label>Email<input type="email" name="Email" id="fEmail" required placeholder="vos@mail.com" /></label>
+					</div>
+					<div class="two">
+						<label>País / ciudad<input type="text" name="Pais" id="fPais" placeholder="Córdoba, Argentina" /></label>
+						<label
+							>Área<select name="Area" id="fArea">{areas.map((a) => <option>{a}</option>)}</select></label
+						>
+					</div>
+					<label
+						>LinkedIn o portfolio <span style="color:var(--subtle);font-weight:400">(opcional)</span><input
+							type="url"
+							name="LinkedIn"
+							id="fLink"
+							placeholder="https://"
+						/></label
+					>
+					<label
+						><span id="msgLabel">¿En qué momento estás y qué querés lograr?</span><textarea
+							name="Mensaje"
+							id="fMsg"
+							required
+							placeholder="Ej: terminé un bootcamp de data, tengo un proyecto a medias y no sé cómo mostrarlo…"
+						></textarea></label
+					>
+					<div class="summary" id="summary">
+						Solicitud para <span>{mentoras[0].name}</span> · franja <span>sin elegir</span>
+					</div>
+					<button class="btn r" type="submit" id="submitBtn" style="justify-content:center">Enviar solicitud →</button>
+					<p class="note">Te respondemos por mail en menos de 72 hs.</p>
+				</form>
+			</div>
+			<div class="thanks">
+				<p class="eyebrow">solicitud enviada</p>
+				<h3 style="margin-top:12px">Recibimos tu solicitud 💜</h3>
+				<p>Te escribimos a tu mail para coordinar día, hora y link.</p>
+				<div class="ctas" style="justify-content:center">
+					<a class="btn p" href={links.discord} target="_blank" rel="noopener noreferrer">Ir al Discord</a>
+					<a class="btn s" href="/">Volver al inicio</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	import { mentoras } from "../../data/mentoras";
+
+	type Mode = "mentee" | "mentora";
+	const names: Record<string, string> = Object.fromEntries(mentoras.map((m) => [m.id, m.name]));
+	let mentora: string = mentoras[0].id;
+	let mode: Mode = "mentee";
+	const franjas = new Set<string>();
+	const dias = new Set<string>();
+
+	const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+	const setVal = (id: string, v: string) => {
+		$<HTMLInputElement>(id).value = v;
+	};
+
+	function sync() {
+		const fr = [...franjas].join(", ");
+		const dd = [...dias].join(", ");
+		const mentee = mode === "mentee";
+		setVal("fMentora", mentee ? names[mentora] : "—");
+		setVal("fSlot", mentee ? fr || "A coordinar" : "—");
+		setVal("fDias", mentee ? dd || "Cualquiera" : "—");
+		setVal("fTipo", mentee ? "Quiero una mentora" : "Quiero ser mentora (Aliada LATAM)");
+		setVal(
+			"fSubject",
+			mentee ? `[Mermelada] Solicitud de mentoría · ${names[mentora]}` : "[Mermelada] Nueva mentora aliada LATAM",
+		);
+		$("summary").innerHTML = mentee
+			? `Solicitud para <span>${names[mentora]}</span> · franja <span>${fr || "sin elegir"}</span>${dd ? ` · días <span>${dd}</span>` : ""}`
+			: "Postulación como <span>mentora aliada LATAM</span>";
+		$("msgLabel").textContent = mentee
+			? "¿En qué momento estás y qué querés lograr?"
+			: "Contanos tu experiencia, en qué áreas podés mentorear y tu franja horaria";
+		$<HTMLTextAreaElement>("fMsg").placeholder = mentee
+			? "Ej: terminé un bootcamp de data, tengo un proyecto a medias y no sé cómo mostrarlo…"
+			: "Ej: 5 años como backend en Python, puedo tomar 1 mentee quincenal, tardes entre semana…";
+		$("submitBtn").textContent = mentee ? "Enviar solicitud →" : "Postularme como mentora →";
+		$("stepN").textContent = mentee ? "3" : "2";
+	}
+
+	function selectMentora(m: string) {
+		mentora = m;
+		for (const c of document.querySelectorAll<HTMLElement>(".mentora")) {
+			const on = c.dataset.m === m;
+			c.classList.toggle("sel", on);
+			c.setAttribute("aria-pressed", String(on));
+		}
+		for (const b of document.querySelectorAll<HTMLElement>("#mPick button")) {
+			b.classList.toggle("on", b.dataset.m === m);
+		}
+		$("mName").textContent = names[m];
+		sync();
+	}
+
+	function setMode(m: Mode) {
+		mode = m;
+		for (const x of document.querySelectorAll<HTMLElement>(".bh button")) {
+			const on = x.dataset.mode === m;
+			x.classList.toggle("on", on);
+			x.setAttribute("aria-selected", String(on));
+		}
+		$("stepSlots").hidden = m !== "mentee";
+		$("stepMentora").hidden = m !== "mentora";
+		sync();
+	}
+
+	for (const b of document.querySelectorAll<HTMLElement>("#franjas .slot")) {
+		b.onclick = () => {
+			const v = b.dataset.f ?? "";
+			franjas.has(v) ? franjas.delete(v) : franjas.add(v);
+			b.classList.toggle("on", franjas.has(v));
+			sync();
+		};
+	}
+	for (const b of document.querySelectorAll<HTMLElement>("#dias .slot")) {
+		b.onclick = () => {
+			const v = b.dataset.d ?? "";
+			dias.has(v) ? dias.delete(v) : dias.add(v);
+			b.classList.toggle("on", dias.has(v));
+			sync();
+		};
+	}
+	for (const c of document.querySelectorAll<HTMLElement>(".mentora")) {
+		c.addEventListener("click", (e) => {
+			if ((e.target as HTMLElement).closest("a")) return;
+			selectMentora(c.dataset.m ?? mentora);
+			$("reservar").scrollIntoView({ behavior: "smooth" });
+		});
+		c.addEventListener("keydown", (e) => {
+			if (e.key === "Enter" || e.key === " ") {
+				e.preventDefault();
+				selectMentora(c.dataset.m ?? mentora);
+			}
+		});
+	}
+	for (const b of document.querySelectorAll<HTMLElement>("#mPick button")) {
+		b.onclick = () => selectMentora(b.dataset.m ?? mentora);
+	}
+	for (const b of document.querySelectorAll<HTMLElement>(".bh button")) {
+		b.onclick = () => setMode((b.dataset.mode as Mode) ?? "mentee");
+	}
+
+	const u = new URL(location.href);
+	u.search = "";
+	u.hash = "";
+	setVal("fNext", `${u.toString()}?enviado=1#reservar`);
+	if (location.search.includes("enviado=1")) $("book").classList.add("sent");
+	if (location.hash === "#ser-mentora") setMode("mentora");
+	if (location.hash === "#sol") selectMentora("sol");
+	window.addEventListener("hashchange", () => {
+		if (location.hash === "#ser-mentora") setMode("mentora");
+	});
+	sync();
+</script>
