@@ -58,8 +58,9 @@ const formCc = "solangeguerreo@gmail.com";
 							}
 						</div>
 						<p class="tz">
-							Hora Argentina (GMT-3). Podés marcar varias. Después coordinamos día y hora con la mentora según su
-							disponibilidad.
+							Franjas en <b id="tzLabel">{mentoras[0].zone.label} ({mentoras[0].zone.gmt})</b>. Nadia atiende en horario de
+							España; Sol en horario de Argentina y LATAM, así que si estás en Argentina o LATAM lo más simple es pedirle
+							a Sol. Podés marcar varias franjas; después coordinamos día y hora según disponibilidad.
 						</p>
 					</div>
 					<div id="stepMentora" hidden>
@@ -87,6 +88,7 @@ const formCc = "solangeguerreo@gmail.com";
 					<input type="hidden" name="Tipo" id="fTipo" value="Quiero una mentora" />
 					<input type="hidden" name="Mentora elegida" id="fMentora" value={mentoras[0].name} />
 					<input type="hidden" name="Franja horaria" id="fSlot" value="" />
+					<input type="hidden" name="Zona horaria de las franjas" id="fZone" value={`${mentoras[0].zone.label} (${mentoras[0].zone.gmt})`} />
 					<input type="hidden" name="Dias preferidos" id="fDias" value="" />
 					<h4 class="fh"><b id="stepN">3</b>Contanos de vos</h4>
 					<div class="two">
@@ -142,6 +144,9 @@ const formCc = "solangeguerreo@gmail.com";
 	const names: Record<string, string> = Object.fromEntries(mentoras.map((m) => [m.id, m.name]));
 	let mentora: string = mentoras[0].id;
 	let mode: Mode = "mentee";
+	const zones: Record<string, string> = Object.fromEntries(
+		mentoras.map((m) => [m.id, `${m.zone.label} (${m.zone.gmt})`]),
+	);
 	const franjas = new Set<string>();
 	const dias = new Set<string>();
 
@@ -156,6 +161,8 @@ const formCc = "solangeguerreo@gmail.com";
 		const mentee = mode === "mentee";
 		setVal("fMentora", mentee ? names[mentora] : "—");
 		setVal("fSlot", mentee ? fr || "A coordinar" : "—");
+		setVal("fZone", mentee ? zones[mentora] : "—");
+		$("tzLabel").textContent = zones[mentora];
 		setVal("fDias", mentee ? dd || "Cualquiera" : "—");
 		setVal("fTipo", mentee ? "Quiero una mentora" : "Quiero ser mentora (Aliada LATAM)");
 		setVal(
