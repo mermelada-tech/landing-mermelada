@@ -25,6 +25,7 @@ import { mentoras } from "../../data/mentoras";
 							<h3>{m.name}</h3>
 							<div class="role">{m.role}</div>
 							<p>{m.bio}</p>
+							<p class="zone">🕒 Franjas en {m.zone.label} ({m.zone.gmt})</p>
 							<div class="st">
 								{m.tags.map((t) => (
 									<span class="chip">{t}</span>
