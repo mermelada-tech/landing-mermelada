@@ -22,7 +22,7 @@ export const mentoras: Mentora[] = [
 		bio: "Fundó Mermelada para que ninguna entre sola al mundo tech. Mentorea en primeros pasos, portfolio y primera búsqueda laboral.",
 		tags: ["Primeros pasos", "Portfolio", "Empleabilidad"],
 		photo: "/founder-nadia.jpg",
-		link: { label: "→ LinkedIn", href: links.nadiaLinkedin },
+		link: { label: "→ nadiaujovich.dev", href: "https://nadiaujovich.dev" },
 	},
 	{
 		id: "sol",
