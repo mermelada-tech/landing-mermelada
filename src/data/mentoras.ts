@@ -1,13 +1,14 @@
 import { links } from "./links";
 
 export interface Mentora {
-	id: "nadia" | "sol";
+	id: "nadia" | "sol" | "zulema";
 	name: string;
 	short: string;
 	role: string;
 	bio: string;
 	tags: string[];
 	photo: string;
+	horarios?: { dias: string; franja: string };
 	link: { label: string; href: string };
 }
 
@@ -31,5 +32,16 @@ export const mentoras: Mentora[] = [
 		tags: ["Data Engineering", "IA / LLMs", "Python · SQL", "Cloud"],
 		photo: "/mentora-sol.jpg",
 		link: { label: "→ solangeguerrero.com.ar", href: links.solSite },
+	},
+	{
+		id: "zulema",
+		name: "Zulema Rodriguez",
+		short: "Zulema",
+		role: "Mentora · Aliada LATAM · Frontend · Argentina 🇦🇷",
+		bio: "Estudiante de la Tecnicatura en Programación de la UTN. Experiencia práctica en desarrollo web, sobre todo Frontend, y conocimientos de Python, Java y SQL. Mentorea en primeros pasos y en acompañar a otras personas en su camino en tech.",
+		tags: ["Frontend", "Primeros pasos", "Python · SQL"],
+		photo: "/mentora-zulema.jpg",
+		horarios: { dias: "Lunes a sábado", franja: "14 a 17 h (Argentina, GMT-3)" },
+		link: { label: "→ LinkedIn", href: "https://www.linkedin.com/in/zulema-eliana-rodriguez" },
 	},
 ];
