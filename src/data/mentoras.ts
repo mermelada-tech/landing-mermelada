@@ -1,12 +1,22 @@
 import { links } from "./links";
 
 export interface Mentora {
-	id: "nadia" | "sol" | "zulema";
+	id: "nadia" | "sol" | "zulema" | "patricia";
 	name: string;
 	short: string;
 	role: string;
 	bio: string;
-	tags: string[];
+	tags: string[	{
+		id: "patricia",
+		name: "Patricia Juárez Muñoz",
+		short: "Patricia",
+		role: "Mentora aliada EU · AI Product Engineer",
+		bio: "Construye productos de IA y acompaña a personas en tech a adoptarla sin perder criterio. Mentorea en adopción de IA, liderazgo y carreras en tech.",
+		tags: ["IA aplicada", "Liderazgo", "Carrera en tech"],
+		photo: "/mentora-patricia.jpg",
+		link: { label: "→ LinkedIn", href: "https://www.linkedin.com/in/patriciajuarezmunoz" },
+	},
+];
 	photo: string;
 	link: { label: string; href: string };
 }
