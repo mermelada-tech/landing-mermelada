@@ -6,17 +6,7 @@ export interface Mentora {
 	short: string;
 	role: string;
 	bio: string;
-	tags: string[	{
-		id: "patricia",
-		name: "Patricia Juárez Muñoz",
-		short: "Patricia",
-		role: "Mentora aliada EU · AI Product Engineer",
-		bio: "Construye productos de IA y acompaña a personas en tech a adoptarla sin perder criterio. Mentorea en adopción de IA, liderazgo y carreras en tech.",
-		tags: ["IA aplicada", "Liderazgo", "Carrera en tech"],
-		photo: "/mentora-patricia.jpg",
-		link: { label: "→ LinkedIn", href: "https://www.linkedin.com/in/patriciajuarezmunoz" },
-	},
-];
+	tags: string[];
 	photo: string;
 	link: { label: string; href: string };
 }
@@ -50,6 +40,22 @@ export const mentoras: Mentora[] = [
 		bio: "Estudiante de la Tecnicatura en Programación de la UTN. Experiencia práctica en desarrollo web, sobre todo Frontend, y conocimientos de Python, Java y SQL. Mentorea en primeros pasos y en acompañar a otras personas en su camino en tech.",
 		tags: ["Frontend", "Primeros pasos", "Python · SQL"],
 		photo: "/mentora-zulema.jpg",
-		link: { label: "→ LinkedIn", href: "https://www.linkedin.com/in/zulema-eliana-rodriguez" },
+		link: {
+			label: "→ LinkedIn",
+			href: "https://www.linkedin.com/in/zulema-eliana-rodriguez",
+		},
+	},
+	{
+		id: "patricia",
+		name: "Patricia Juárez Muñoz",
+		short: "Patricia",
+		role: "Mentora aliada EU · AI Product Engineer",
+		bio: "Construye productos de IA y acompaña a personas en tech a adoptarla sin perder criterio. Mentorea en adopción de IA, liderazgo y carreras en tech.",
+		tags: ["IA aplicada", "Liderazgo", "Carrera en tech"],
+		photo: "/mentora-patricia.jpg",
+		link: {
+			label: "→ LinkedIn",
+			href: "https://www.linkedin.com/in/patriciajuarezmunoz",
+		},
 	},
 ];
